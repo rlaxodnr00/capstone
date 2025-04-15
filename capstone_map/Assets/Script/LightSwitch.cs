@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class LightSwitch : MonoBehaviour, IInteractable, ILightSwitchable
+public class Light_Switch : MonoBehaviour, IInteractable, ILightSwitchable
 {
     public GameObject onSwitch; //on 상태 스위치
     public GameObject offSwitch; // off 상태 스위치
