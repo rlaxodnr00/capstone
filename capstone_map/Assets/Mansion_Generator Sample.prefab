@@ -1,0 +1,122 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7518408238966210930
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8124821327302269957}
+  - component: {fileID: 7770301123368735658}
+  m_Layer: 0
+  m_Name: Mansion_Generator Sample
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8124821327302269957
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7518408238966210930}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7770301123368735658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7518408238966210930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -766443767, guid: f560063dff201ed49a415a8d58f2aae2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  generateOnStart: 1
+  randomizeSeed: 1
+  seed: -87093575
+  sectionContainer: {fileID: 0}
+  maxLevelSize: 50
+  maxAllowedOrder: 10
+  sectionPrefabs:
+  - {fileID: 4592339542758354067, guid: cdc75dcb098ce41439ae44d8208df655, type: 3}
+  - {fileID: 720735042460834876, guid: 0a285cd38433cc947b23c63f6c2f9633, type: 3}
+  - {fileID: 5200370961113162765, guid: 771bbbc2ea87487438143849a2c81548, type: 3}
+  - {fileID: 7041566509404218372, guid: 532a2c994b4c60d4cb78466df03ca045, type: 3}
+  - {fileID: 3962780025391012613, guid: cbcd5f2650bbe4b409debe42cec8414f, type: 3}
+  - {fileID: 6172600690655352960, guid: 68e335159b62d3c4f97da47f2263a39b, type: 3}
+  - {fileID: 4911574566382667694, guid: 44c3f557e2adc2d44affccadeea837ce, type: 3}
+  - {fileID: 6544453815740402082, guid: 6f9b22e27cabd204299efaa88b0ea036, type: 3}
+  - {fileID: 574187744701404626, guid: d17d8cb5f63379b42b4d66285936a9db, type: 3}
+  - {fileID: 657934975226500349, guid: 926f6588b6fc0f5419e933a4ce306e26, type: 3}
+  - {fileID: 221297420022016600, guid: 34c18ec447dbf9f449a2453f0d28dcc9, type: 3}
+  - {fileID: 4375157048325449807, guid: 008e65837ca97a846945e842d88e0b5a, type: 3}
+  - {fileID: 2903552707338382014, guid: 6543774aca8423540bc28042d63061e6, type: 3}
+  - {fileID: 4856415406657042229, guid: 1978be74d7f39b84aac8a769b896791f, type: 3}
+  - {fileID: 8331275761420718048, guid: a1344abe64328d5408988310ffcc6cc6, type: 3}
+  - {fileID: 1944242356334873330, guid: 780bfff68443bf444aef7aad9183265f, type: 3}
+  - {fileID: 2934832678134244549, guid: f2b1d5ec48e3c55498d13b5dc670b3c2, type: 3}
+  - {fileID: 1282703096003908901, guid: 533b2c4be1ccf0549bf15b859e528815, type: 3}
+  - {fileID: 4659162941855123048, guid: 3f751426df9ed454eb8e68a37fd7e199, type: 3}
+  - {fileID: 9143700959294678356, guid: a53e163c4947c6145892fffb7805702c, type: 3}
+  - {fileID: 3528595372854761674, guid: 3fcaa03f2944a8a4aa3ffebfc4e66b45, type: 3}
+  - {fileID: 5878684771878237019, guid: b167a835af4b11543b624396026c7e9e, type: 3}
+  - {fileID: 8323752303513581824, guid: cef5a92c6fa6e284eb59c34db654f533, type: 3}
+  - {fileID: 351415927616262165, guid: dbd6c69eb9ea1654487a9222e6b32100, type: 3}
+  - {fileID: 5941461045902035220, guid: 63e5a274d9991d24da542ae5b427e26b, type: 3}
+  - {fileID: 5941461045902035220, guid: 2288d98bdac239f439cccc156f247590, type: 3}
+  - {fileID: 752633691930454967, guid: 16c2a792393ba9f4b9ce6ea84f873234, type: 3}
+  - {fileID: 8155705184057029560, guid: 6495e3a81123a4a45a2dff9a71534c81, type: 3}
+  - {fileID: 6761329638427040184, guid: ecb6381c4c188b149a07ab035dae9ba9, type: 3}
+  - {fileID: 1931704935898782415, guid: fce7f4f74ca49584493c380f93657d55, type: 3}
+  - {fileID: 1931704935898782415, guid: 89ece3080b0087a409bf57a8ad405467, type: 3}
+  endPrefabs:
+  - {fileID: 3035367916353181208, guid: ad7cc043ffc8b3c448e7bb1c50a07acf, type: 3}
+  initialSectionTags:
+  - lobby
+  specialRules:
+  - Tag: lobby
+    MinAmount: 1
+    MaxAmount: 1
+  - Tag: room
+    MinAmount: 15
+    MaxAmount: 30
+  - Tag: stair_integrated
+    MinAmount: 1
+    MaxAmount: 1
+  - Tag: corridor_long
+    MinAmount: 0
+    MaxAmount: 2
+  - Tag: basement_stair
+    MinAmount: 1
+    MaxAmount: 1
+  - Tag: library
+    MinAmount: 1
+    MaxAmount: 1
+  - Tag: basement_mech
+    MinAmount: 1
+    MaxAmount: 1
+  - Tag: courtyard
+    MinAmount: 1
+    MaxAmount: 1
+  - Tag: lounge
+    MinAmount: 1
+    MaxAmount: 3
+  - Tag: oriel
+    MinAmount: 1
+    MaxAmount: 3
+  - Tag: basement_storage
+    MinAmount: 1
+    MaxAmount: 1
