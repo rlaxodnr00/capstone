@@ -74,7 +74,11 @@ public class Breaker : MonoBehaviour
 
         foreach (var pair in sw)
         {
+<<<<<<< HEAD
             pair.RestoreLightFromBreaker();     //µµ¿ò
+=======
+            pair.RestoreLightFromBreaker();     
+>>>>>>> 650ce1c (player -ì™„-)
         }
     }
 }
