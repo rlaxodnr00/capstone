@@ -14,7 +14,10 @@ public class Player_Interaction : MonoBehaviour
     void Start()
     {
         playerCamera = Camera.main; // 메인 카메라를 가져옴
-        interactionUI.SetActive(false);
+        if (interactionUI != null)
+        {
+            interactionUI.SetActive(false);
+        }
     }
 
     void Update()
@@ -53,7 +56,10 @@ public class Player_Interaction : MonoBehaviour
                 {
                     currentInteractable.OnLookAway();
                     currentInteractable = null;
-                    interactionUI.SetActive(false);
+                    if (interactionUI != null)
+                    {
+                        interactionUI.SetActive(false);
+                    }
                 }
                 return;
             }
@@ -64,11 +70,17 @@ public class Player_Interaction : MonoBehaviour
             {
                 if (interactionCooldown <= 0f)
                 {
-                    interactionUI.SetActive(true);
+                    if (interactionUI != null)
+                    {
+                        interactionUI.SetActive(true);
+                    }
                 }
                 else
                 {
-                    interactionUI.SetActive(false);
+                    if (interactionUI != null)
+                    {
+                        interactionUI.SetActive(false);
+                    }
                 }
 
                 // 새롭게 감지된 오브젝트라면 변경 처리
@@ -89,7 +101,10 @@ public class Player_Interaction : MonoBehaviour
         {
             currentInteractable.OnLookAway();
             currentInteractable = null;
-            interactionUI.SetActive(false);
+            if (interactionUI != null)
+            {
+                interactionUI.SetActive(false);
+            }
         }
     }
 

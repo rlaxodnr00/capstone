@@ -259,7 +259,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   normalMaterial: {fileID: 2100000, guid: ea818b996fdb26147b3096da10921c18, type: 2}
-  basementMaterial: {fileID: 2100000, guid: a73000b28f50a5f4dbfed9e6ef0a0659, type: 2}
+  basementMaterial: {fileID: 2100000, guid: a73ce97174548ff43becf7076bf810d5, type: 2}
 --- !u!4 &6797254160523470245 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f6562e5453b3ddd47b1e803287bbe7af, type: 3}

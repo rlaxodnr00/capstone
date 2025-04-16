@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2977302333775386094}
   - component: {fileID: 5203466270485897203}
   - component: {fileID: 6374991441504848628}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: hidePosition
   m_TagString: Untagged
   m_Icon: {fileID: 4162164826716764455, guid: 0000000000000000d000000000000000, type: 0}
@@ -159,7 +159,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -1317397733499337436, guid: 6bb0205dd027cb54da0c02977f0edf89, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: -1317397733499337436, guid: 6bb0205dd027cb54da0c02977f0edf89, type: 3}
       propertyPath: m_IsActive
@@ -215,7 +215,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5900268279949595008, guid: 6bb0205dd027cb54da0c02977f0edf89, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5900268279949595008, guid: 6bb0205dd027cb54da0c02977f0edf89, type: 3}
       propertyPath: m_IsActive

@@ -12,6 +12,8 @@ TagManager:
   - LIGHT
   - SPAWN
   - SoundEmitter
+  - LightSwitch
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -20,7 +22,7 @@ TagManager:
   - Water
   - UI
   - Monster
-  - 
+  - Interactable
   - 
   - 
   - 
