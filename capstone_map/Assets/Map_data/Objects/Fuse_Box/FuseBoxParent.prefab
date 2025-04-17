@@ -80,6 +80,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -3268000721220652117, guid: 4a73afb5afbd65d4299eec156e56c9b0, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 4c9f53c3fe65b964bb002004d3d60837, type: 2}
     - target: {fileID: 116902902638061589, guid: 4a73afb5afbd65d4299eec156e56c9b0, type: 3}
       propertyPath: m_Layer
       value: 7
@@ -92,6 +96,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: fuse_box
       objectReference: {fileID: 0}
+    - target: {fileID: 3689757702838146087, guid: 4a73afb5afbd65d4299eec156e56c9b0, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 4c9f53c3fe65b964bb002004d3d60837, type: 2}
     - target: {fileID: 6158041375294819764, guid: 4a73afb5afbd65d4299eec156e56c9b0, type: 3}
       propertyPath: m_Layer
       value: 8
@@ -100,6 +108,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7304555808483550054, guid: 4a73afb5afbd65d4299eec156e56c9b0, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 4c9f53c3fe65b964bb002004d3d60837, type: 2}
+    - target: {fileID: 7614686717346099192, guid: 4a73afb5afbd65d4299eec156e56c9b0, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 4c9f53c3fe65b964bb002004d3d60837, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

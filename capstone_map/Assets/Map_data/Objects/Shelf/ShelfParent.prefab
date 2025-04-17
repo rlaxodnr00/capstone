@@ -85,10 +85,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -1313608230706465401, guid: b1f34ad3089f58d4e896a7a516824e44, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: fed8537cceca3734bb3734d3028bce0f, type: 2}
     - target: {fileID: 919132149155446097, guid: b1f34ad3089f58d4e896a7a516824e44, type: 3}
       propertyPath: m_Name
       value: shelf
       objectReference: {fileID: 0}
+    - target: {fileID: 1667184442750777024, guid: b1f34ad3089f58d4e896a7a516824e44, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: fed8537cceca3734bb3734d3028bce0f, type: 2}
     - target: {fileID: 5025595653305117225, guid: b1f34ad3089f58d4e896a7a516824e44, type: 3}
       propertyPath: m_Layer
       value: 8
