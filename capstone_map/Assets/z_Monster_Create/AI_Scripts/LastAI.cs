@@ -62,7 +62,7 @@ namespace AiSoundDetect.Extra
         private Vector3 patrolTarget; // 배회 목표 위치
         private Coroutine patrolCoroutine = null; // 배회 루틴 저장용
 
-        private float attackRange = 3.3f; // 공격 가능 거리
+        private float attackRange = 0.6f; // 공격 가능 거리
 
         // --------------------[추격 사운드 쿨타임]--------------------
 
