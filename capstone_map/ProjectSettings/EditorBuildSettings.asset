@@ -8,6 +8,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/test_Scenes/monster_create_map.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 922ea91160a583b40bb7ec1ea6b60c72
+  - enabled: 1
+    path: Assets/Scenes/SampleScene.unity
+    guid: e4257975919697e4496d516ea716c19e
+  - enabled: 1
+    path: Assets/We_Make_This_Map.unity
+    guid: 27551269d799e1840912aac6a2118bd3
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
