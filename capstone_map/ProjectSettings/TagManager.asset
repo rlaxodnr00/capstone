@@ -14,6 +14,7 @@ TagManager:
   - SoundEmitter
   - LightSwitch
   - Enemy
+  - InteractionUI
   layers:
   - Default
   - TransparentFX

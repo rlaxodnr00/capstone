@@ -2,6 +2,14 @@ using UnityEngine;
 
 public class Item : Interactable
 {
+    public GameObject interactionUI;
+    private void Start()
+    {
+        if (interactionUI == null)
+        {
+            interactionUI = GameObject.FindWithTag("InteractionUI");
+        }
+    }
     public override void OnLookAt()
     {
         
@@ -19,6 +27,10 @@ public class Item : Interactable
         if (spawnPoint != null)
         {
             spawnPoint.Item = false;
+        }
+        if (interactionUI != null)
+        {
+            interactionUI.SetActive(false);
         }
 
         Destroy(gameObject);
