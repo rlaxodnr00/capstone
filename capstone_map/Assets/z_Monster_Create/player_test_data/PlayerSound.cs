@@ -6,9 +6,10 @@ public class PlayerSound : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0)) // 마우스 왼쪽 버튼 클릭
+        if (Input.GetMouseButtonDown(0))
         {
-            audioSource.Play();
+            Debug.Log("Click - 재생 시도");
+            audioSource.PlayOneShot(audioSource.clip); // 중복 재생 가능
         }
     }
 }
