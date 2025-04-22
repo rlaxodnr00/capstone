@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class Memo :Interactable
 {
+    // 메모장 번호
+    public int memoNumber;
     // 메모장 UI
     // 메모장 텍스트 등
 
@@ -18,6 +20,6 @@ public class Memo :Interactable
     public override void OnInteract()
     {
         // 메모장 열기
-        Debug.Log("메모장 상호작용");
+        Debug.Log(memoNumber + "번 메모장 상호작용");
     }
 }

@@ -3,11 +3,12 @@ using UnityEngine;
 public class ItemSpawnPoint : MonoBehaviour
 {
     public GameObject[] itemList;
+    Transform tf;
     public bool Item { get; set; }
 
     void Start()
     {
-        
+        tf = GetComponent<Transform>();
     }
 
     
@@ -27,7 +28,7 @@ public class ItemSpawnPoint : MonoBehaviour
             if (itemList[index] != null)
             {
                 GameObject item = Instantiate(itemList[index], transform);
-                item.transform.position = transform.position;
+                item.transform.position = tf.position;
             }
         }
     }
