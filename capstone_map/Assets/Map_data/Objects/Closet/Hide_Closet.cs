@@ -11,6 +11,9 @@ public class Hide_Closet : Interactable
     private Vector3 prevPos;
     private Quaternion prevRot;
 
+    public Closet_Door l_door;
+    public Closet_Door r_door;
+
     private bool hide = false;
 
     private void Start()
@@ -18,7 +21,7 @@ public class Hide_Closet : Interactable
         box = gameObject.GetComponent<BoxCollider>();
         if (player == null)
         {
-            player = GameObject.FindGameObjectWithTag("PLAYER");
+            player = GameObject.FindGameObjectWithTag("Player");
         }
     }
 
@@ -69,6 +72,22 @@ public class Hide_Closet : Interactable
         {
             player.transform.position = prevPos;
             player.transform.rotation = prevRot;
+        }
+
+        if (l_door != null && r_door != null)
+        {
+            if (l_door.GetAudioCheck() && r_door.GetAudioCheck())
+            {
+                if (hide)
+                {
+                    l_door.audio.PlayOneShot(l_door.close);
+                    r_door.audio.PlayOneShot(r_door.close);
+                } else
+                {
+                    l_door.audio.PlayOneShot(l_door.open);
+                    r_door.audio.PlayOneShot(r_door.open);
+                }
+            }
         }
     }
 }

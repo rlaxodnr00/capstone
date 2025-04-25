@@ -135,6 +135,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3576221278582424069, guid: 35e112cb1c895574c9bb5296749bf678, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4102931637232897145, guid: 35e112cb1c895574c9bb5296749bf678, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.2
@@ -1037,12 +1041,36 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7770301123368735658, guid: de66a2e78c54a624ca1a988c2446a8b7, type: 3}
       propertyPath: maxAllowedOrder
-      value: 10
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7770301123368735658, guid: de66a2e78c54a624ca1a988c2446a8b7, type: 3}
       propertyPath: sectionContainer
       value: 
       objectReference: {fileID: 1953015039}
+    - target: {fileID: 7770301123368735658, guid: de66a2e78c54a624ca1a988c2446a8b7, type: 3}
+      propertyPath: specialRules.Array.data[2].MinAmount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7770301123368735658, guid: de66a2e78c54a624ca1a988c2446a8b7, type: 3}
+      propertyPath: specialRules.Array.data[4].MinAmount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7770301123368735658, guid: de66a2e78c54a624ca1a988c2446a8b7, type: 3}
+      propertyPath: specialRules.Array.data[5].MinAmount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7770301123368735658, guid: de66a2e78c54a624ca1a988c2446a8b7, type: 3}
+      propertyPath: specialRules.Array.data[6].MinAmount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7770301123368735658, guid: de66a2e78c54a624ca1a988c2446a8b7, type: 3}
+      propertyPath: specialRules.Array.data[7].MinAmount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7770301123368735658, guid: de66a2e78c54a624ca1a988c2446a8b7, type: 3}
+      propertyPath: specialRules.Array.data[10].MinAmount
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8124821327302269957, guid: de66a2e78c54a624ca1a988c2446a8b7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
