@@ -56,6 +56,11 @@ public class UserMove : MonoBehaviour
         dir = Vector3.zero; // 벡터 초기화
         currentSpeed = walkSpeed; // 기본 속도 설정
         gravity = 10f;    // 중력값 설정
+        
+        
+        // 마우스 중앙 고정 포인터 숨기기
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     void Update()
