@@ -1037,10 +1037,6 @@ PrefabInstance:
       value: Mansion_Generator Sample
       objectReference: {fileID: 0}
     - target: {fileID: 7770301123368735658, guid: de66a2e78c54a624ca1a988c2446a8b7, type: 3}
-      propertyPath: maxLevelSize
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 7770301123368735658, guid: de66a2e78c54a624ca1a988c2446a8b7, type: 3}
       propertyPath: maxAllowedOrder
       value: 6
       objectReference: {fileID: 0}
@@ -1091,10 +1087,6 @@ PrefabInstance:
     - target: {fileID: 7770301123368735658, guid: de66a2e78c54a624ca1a988c2446a8b7, type: 3}
       propertyPath: specialRules.Array.data[11].MaxAmount
       value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 7770301123368735658, guid: de66a2e78c54a624ca1a988c2446a8b7, type: 3}
-      propertyPath: specialRules.Array.data[11].MinAmount
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8124821327302269957, guid: de66a2e78c54a624ca1a988c2446a8b7, type: 3}
       propertyPath: m_LocalPosition.x
