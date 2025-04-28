@@ -183,7 +183,7 @@ MonoBehaviour:
   soundDensity: 5000
   layerToCollideWith:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   enableSoundVisualization: 1
   m_particleSystem: {fileID: 0}
   m_iAudioClip: {fileID: 8300000, guid: 8e001351cd7065543a068386cde4c960, type: 3}
@@ -221,15 +221,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8833121778371610064, guid: a73a5eca180afdd4987919182aa4c6fe, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.609
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8833121778371610064, guid: a73a5eca180afdd4987919182aa4c6fe, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.013
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8833121778371610064, guid: a73a5eca180afdd4987919182aa4c6fe, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.179
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8833121778371610064, guid: a73a5eca180afdd4987919182aa4c6fe, type: 3}
       propertyPath: m_LocalRotation.w
@@ -276,6 +276,10 @@ PrefabInstance:
       propertyPath: footstepSource
       value: 
       objectReference: {fileID: 1036620962}
+    - target: {fileID: 1300649158280420088, guid: 35e112cb1c895574c9bb5296749bf678, type: 3}
+      propertyPath: footstepEmitterPrefab
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 2239398085428665081, guid: 35e112cb1c895574c9bb5296749bf678, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -287,6 +291,18 @@ PrefabInstance:
     - target: {fileID: 2333719215674948130, guid: 35e112cb1c895574c9bb5296749bf678, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3576221278582424069, guid: 35e112cb1c895574c9bb5296749bf678, type: 3}
+      propertyPath: m_Height
+      value: 1.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3576221278582424069, guid: 35e112cb1c895574c9bb5296749bf678, type: 3}
+      propertyPath: m_Radius
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3576221278582424069, guid: 35e112cb1c895574c9bb5296749bf678, type: 3}
+      propertyPath: m_SkinWidth
+      value: 0.08
       objectReference: {fileID: 0}
     - target: {fileID: 4102931637232897145, guid: 35e112cb1c895574c9bb5296749bf678, type: 3}
       propertyPath: m_LocalScale.x
@@ -344,11 +360,16 @@ PrefabInstance:
       propertyPath: uiController
       value: 
       objectReference: {fileID: 1471860317}
+    - target: {fileID: 6621140051127149205, guid: 35e112cb1c895574c9bb5296749bf678, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7433156096857368941, guid: 35e112cb1c895574c9bb5296749bf678, type: 3}
       propertyPath: crosshair
       value: 
       objectReference: {fileID: 212338954}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2239398085428665081, guid: 35e112cb1c895574c9bb5296749bf678, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 4102931637232897145, guid: 35e112cb1c895574c9bb5296749bf678, type: 3}
@@ -598,11 +619,11 @@ PrefabInstance:
     - target: {fileID: 7881721764883252258, guid: f1dfc6e966a1a30488a25ddeb2743d64, type: 3}
       propertyPath: m_Resource
       value: 
-      objectReference: {fileID: 8300000, guid: 1c7a7ef3052a05344b9d9a3d061d9989, type: 3}
+      objectReference: {fileID: 8300000, guid: 8e001351cd7065543a068386cde4c960, type: 3}
     - target: {fileID: 7881721764883252258, guid: f1dfc6e966a1a30488a25ddeb2743d64, type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: 1c7a7ef3052a05344b9d9a3d061d9989, type: 3}
+      objectReference: {fileID: 8300000, guid: 8e001351cd7065543a068386cde4c960, type: 3}
     - target: {fileID: 8418919341055016750, guid: f1dfc6e966a1a30488a25ddeb2743d64, type: 3}
       propertyPath: m_Layer
       value: 6
@@ -735,7 +756,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7393829171424744720, guid: 5f4324124b3393c428a8468c5f9224f1, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -923,7 +944,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 8e001351cd7065543a068386cde4c960, type: 3}
   m_Resource: {fileID: 8300000, guid: 8e001351cd7065543a068386cde4c960, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -1052,7 +1073,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: cb9aa4db4b3a12147bf2fe3d88fee270, type: 3}
   m_Resource: {fileID: 8300000, guid: cb9aa4db4b3a12147bf2fe3d88fee270, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -1324,7 +1345,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 76c66b3ae15685a45a334b0628d1edd1, type: 3}
   m_Resource: {fileID: 8300000, guid: 76c66b3ae15685a45a334b0628d1edd1, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -1453,7 +1474,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 2e832dbb2c7c9ba4e97fd3005fe850b7, type: 3}
   m_Resource: {fileID: 8300000, guid: 2e832dbb2c7c9ba4e97fd3005fe850b7, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -1602,7 +1623,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: c41fb169b2991c247a5466e00faa6639, type: 3}
   m_Resource: {fileID: 8300000, guid: c41fb169b2991c247a5466e00faa6639, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
