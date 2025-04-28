@@ -155,7 +155,7 @@ GameObject:
   - component: {fileID: 5328152316961420473}
   m_Layer: 7
   m_Name: TestPlayer
-  m_TagString: PLAYER
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -316,8 +316,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactionDistance: 3
-  interactableLayer:
-    serializedVersion: 2
-    m_Bits: 64
   interactionUI: {fileID: 0}
   interactionMaxCooldown: 0.5

@@ -10,7 +10,7 @@ public class ThunderController : MonoBehaviour
     void Start()
     {
         tdLight = GetComponentsInChildren<Light>();
-        Debug.Log(tdLight.Length);
+        // Debug.Log(tdLight.Length);
         map = GameObject.Find("Generated Map");
         fuse = map.GetComponentInChildren<fuse_handle>();
     }
@@ -47,6 +47,9 @@ public class ThunderController : MonoBehaviour
         if (fuse != null)
         {
             if (!fuse.GetShutdown()) fuse.OnInteract();
+        } else
+        {
+            Debug.Log("Fuse Box ¾øÀ½");
         }
     }
 
