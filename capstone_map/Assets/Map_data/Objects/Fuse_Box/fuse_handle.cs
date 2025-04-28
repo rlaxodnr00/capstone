@@ -5,6 +5,12 @@ using UnityEngine.Audio;
 public class fuse_handle : Interactable
 {
     private Animator animator;
+
+    public bool GetShutdown()
+    {
+        return animator.GetBool("shutdown");
+    }
+
     private Breaker breaker;
 
     public AudioSource audioS;
