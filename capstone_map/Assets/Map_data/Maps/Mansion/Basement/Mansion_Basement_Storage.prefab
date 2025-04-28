@@ -290,6 +290,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tags:
   - basement_storage
+  - base
   createsTags:
   - basement_corridor_t
   - basement_corridor_cross

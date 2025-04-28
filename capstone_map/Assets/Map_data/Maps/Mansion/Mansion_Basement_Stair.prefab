@@ -295,6 +295,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tags:
   - basement_stair
+  - base
   createsTags:
   - basement_corridor_cross
   - basement_corridor_t

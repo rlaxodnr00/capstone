@@ -160,6 +160,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tags:
   - basement_corridor_corner
+  - base
   createsTags:
   - basement_corridor
   - basement_corridor_cross
