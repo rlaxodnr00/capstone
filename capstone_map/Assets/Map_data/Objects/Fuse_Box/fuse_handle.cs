@@ -7,7 +7,7 @@ public class fuse_handle : Interactable
     private Animator animator;
     private Breaker breaker;
 
-    public AudioSource audio;
+    public AudioSource audioS;
 
     private void Start()
     {
@@ -36,9 +36,9 @@ public class fuse_handle : Interactable
             breaker.TurnOnBreaker();
         }
 
-        if (audio != null)
+        if (audioS != null)
         {
-            audio.Play();
+            audioS.Play();
             StartCoroutine(StopAudio(2f));
         }
     }
@@ -46,6 +46,6 @@ public class fuse_handle : Interactable
     IEnumerator StopAudio(float seconds)
     {
         yield return new WaitForSeconds(seconds);
-        audio.Stop();
+        audioS.Stop();
     }
 }

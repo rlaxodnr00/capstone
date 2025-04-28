@@ -4,7 +4,7 @@ public class Door : Interactable
 {
     private Animator animator;
 
-    public AudioSource audio;
+    public AudioSource audioS;
     public AudioClip open;
     public AudioClip close;
     public AudioClip locked;
@@ -36,11 +36,11 @@ public class Door : Interactable
         }
         
         // 소리 재생
-        if (audio != null && open != null && close != null && locked != null)
+        if (audioS != null && open != null && close != null && locked != null)
         {
-            if (animator.GetBool("locked")) audio.PlayOneShot(locked);
-            else if (animator.GetBool("open")) audio.PlayOneShot(open);
-            else audio.PlayOneShot(close);
+            if (animator.GetBool("locked")) audioS.PlayOneShot(locked);
+            else if (animator.GetBool("open")) audioS.PlayOneShot(open);
+            else audioS.PlayOneShot(close);
         }
     }
 }

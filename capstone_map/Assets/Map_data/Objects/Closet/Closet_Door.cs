@@ -3,13 +3,13 @@ using UnityEngine;
 public class Closet_Door : Interactable
 {
     Animator animator;
-    public AudioSource audio;
+    public AudioSource audioS;
     public AudioClip open;
     public AudioClip close;
 
     public bool GetAudioCheck()
     {
-        return audio != null && open != null && close != null;
+        return audioS != null && open != null && close != null;
     }
 
     private void Start()
@@ -36,8 +36,8 @@ public class Closet_Door : Interactable
 
                 if (GetAudioCheck())
                 {
-                    if (animator.GetBool("open")) audio.PlayOneShot(open);
-                    else audio.PlayOneShot(close);
+                    if (animator.GetBool("open")) audioS.PlayOneShot(open);
+                    else audioS.PlayOneShot(close);
                 }
             }
         }

@@ -5,7 +5,7 @@ public class fuse_case : Interactable
     private Animator animator;
     public BoxCollider handleCollider;
 
-    public AudioSource audio;
+    public AudioSource audioSource;
     public AudioClip clip;
     private void Start()
     {
@@ -27,9 +27,9 @@ public class fuse_case : Interactable
         animator.SetBool("open", !animator.GetBool("open"));
         handleCollider.enabled = animator.GetBool("open");
 
-        if (audio != null && clip != null)
+        if (audioSource != null && clip != null)
         {
-            audio.PlayOneShot(clip);
+            audioSource.PlayOneShot(clip);
         }
     }
 }

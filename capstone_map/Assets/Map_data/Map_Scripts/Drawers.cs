@@ -4,7 +4,7 @@ using UnityEngine;
 public class Drawers : Interactable
 {
     private Animator animator;
-    public AudioSource audio;
+    public AudioSource audioS;
     public AudioClip clip;
 
     private void Start()
@@ -26,9 +26,9 @@ public class Drawers : Interactable
     {
         animator.SetBool("open", !animator.GetBool("open"));
 
-        if (audio != null && clip != null)
+        if (audioS != null && clip != null)
         {
-            audio.PlayOneShot(clip, 0.3f);
+            audioS.PlayOneShot(clip, 0.3f);
         }
     }
 }
