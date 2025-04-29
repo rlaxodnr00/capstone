@@ -12,6 +12,12 @@ public class Door : Interactable
     {
         animator = GetComponent<Animator>();
     }
+
+    public void Doorlock(bool locked)
+    {
+        animator.SetBool("locked", locked);
+    }
+
     public override void OnLookAt()
     {
         // base.OnLookAt();
