@@ -62,7 +62,8 @@ namespace AiSoundDetect.Extra
         private Vector3 patrolTarget; // 배회 목표 위치
         private Coroutine patrolCoroutine = null; // 배회 루틴 저장용
 
-        private float attackRange = 0.6f; // 공격 가능 거리
+        
+        public float attackRange = 0.4f; // 공격 가능 거리
 
         // --------------------[추격 사운드 쿨타임]--------------------
 
@@ -305,13 +306,12 @@ namespace AiSoundDetect.Extra
             navMeshAgent.isStopped = true;
 
             animator.ResetTrigger("attack");
-            animator.SetTrigger("attack"); 
+            animator.SetTrigger("attack");
 
             // 사운드 재생
             if (attackSound != null && attackAudioSource != null)
             {
-                attackAudioSource.clip = attackSound;
-                attackAudioSource.Play();
+                Invoke(nameof(PlayAttackSound), 1f); // 2초 뒤 실행
             }
 
             // 애니메이션이 실행되면 데미지 처리
@@ -423,16 +423,20 @@ namespace AiSoundDetect.Extra
             foreach (var hitCollider in hitColliders)
             {
                 if (hitCollider.CompareTag("Player"))
-                {   
-                    /* 플레이어 피통
-                    PlayerHealth player = hitCollider.GetComponent<PlayerHealth>();
-                    if (player != null)
+                {
+                    HPController playerHPController = hitCollider.GetComponent<HPController>();
+                    if (playerHPController != null)
                     {
-                        player.TakeDamage(10); // 예: 플레이어에 데미지를 주는 함수
+                        Debug.Log(gameObject.name + "이(가) 플레이어에게 공격을 가했습니다.");
+                        playerHPController.TakeDamage(50f); // 여기서 피해량을 설정합니다. 필요에 따라 변수로 만들 수 있습니다.
                     }
-                    */
                 }
             }
+        }
+        void PlayAttackSound()
+        {
+            attackAudioSource.clip = attackSound;
+            attackAudioSource.Play();
         }
 
 

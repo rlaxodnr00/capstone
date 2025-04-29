@@ -2301,6 +2301,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1947933557009736786, guid: 5f4324124b3393c428a8468c5f9224f1, type: 3}
+      propertyPath: m_Radius
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1947933557009736786, guid: 5f4324124b3393c428a8468c5f9224f1, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1947933557009736786, guid: 5f4324124b3393c428a8468c5f9224f1, type: 3}
+      propertyPath: m_Center.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4235052032148297518, guid: 5f4324124b3393c428a8468c5f9224f1, type: 3}
       propertyPath: runSpeed
       value: 1
@@ -2311,15 +2323,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6399023709429236042, guid: 5f4324124b3393c428a8468c5f9224f1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.6240652
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6399023709429236042, guid: 5f4324124b3393c428a8468c5f9224f1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 21.3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6399023709429236042, guid: 5f4324124b3393c428a8468c5f9224f1, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.7784584
+      value: 0.527
       objectReference: {fileID: 0}
     - target: {fileID: 6399023709429236042, guid: 5f4324124b3393c428a8468c5f9224f1, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2355,6 +2367,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7393829171424744720, guid: 5f4324124b3393c428a8468c5f9224f1, type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8394311189101954567, guid: 5f4324124b3393c428a8468c5f9224f1, type: 3}
+      propertyPath: m_Radius
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8394311189101954567, guid: 5f4324124b3393c428a8468c5f9224f1, type: 3}
+      propertyPath: m_Center.y
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -4868,7 +4888,7 @@ MonoBehaviour:
   navMeshSurface: {fileID: 1953015042}
   monsterPrefabs:
   - {fileID: 2004467625}
-  monsterCount: 10
+  monsterCount: 0
   minDistanceFromPlayer: 10
   minDistanceBetweenMonsters: 5
   playerTransform: {fileID: 694056371}
@@ -5316,8 +5336,8 @@ SceneRoots:
   - {fileID: 1953015039}
   - {fileID: 1815001941}
   - {fileID: 930803029}
-  - {fileID: 1927327098}
   - {fileID: 404514465}
   - {fileID: 135214458}
   - {fileID: 1471860316}
   - {fileID: 46744030}
+  - {fileID: 1927327098}
