@@ -87,7 +87,6 @@ MonoBehaviour:
   - corridor
   - corridor_corner
   - corridor_cross
-  - basement_stair
   - lounge
   - oriel
   deadEndChance: 5
