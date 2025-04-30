@@ -152,6 +152,7 @@ MonoBehaviour:
   - basement_corridor_cross
   - basement_corridor_corner
   - basement_mech
+  - basement_exit
   deadEndChance: 1
 --- !u!1 &3774482345013526914
 GameObject:
