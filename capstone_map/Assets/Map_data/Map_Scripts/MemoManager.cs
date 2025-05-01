@@ -38,8 +38,8 @@ public class MemoManager : MonoBehaviour
                 foreach (var target in selectedTargets)
                 {
                     // 선택된 위치에 메모 생성
-                    GameObject newMemo = Instantiate(prefabToSpawn, target.transform.position, Quaternion.identity);
-                    newMemo.transform.SetParent(target.transform);  // 메모가 MemoSpawnPoint의 자식이 되도록 설정
+                    GameObject newMemo = Instantiate(prefabToSpawn, target.transform);
+                    
                     Debug.Log("메모 생성: " + newMemo.name + " at position " + target.transform.position);
                     newMemo.GetComponentInChildren<Memo>().memoNumber = memoNum++;
                 }

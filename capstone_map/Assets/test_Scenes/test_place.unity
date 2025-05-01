@@ -1064,62 +1064,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mansion_Generator Sample
       objectReference: {fileID: 0}
-    - target: {fileID: 7518408238966210930, guid: de66a2e78c54a624ca1a988c2446a8b7, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7770301123368735658, guid: de66a2e78c54a624ca1a988c2446a8b7, type: 3}
       propertyPath: sectionContainer
       value: 
       objectReference: {fileID: 605401998}
-    - target: {fileID: 7770301123368735658, guid: de66a2e78c54a624ca1a988c2446a8b7, type: 3}
-      propertyPath: specialRules.Array.size
-      value: 13
-      objectReference: {fileID: 0}
-    - target: {fileID: 7770301123368735658, guid: de66a2e78c54a624ca1a988c2446a8b7, type: 3}
-      propertyPath: sectionPrefabs.Array.size
-      value: 32
-      objectReference: {fileID: 0}
-    - target: {fileID: 7770301123368735658, guid: de66a2e78c54a624ca1a988c2446a8b7, type: 3}
-      propertyPath: 'sectionPrefabs.Array.data[31]'
-      value: 
-      objectReference: {fileID: 5941461045902035220, guid: 5771890604494bd499071ba957ae6f23, type: 3}
-    - target: {fileID: 7770301123368735658, guid: de66a2e78c54a624ca1a988c2446a8b7, type: 3}
-      propertyPath: specialRules.Array.data[11].Tag
-      value: basement_exit
-      objectReference: {fileID: 0}
-    - target: {fileID: 7770301123368735658, guid: de66a2e78c54a624ca1a988c2446a8b7, type: 3}
-      propertyPath: specialRules.Array.data[12].Tag
-      value: base
-      objectReference: {fileID: 0}
-    - target: {fileID: 7770301123368735658, guid: de66a2e78c54a624ca1a988c2446a8b7, type: 3}
-      propertyPath: specialRules.Array.data[13].Tag
-      value: basement_exit
-      objectReference: {fileID: 0}
-    - target: {fileID: 7770301123368735658, guid: de66a2e78c54a624ca1a988c2446a8b7, type: 3}
-      propertyPath: specialRules.Array.data[11].MaxAmount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7770301123368735658, guid: de66a2e78c54a624ca1a988c2446a8b7, type: 3}
-      propertyPath: specialRules.Array.data[11].MinAmount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7770301123368735658, guid: de66a2e78c54a624ca1a988c2446a8b7, type: 3}
-      propertyPath: specialRules.Array.data[12].MaxAmount
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 7770301123368735658, guid: de66a2e78c54a624ca1a988c2446a8b7, type: 3}
-      propertyPath: specialRules.Array.data[12].MinAmount
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7770301123368735658, guid: de66a2e78c54a624ca1a988c2446a8b7, type: 3}
-      propertyPath: specialRules.Array.data[13].MaxAmount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7770301123368735658, guid: de66a2e78c54a624ca1a988c2446a8b7, type: 3}
-      propertyPath: specialRules.Array.data[13].MinAmount
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8124821327302269957, guid: de66a2e78c54a624ca1a988c2446a8b7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
