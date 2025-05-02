@@ -11,6 +11,9 @@ public class Hide_Closet : Interactable
     private Vector3 prevPos;
     private Quaternion prevRot;
 
+    public Closet_Door l_door;
+    public Closet_Door r_door;
+
     private bool hide = false;
 
     private void Start()
@@ -18,7 +21,7 @@ public class Hide_Closet : Interactable
         box = gameObject.GetComponent<BoxCollider>();
         if (player == null)
         {
-            player = GameObject.FindGameObjectWithTag("PLAYER");
+            player = GameObject.FindGameObjectWithTag("Player");
         }
     }
 
@@ -33,7 +36,6 @@ public class Hide_Closet : Interactable
             box.enabled = false;
         }
 
-        // hide == true인 동안 플레이어를 자신의 위치에 고정되게 함
         if (hide)
         {
             player.transform.position = transform.position + new Vector3(0, (player.transform.localScale.y / 2), 0);
@@ -56,7 +58,6 @@ public class Hide_Closet : Interactable
         left.SetBool("hiding", hide);
         right.SetBool("hiding", hide);
 
-        // hide == true이면 player의 위치를 저장한 뒤 플레이어를 자신의 위치로 옮김 (옮기는 코드는 Update에서)
         if (hide)
         {
             prevPos = player.transform.position;
@@ -64,11 +65,26 @@ public class Hide_Closet : Interactable
             player.transform.rotation = transform.rotation;
         }
 
-        // hide == false이면 player의 위치를 저장된 위치로 옮김
         else
         {
             player.transform.position = prevPos;
             player.transform.rotation = prevRot;
+        }
+
+        if (l_door != null && r_door != null)
+        {
+            if (l_door.GetAudioCheck() && r_door.GetAudioCheck())
+            {
+                if (hide)
+                {
+                    l_door.audioS.PlayOneShot(l_door.close);
+                    r_door.audioS.PlayOneShot(r_door.close);
+                } else
+                {
+                    l_door.audioS.PlayOneShot(l_door.open);
+                    r_door.audioS.PlayOneShot(r_door.open);
+                }
+            }
         }
     }
 }

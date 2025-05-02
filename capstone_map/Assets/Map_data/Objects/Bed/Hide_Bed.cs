@@ -13,7 +13,7 @@ public class Hide_Bed : Interactable
     {
         if (player == null)
         {
-            player = GameObject.FindGameObjectWithTag("PLAYER");
+            player = GameObject.FindGameObjectWithTag("Player");
         }
         dir.Rotate(0, angle, 0);
     }
@@ -40,8 +40,8 @@ public class Hide_Bed : Interactable
     {
         hide = !hide;
 
-        player.GetComponent<Collider>().enabled = !hide;
-        player.GetComponent<Rigidbody>().useGravity = !hide;
+        if (player.GetComponent<Collider>() != null) player.GetComponent<Collider>().enabled = !hide;
+        if (player.GetComponent<Rigidbody>() != null) player.GetComponent<Rigidbody>().useGravity = !hide;
 
         if (hide)
         {

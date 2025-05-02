@@ -175,9 +175,9 @@ MonoBehaviour:
   - corridor
   - corridor_corner
   - corridor_t
-  - basement_stair
   - lounge
   - oriel
+  - memo_room
   deadEndChance: 5
 --- !u!1 &4733419696879616197
 GameObject:

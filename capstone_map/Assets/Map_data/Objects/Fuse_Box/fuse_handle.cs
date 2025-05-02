@@ -1,9 +1,19 @@
+using System.Collections;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class fuse_handle : Interactable
 {
     private Animator animator;
+
+    public bool GetShutdown()
+    {
+        return animator.GetBool("shutdown");
+    }
+
     private Breaker breaker;
+
+    public AudioSource audioS;
 
     private void Start()
     {
@@ -31,5 +41,17 @@ public class fuse_handle : Interactable
         {
             breaker.TurnOnBreaker();
         }
+
+        if (audioS != null)
+        {
+            audioS.Play();
+            StartCoroutine(StopAudio(2f));
+        }
+    }
+
+    IEnumerator StopAudio(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        audioS.Stop();
     }
 }

@@ -3,7 +3,7 @@ using UnityEngine;
 public class Player_Interaction : MonoBehaviour
 {
     public float interactionDistance = 3f; // 상호작용 가능한 거리
-    public LayerMask interactableLayer; // 상호작용 가능한 오브젝트의 레이어
+    // public LayerMask interactableLayer; // 상호작용 가능한 오브젝트의 레이어
 
     private Camera playerCamera; // 플레이어 카메라
     private Interactable currentInteractable; // 현재 감지된 상호작용 가능한 오브젝트
@@ -48,10 +48,10 @@ public class Player_Interaction : MonoBehaviour
             GameObject hitObject = hit.collider.gameObject;
             int hitLayer = hitObject.layer;
 
-            // 벽 같은 장애물에 막혔는지 확인 (예: "Wall" 레이어)
-            if (hitLayer == LayerMask.NameToLayer("Wall"))
+            // 상호작용 레이어가 아닌 레이어인지 확인
+            if (hitLayer != LayerMask.NameToLayer("Interactable"))
             {
-                // 벽을 맞았으므로 상호작용 불가 처리
+                // 상호작용 불가 처리
                 if (currentInteractable != null)
                 {
                     currentInteractable.OnLookAway();
@@ -64,7 +64,7 @@ public class Player_Interaction : MonoBehaviour
                 return;
             }
 
-            // 상호작용 가능한 오브젝트인지 확인
+            // 상호작용 컴포넌트 확인
             Interactable interactable = hitObject.GetComponent<Interactable>();
             if (interactable != null)
             {
@@ -111,7 +111,7 @@ public class Player_Interaction : MonoBehaviour
 
     void HandleInteraction()
     {
-        // 현재 감지된 오브젝트가 있고, 상호작용 키를 눌렀을 때 상호작용 실행
+        // 현재 감지된 오브젝트가 있고, 상호작용 키 (Input Manager에서 설정)를 눌렀을 때 상호작용 실행
         if (currentInteractable != null && Input.GetButtonDown("Interact") && interactionCooldown <= 0f)
         {
             currentInteractable.OnInteract();

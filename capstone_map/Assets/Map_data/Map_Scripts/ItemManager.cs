@@ -20,7 +20,7 @@ public class ItemManager : MonoBehaviour
 
     void Update()
     {
-        // 아이템 생성 테스트 코드
+        // 아이템 생성 테스트 코드 (Q를 눌러 생성)
         /*
         if (Input.GetKeyDown(KeyCode.Q))
         {
@@ -48,8 +48,11 @@ public class ItemManager : MonoBehaviour
 
     void CreateItem()
     {
-        // Debug.Log("called CreateItem()");
-
+        // 아이템 생성 위치가 없을 경우 생성하지 않음
+        if (itemSpawn.Length == 0)
+        {
+            return;
+        }
         // 맵에 있는 "모든" 아이템 생성 지점 중 하나를 지정함
         int index = Random.Range(0, itemSpawn.Length);
         
