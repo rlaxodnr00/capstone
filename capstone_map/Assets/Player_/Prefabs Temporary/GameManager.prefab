@@ -1392,7 +1392,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2643789716057424695}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PauseGame, Assembly-CSharp
         m_MethodName: Resume
         m_Mode: 1
@@ -1413,7 +1413,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5638813544781262687}
-  - component: {fileID: 2643789716057424695}
   - component: {fileID: 22726623399336252}
   m_Layer: 0
   m_Name: GameManager
@@ -1438,23 +1437,6 @@ Transform:
   - {fileID: 4633523602748953766}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2643789716057424695
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3729125463988972038}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 25335917b4f0423408a83a8c659c413a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  menu: {fileID: 4831167724944024377}
-  resume: {fileID: 3704128614214968938}
-  exit: {fileID: 8047918026318206979}
-  on: 0
-  off: 0
 --- !u!114 &22726623399336252
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2088,7 +2070,6 @@ GameObject:
   - component: {fileID: 5665931093820346676}
   - component: {fileID: 2207065986333127606}
   - component: {fileID: 7686926617579996760}
-  - component: {fileID: 141988609974387817}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -2214,19 +2195,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &141988609974387817
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5915102131926520105}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c693253daebe3b4c8b640eec74d55b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  myText: {fileID: 7686926617579996760}
 --- !u!1 &5980890422678370691
 GameObject:
   m_ObjectHideFlags: 0
@@ -2315,7 +2283,6 @@ GameObject:
   - component: {fileID: 1088396666735563206}
   - component: {fileID: 7010219998781056896}
   - component: {fileID: 2446837055939099791}
-  - component: {fileID: 940921850368386678}
   m_Layer: 5
   m_Name: HitImage
   m_TagString: Untagged
@@ -2377,19 +2344,6 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
---- !u!114 &940921850368386678
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5996739889124972882}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0dba0fe1c6bca7f468120de0775786e2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hitMat: {fileID: 2100000, guid: d9d09c73db6476f43b21b6bc8bdda8cd, type: 2}
 --- !u!1 &6291421157192234849
 GameObject:
   m_ObjectHideFlags: 0
@@ -2399,7 +2353,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4853831484859746034}
-  - component: {fileID: 7294027256343174685}
   m_Layer: 5
   m_Name: InventoryPanel
   m_TagString: Untagged
@@ -2428,22 +2381,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &7294027256343174685
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6291421157192234849}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c8103e9a213abf44b2a064f30ed8b65, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  slotPreviewParents:
-  - {fileID: 7144529675681625714}
-  - {fileID: 8107996503217467613}
-  slotPreviewRawImages: []
 --- !u!1 &6543560547684098033
 GameObject:
   m_ObjectHideFlags: 0
@@ -3108,7 +3045,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2643789716057424695}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PauseGame, Assembly-CSharp
         m_MethodName: Exit
         m_Mode: 1
@@ -3378,7 +3315,6 @@ GameObject:
   - component: {fileID: 7574954268512598531}
   - component: {fileID: 5244626761964391820}
   - component: {fileID: 2470415751233424865}
-  - component: {fileID: 9100474609468967512}
   m_Layer: 5
   m_Name: Crosshair
   m_TagString: Untagged
@@ -3443,18 +3379,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &9100474609468967512
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8257574387531296554}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d87d50c04f1a6784aaba32a690c1e045, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &8308835422527217213
 GameObject:
   m_ObjectHideFlags: 0

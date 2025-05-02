@@ -1141,7 +1141,6 @@ GameObject:
   - component: {fileID: 8996357828077018282}
   - component: {fileID: 6408613847759155653}
   - component: {fileID: 3307108925028802449}
-  - component: {fileID: 168856663724221675}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1279,21 +1278,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b305eee2555f6e45bb6387ddc2c6fa7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &168856663724221675
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5506176055102527405}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 859a9ac1d9f78884aa67d0c577b2ad13, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shakeDuration: 0.4
-  shakeMagnitude: 0.1
-  dampingSpeed: 3
 --- !u!1 &5686798686802029024
 GameObject:
   m_ObjectHideFlags: 0
@@ -1788,8 +1772,6 @@ GameObject:
   - component: {fileID: 7552819472626579249}
   - component: {fileID: 6590032467840399818}
   - component: {fileID: 5715488099525115393}
-  - component: {fileID: 8816536579092132710}
-  - component: {fileID: 5071850691722457390}
   - component: {fileID: 4508158806252759867}
   m_Layer: 7
   m_Name: WomanWarrior
@@ -1868,6 +1850,7 @@ MonoBehaviour:
   viewPivot: {fileID: 7406453781474018184}
   headBone: {fileID: 4854632396611199181}
   mouseSpeed: 6
+  footstepEmitterPrefab: {fileID: 0}
   footstepSource: {fileID: 4508158806252759867}
   footstepClips:
   - {fileID: 8300000, guid: 8e001351cd7065543a068386cde4c960, type: 3}
@@ -1989,39 +1972,6 @@ MonoBehaviour:
   baseThrowForce: 12
   upwardForceFactor: 0.5
   throwKey: 103
---- !u!114 &8816536579092132710
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7423785307216021420}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d8d24541a844a44d9f9eaaf1c121f2b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 100
-  currentHealth: 100
-  invincibleDuration: 1
-  exceptionDefaultDamage: 10
---- !u!114 &5071850691722457390
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7423785307216021420}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 797f70192450bbc4aad5a7be181da6d0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxStamina: 100
-  currentStamina: 100
-  staminaDrainRate: 20
-  staminaRegenRate: 10
-  regenDelay: 2
 --- !u!82 &4508158806252759867
 AudioSource:
   m_ObjectHideFlags: 0

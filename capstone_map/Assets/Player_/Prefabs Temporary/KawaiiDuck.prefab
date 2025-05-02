@@ -17,7 +17,6 @@ GameObject:
   - component: {fileID: 9099103402159662574}
   - component: {fileID: 6439904059952773639}
   - component: {fileID: 1372137025911435712}
-  - component: {fileID: 5545968631647527437}
   m_Layer: 6
   m_Name: KawaiiDuck
   m_TagString: Untagged
@@ -194,32 +193,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f82d661063f8dfc4b8162c3337e48f77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  impactClips:
-  - {fileID: 8300000, guid: af0d19a32f1946c4ba987d4347944722, type: 3}
-  - {fileID: 8300000, guid: 56c610f7d2a85a544989320c3abac1c2, type: 3}
-  - {fileID: 8300000, guid: abc12a6c8dd71ba4996afcb7aed0bdc0, type: 3}
+  impactSources: []
   minImpactForce: 2
   maxImpactForce: 10
   maxVolume: 1
   highImpactThreshold: 8
   highImpactStartIndex: 2
   highImpactEndIndex: 4
---- !u!114 &5545968631647527437
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 853269292539632489}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8be8586ac23f57f42b863631c9b487e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  heldPosOffset: {x: 0, y: 0, z: 0.108}
-  heldRotOffsetEuler: {x: -131.726, y: 11.521, z: 47.235}
-  dropPosOffset: {x: 0, y: 0, z: 0}
-  dropRotOffsetEuler: {x: -90, y: 0, z: 0}
 --- !u!1 &8501119691230652063
 GameObject:
   m_ObjectHideFlags: 0

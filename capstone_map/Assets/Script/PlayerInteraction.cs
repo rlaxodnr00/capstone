@@ -25,7 +25,8 @@ public class PlayerInteraction : MonoBehaviour
 
             if (interactable != null) // 상호작용 가능한 오브젝트일 경우
             {
-                crosshair.SetColor(Color.red); //조준선 붉은 색으로
+                // NullPointer
+                if(crosshair) crosshair.SetColor(Color.red); //조준선 붉은 색으로
                 if (Input.GetKeyDown(KeyCode.E))
                 {
                     interactable.Interact();
@@ -40,12 +41,14 @@ public class PlayerInteraction : MonoBehaviour
             }
             else
             {
-                crosshair.SetColor(Color.green); //상호작용 안되는 오브젝트는 녹색
+                // NullPointer
+                if (crosshair) crosshair.SetColor(Color.green); //상호작용 안되는 오브젝트는 녹색
             }
         }
         else
         {
-            crosshair.SetColor(Color.white); //아무것도 없을 땐 흰색
+            // NullPointer
+            if (crosshair) crosshair.SetColor(Color.white); //아무것도 없을 땐 흰색
         }
     }
 }
