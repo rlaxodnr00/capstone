@@ -9,7 +9,7 @@ public class BackButton : MonoBehaviour
     void Start()
     {
         // 씬 내에서 MainMenu 스크립트 찾기 (여러 UI에서 사용 가능)
-        mainMenu = FindFirstObjectByType<MainMenu>();
+        mainMenu = FindObjectOfType<MainMenu>();
 
         // 현재 오브젝트의 Button 컴포넌트를 가져와서 클릭 이벤트 추가
         GetComponent<Button>().onClick.AddListener(OnBackButtonClicked);

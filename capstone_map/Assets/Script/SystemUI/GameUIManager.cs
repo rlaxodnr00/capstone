@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
 
 public class GameUIManager : MonoBehaviour
 {
@@ -18,7 +19,10 @@ public class GameUIManager : MonoBehaviour
     public float uiMaxStamina = 100f;
 
     [Header("Dog Image")]
-    public GameObject dogImage; 
+    public GameObject dogImage;
+
+    [Header("Hit Effect")]
+    public RawImage hitImage;
 
     private void Awake()
     {
@@ -87,4 +91,53 @@ public class GameUIManager : MonoBehaviour
             Debug.LogWarning("Dog Image가 할당되지 않았습니다.");
         }
     }
+
+    public void StartHitEffect()
+    {
+        StartCoroutine(HitEffectCoroutine());
+    }
+
+
+    private IEnumerator HitEffectCoroutine()
+    {
+        if (hitImage == null) yield break;
+
+        float upDuration = 0.2f; //알파값 올라가는 시간
+        float holdDuration = 0.4f; //알파값 유지 시간
+        float downDuration = 0.4f; //알파값 내려가는 시간
+        float time = 0f;
+
+        // 상승 (alpha 0 → 0.666)
+        while (time < upDuration)
+        {
+            time += Time.deltaTime;
+            float alpha = Mathf.Lerp(0f, 0.666f, time / upDuration);
+            SetOverlayAlpha(alpha);
+            yield return null;
+        }
+
+        // 유지 (alpha 0.666 고정)
+        SetOverlayAlpha(0.666f);
+        yield return new WaitForSeconds(holdDuration);
+
+        // 하강 (alpha 0.666 → 0)
+        time = 0f;
+        while (time < downDuration)
+        {
+            time += Time.deltaTime;
+            float alpha = Mathf.Lerp(0.666f, 0f, time / downDuration);
+            SetOverlayAlpha(alpha);
+            yield return null;
+        }
+
+        SetOverlayAlpha(0f);
+    }
+
+    private void SetOverlayAlpha(float alpha)
+    {
+        Color c = hitImage.color;
+        c.a = alpha;
+        hitImage.color = c;
+    }
+
 }

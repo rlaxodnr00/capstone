@@ -85,9 +85,21 @@ public class PlayerInventory : MonoBehaviour
         
         //현재 슬롯이면 손, 아니면 허리에 위치시킴
         Transform targetTransform = (slotIndex == currentSlot) ? handTransform : waistTransform;
-        item.transform.SetParent(targetTransform);
-        item.transform.localPosition = Vector3.zero;//플레이어 손 위치로 이동
-        item.transform.localRotation = Quaternion.identity; //아이템이 바라보는 회전각 변경
+        
+
+        var rot = item.GetComponent<HoldedItemRotation>();
+        if(rot != null)
+        {
+            rot.ApplyHeld(targetTransform);
+        }
+        else
+        {
+            item.transform.SetParent(targetTransform);
+            item.transform.localPosition = Vector3.zero;//플레이어 손 위치로 이동
+            item.transform.localRotation = Quaternion.identity; //아이템이 바라보는 회전각 변경
+        }
+
+        
 
         // Rigidbody가 있다면, 인벤토리에 있는 동안 물리 시뮬레이션을 중지시킴
         Rigidbody rb = item.GetComponent<Rigidbody>();
@@ -119,8 +131,6 @@ public class PlayerInventory : MonoBehaviour
         GameObject currentItem = heldItems[slotIndex];
         if (currentItem == null) return; //선택된 슬롯이 비어있으면 리턴
 
-        currentItem.transform.SetParent(null); //인벤토리와 부모관계 해제
-
         // feetPoint보다 y축 약간 위에 드롭되도록 함
         Vector3 dropPosition = feetPoint.position + Vector3.up * 0.2f; 
 
@@ -131,9 +141,19 @@ public class PlayerInventory : MonoBehaviour
             dropPosition = hit.point + Vector3.up * (col?.bounds.extents.y ?? 0.2f);
         }
 
-        // 아이템 위치 및 회전 초기화하여 필드에 곱게 배치함
-        currentItem.transform.position = dropPosition;
-        currentItem.transform.rotation = Quaternion.identity;
+        var rot = currentItem.GetComponent<HoldedItemRotation>();
+        if (rot != null)
+        {
+            rot.DropHeld(dropPosition);
+        }
+        else
+        {
+            // 아이템 위치 및 회전 초기화하여 필드에 곱게 배치함
+            currentItem.transform.SetParent(null); //인벤토리와 부모관계 해제
+            currentItem.transform.position = dropPosition;
+            currentItem.transform.rotation = Quaternion.identity;
+            
+        }
         currentItem.SetActive(true);
 
 
@@ -185,196 +205,3 @@ public class PlayerInventory : MonoBehaviour
         return heldItems[currentSlot];
     }
 }
-
-
-
-/*
- * 
- * using UnityEngine;
-
-public class PlayerInventory : MonoBehaviour
-{
-    [Header("인벤토리 슬롯 (슬롯 2개 고정)")]
-    public GameObject[] heldItems = new GameObject[2];
-    public Transform handTransform; //손 위치
-    public Transform waistTransform; // 허리 위치
-
-    [Header("슬롯 관련")]
-    public InventoryUIController uiController;
-    public GameObject[] itemPreviewObjects; // 실제 아이템 프리뷰 (RenderTexture를 가진 RawImage 오브젝트) << 이거  없어도 되나?
-    private int currentSlot = 0;
-
-    [Header("드롭 설정")]
-    public float dropForwardDistance = 2f;
-    public Transform feetPoint;
-
-    void Update()
-    {
-        HandleSlotInput();
-        HandleDropInput();
-    }
-
-    void HandleSlotInput()
-    {
-        if (Input.GetKeyDown(KeyCode.Alpha1)) SetCurrentSlot(0);
-        if (Input.GetKeyDown(KeyCode.Alpha2)) SetCurrentSlot(1);
-    }
-
-    void HandleDropInput()
-    {
-        if (Input.GetKeyDown(KeyCode.Q)) DropItem();
-    }
-
-    void SetCurrentSlot(int slotIndex)
-    {
-        if (slotIndex == currentSlot) return;
-        currentSlot = slotIndex;
-        uiController?.SetSelectedSlot(slotIndex);
-        UpdateHeldItemDisplay();
-    }
-
-    public bool TryPickup(GameObject newItem)
-    {
-        if (heldItems[currentSlot] == null)
-        {
-            AssignItemToSlot(currentSlot, newItem);
-        }
-        else
-        {
-            SwapItems(currentSlot, newItem);
-        }
-
-        return true;
-    }
-
-    void AssignItemToSlot(int slotIndex, GameObject item)
-    {
-        heldItems[slotIndex] = item;
-
-        item.transform.SetParent(handTransform);
-        item.transform.localPosition = Vector3.zero;
-        item.transform.localRotation = Quaternion.identity;
-
-        Item itemComp = item.GetComponent<Item>();
-        if (itemComp != null)
-        {
-            itemComp.SetPreviewRenderTexture(slotIndex);
-            itemComp.SetPreviewCameraActive(true);
-        }
-
-        if (itemPreviewObjects.Length > slotIndex)
-        {
-            itemPreviewObjects[slotIndex].SetActive(true); // 프리뷰 이미지 보여주기
-        }
-
-        item.SetActive(slotIndex == currentSlot);
-        UpdateHeldItemDisplay();
-    }
-
-    void SwapItems(int slotIndex, GameObject newItem)
-    {
-        GameObject currentItem = heldItems[slotIndex];
-
-        if (currentItem != null)
-        {
-            currentItem.transform.SetParent(null);
-            Vector3 dropPos = feetPoint.position + Vector3.up * 0.2f;
-
-            if (Physics.Raycast(dropPos, Vector3.down, out RaycastHit hit, 5f))
-            {
-                dropPos = hit.point;
-                Collider col = currentItem.GetComponentInChildren<Collider>();
-                dropPos += Vector3.up * (col?.bounds.extents.y ?? 0.2f);
-            }
-
-            currentItem.transform.position = dropPos;
-            currentItem.transform.rotation = Quaternion.identity;
-            currentItem.SetActive(true);
-
-            Item itemComp = currentItem.GetComponent<Item>();
-            if (itemComp != null)
-            {
-                itemComp.SetPreviewCameraActive(false);
-            }
-
-            if (itemPreviewObjects.Length > slotIndex)
-            {
-                itemPreviewObjects[slotIndex].SetActive(false); // 이미지 끄기
-            }
-        }
-
-        AssignItemToSlot(slotIndex, newItem);
-    }
-
-    void UpdateHeldItemDisplay()
-    {
-        for (int i = 0; i < heldItems.Length; i++)
-        {
-            if (heldItems[i] != null)
-            {
-                bool isHeld = (i == currentSlot);
-
-                //  아이템의 위치 이동 (손 or 허리)
-                Transform targetTransform = isHeld ? handTransform : waistTransform;
-                heldItems[i].transform.SetParent(targetTransform);
-                heldItems[i].transform.localPosition = Vector3.zero;
-                heldItems[i].transform.localRotation = Quaternion.identity;
-
-                //  필요 시 아이템별 커스텀 위치 적용
-                Item itemComp = heldItems[i].GetComponent<Item>();
-                if (itemComp != null)
-                {
-                    itemComp.SetPreviewCameraActive(true);
-                   // itemComp.ApplyTransform(targetTransform, isHeld); 
-                }
-
-                //  UI는 항상 보이게
-                if (itemPreviewObjects.Length > i)
-                {
-                    itemPreviewObjects[i].SetActive(true);
-                }
-
-                //  실제 Scene 상에서는 손에 든 아이템만 Active (선택)
-                heldItems[i].SetActive(true); // 혹시 이미지 사라지면 false → true 바꿔줘
-            }
-        }
-    }
-
-    void DropItem()
-    {
-        GameObject currentItem = heldItems[currentSlot];
-        if (currentItem == null) return;
-
-        heldItems[currentSlot] = null;
-        currentItem.transform.SetParent(null);
-
-        Vector3 rayOrigin = feetPoint.position + Vector3.up * 0.2f;
-        Vector3 dropPosition = rayOrigin + transform.forward * 1f;
-
-        if (Physics.Raycast(rayOrigin, Vector3.down, out RaycastHit hit, 5f))
-        {
-            dropPosition = hit.point;
-            Collider col = currentItem.GetComponentInChildren<Collider>();
-            dropPosition += Vector3.up * (col?.bounds.extents.y ?? 0.2f);
-        }
-
-        currentItem.transform.position = dropPosition;
-        currentItem.transform.rotation = Quaternion.identity;
-        currentItem.SetActive(true);
-
-        Item itemComp = currentItem.GetComponent<Item>();
-        if (itemComp != null)
-        {
-            itemComp.SetPreviewCameraActive(false);
-        }
-
-        if (itemPreviewObjects.Length > currentSlot)
-        {
-            itemPreviewObjects[currentSlot].SetActive(false); // 드롭한 슬롯의 이미지 끄기
-        }
-
-        UpdateHeldItemDisplay();
-    }
-}
-
-*/
