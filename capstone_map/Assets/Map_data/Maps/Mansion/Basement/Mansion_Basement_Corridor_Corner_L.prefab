@@ -113,10 +113,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tags:
   - basement_corridor_corner
+  - base
   createsTags:
   - basement_corridor
   - basement_corridor_cross
   - basement_corridor_t
+  - basement_exit
   deadEndChance: 1
 --- !u!1 &7775082583208184060
 GameObject:

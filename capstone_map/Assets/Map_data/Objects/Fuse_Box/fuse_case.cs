@@ -4,6 +4,9 @@ public class fuse_case : Interactable
 {
     private Animator animator;
     public BoxCollider handleCollider;
+
+    public AudioSource audioSource;
+    public AudioClip clip;
     private void Start()
     {
         animator = GetComponent<Animator>();
@@ -23,5 +26,10 @@ public class fuse_case : Interactable
     {
         animator.SetBool("open", !animator.GetBool("open"));
         handleCollider.enabled = animator.GetBool("open");
+
+        if (audioSource != null && clip != null)
+        {
+            audioSource.PlayOneShot(clip);
+        }
     }
 }

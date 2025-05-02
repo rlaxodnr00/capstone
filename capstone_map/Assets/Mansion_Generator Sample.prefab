@@ -49,7 +49,7 @@ MonoBehaviour:
   seed: -87093575
   sectionContainer: {fileID: 0}
   maxLevelSize: 50
-  maxAllowedOrder: 10
+  maxAllowedOrder: 6
   sectionPrefabs:
   - {fileID: 4592339542758354067, guid: cdc75dcb098ce41439ae44d8208df655, type: 3}
   - {fileID: 720735042460834876, guid: 0a285cd38433cc947b23c63f6c2f9633, type: 3}
@@ -82,6 +82,8 @@ MonoBehaviour:
   - {fileID: 6761329638427040184, guid: ecb6381c4c188b149a07ab035dae9ba9, type: 3}
   - {fileID: 1931704935898782415, guid: fce7f4f74ca49584493c380f93657d55, type: 3}
   - {fileID: 1931704935898782415, guid: 89ece3080b0087a409bf57a8ad405467, type: 3}
+  - {fileID: 5941461045902035220, guid: 5771890604494bd499071ba957ae6f23, type: 3}
+  - {fileID: 2903552707338382014, guid: 1effe94510e38804abd380bf132c102c, type: 3}
   endPrefabs:
   - {fileID: 3035367916353181208, guid: ad7cc043ffc8b3c448e7bb1c50a07acf, type: 3}
   initialSectionTags:
@@ -90,33 +92,42 @@ MonoBehaviour:
   - Tag: lobby
     MinAmount: 1
     MaxAmount: 1
-  - Tag: room
-    MinAmount: 15
-    MaxAmount: 30
-  - Tag: stair_integrated
+  - Tag: memo_room
+    MinAmount: 1
+    MaxAmount: 2
+  - Tag: basement_stair
+    MinAmount: 1
+    MaxAmount: 1
+  - Tag: basement_exit
     MinAmount: 1
     MaxAmount: 1
   - Tag: corridor_long
     MinAmount: 0
     MaxAmount: 2
-  - Tag: basement_stair
-    MinAmount: 1
+  - Tag: oriel
+    MinAmount: 0
+    MaxAmount: 3
+  - Tag: lounge
+    MinAmount: 0
+    MaxAmount: 3
+  - Tag: courtyard
+    MinAmount: 0
     MaxAmount: 1
   - Tag: library
-    MinAmount: 1
+    MinAmount: 0
     MaxAmount: 1
   - Tag: basement_mech
-    MinAmount: 1
+    MinAmount: 0
     MaxAmount: 1
-  - Tag: courtyard
-    MinAmount: 1
-    MaxAmount: 1
-  - Tag: lounge
-    MinAmount: 1
-    MaxAmount: 3
-  - Tag: oriel
-    MinAmount: 1
-    MaxAmount: 3
   - Tag: basement_storage
-    MinAmount: 1
+    MinAmount: 0
     MaxAmount: 1
+  - Tag: stair_integrated
+    MinAmount: 0
+    MaxAmount: 1
+  - Tag: room
+    MinAmount: 10
+    MaxAmount: 20
+  - Tag: base
+    MinAmount: 5
+    MaxAmount: 10

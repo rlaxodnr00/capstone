@@ -15,6 +15,7 @@ TagManager:
   - LightSwitch
   - Enemy
   - Item
+  - InteractionUI
   layers:
   - Default
   - TransparentFX
@@ -24,7 +25,7 @@ TagManager:
   - UI
   - Monster
   - Interactable
-  - 
+  - Window
   - 
   - 
   - 

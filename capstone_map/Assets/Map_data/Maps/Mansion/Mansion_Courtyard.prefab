@@ -505,8 +505,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 10.995, y: 1.595, z: 10.995}
-  m_Center: {x: 0, y: 0.8, z: 5.5}
+  m_Size: {x: 10.995, y: 1.76, z: 10.995}
+  m_Center: {x: 0, y: 0.815, z: 5.5}
 --- !u!1 &8860732414605811356
 GameObject:
   m_ObjectHideFlags: 0
@@ -1742,7 +1742,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3638543010282120270, guid: 104169ebce740694b97301d4e768a171, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.874
+      value: 2.85
       objectReference: {fileID: 0}
     - target: {fileID: 3907091372267947420, guid: 104169ebce740694b97301d4e768a171, type: 3}
       propertyPath: m_Layer
@@ -1799,7 +1799,7 @@ PrefabInstance:
     - target: {fileID: 6726750176065510321, guid: 104169ebce740694b97301d4e768a171, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 5c0de40c69f48b14eb67d6190333581f, type: 2}
+      objectReference: {fileID: 2100000, guid: 050ec231558d3fa48af348c442c4f82d, type: 2}
     - target: {fileID: 7255890019032484113, guid: 104169ebce740694b97301d4e768a171, type: 3}
       propertyPath: m_Name
       value: window_4
