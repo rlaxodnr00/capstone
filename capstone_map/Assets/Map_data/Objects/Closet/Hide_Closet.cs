@@ -33,6 +33,7 @@ public class Hide_Closet : Interactable
             box.enabled = false;
         }
 
+        // hide == true인 동안 플레이어를 자신의 위치에 고정되게 함
         if (hide)
         {
             player.transform.position = transform.position + new Vector3(0, (player.transform.localScale.y / 2), 0);
@@ -55,6 +56,7 @@ public class Hide_Closet : Interactable
         left.SetBool("hiding", hide);
         right.SetBool("hiding", hide);
 
+        // hide == true이면 player의 위치를 저장한 뒤 플레이어를 자신의 위치로 옮김 (옮기는 코드는 Update에서)
         if (hide)
         {
             prevPos = player.transform.position;
@@ -62,6 +64,7 @@ public class Hide_Closet : Interactable
             player.transform.rotation = transform.rotation;
         }
 
+        // hide == false이면 player의 위치를 저장된 위치로 옮김
         else
         {
             player.transform.position = prevPos;

@@ -54,6 +54,10 @@ public class ItemManager : MonoBehaviour
         int index = Random.Range(0, itemSpawn.Length);
         
         // 아이템 생성 지점의 함수로 아이템 생성
-        itemSpawn[index].ItemCreate();
+        if (itemSpawn[index] != null)
+        {
+            itemSpawn[index].ItemCreate();
+        }
+        
     }
 }

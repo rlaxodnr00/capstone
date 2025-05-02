@@ -62,7 +62,8 @@ namespace AiSoundDetect.Extra
         private Vector3 patrolTarget; // 배회 목표 위치
         private Coroutine patrolCoroutine = null; // 배회 루틴 저장용
 
-        private float attackRange = 0.6f; // 공격 가능 거리
+        
+        public float attackRange = 0.4f; // 공격 가능 거리
 
         // --------------------[추격 사운드 쿨타임]--------------------
 
@@ -90,90 +91,96 @@ namespace AiSoundDetect.Extra
             navMeshAgent.angularSpeed = 180f;   // 회전 속도 (기본값은 120, 너무 낮으면 느리게 회전함)
 
             // 배회 루틴 시작
-            patrolCoroutine = StartCoroutine(PatrolRoutine());
+            // patrolCoroutine = StartCoroutine(PatrolRoutine());
         }
 
         // --------------------[매 프레임 처리]--------------------
 
         void Update()
         {
-            // 소리 감지 상태 및 위치 받아오기
-            soundDetectedGo = hearingScript.soundDetected;
-            targetGo = hearingScript.targetObj;
-
-            // 소리를 감지했을 때
-            if (soundDetectedGo && chaseTarget)
+            if (navMeshAgent.isOnNavMesh)
             {
-                // 쿨타임 내에서 사운드 재생
-                if (Time.time - lastVoiceTime >= voiceCooldown)
+                // 소리 감지 상태 및 위치 받아오기
+                soundDetectedGo = hearingScript.soundDetected;
+                targetGo = hearingScript.targetObj;
+
+                // 소리를 감지했을 때
+                if (soundDetectedGo && chaseTarget)
                 {
-                    monseterVoice.Play();
-                    lastVoiceTime = Time.time;
-                }
-
-                if (targetGo != Vector3.zero)
-                {
-                    isChasing = true;
-                    isPatrolling = false;
-
-                    float distance = Vector3.Distance(transform.position, targetGo);
-
-                    if (distance < attackRange)
+                    // 쿨타임 내에서 사운드 재생
+                    if (Time.time - lastVoiceTime >= voiceCooldown)
                     {
-                        // 공격 범위 안에 있을 경우
-                        Attack();
-                        chaseTimer = 0f;
+                        monseterVoice.Play();
+                        lastVoiceTime = Time.time;
                     }
-                    else
+
+                    if (targetGo != Vector3.zero)
                     {
-                        // 추격 중 애니메이션 설정 및 이동
-                        animator.SetBool("walk", false);
-                        animator.SetBool("run", true);
-                        animator.SetBool("idle", false);
+                        isChasing = true;
+                        isPatrolling = false;
 
-                        navMeshAgent.speed = runSpeed;
-                        navMeshAgent.SetDestination(targetGo);
-                        chaseTimer += Time.deltaTime;
+                        float distance = Vector3.Distance(transform.position, targetGo);
 
-                        if (chaseTimer > chaseTimeout)
+                        if (distance < attackRange)
                         {
-                            // 추격 시간 초과 시 중단
-                            StopChasing();
+                            // 공격 범위 안에 있을 경우
+                            Attack();
+                            chaseTimer = 0f;
+                        }
+                        else
+                        {
+                            // 추격 중 애니메이션 설정 및 이동
+                            animator.SetBool("walk", false);
+                            animator.SetBool("run", true);
+                            animator.SetBool("idle", false);
+
+                            navMeshAgent.speed = runSpeed;
+                            navMeshAgent.SetDestination(targetGo);
+                            chaseTimer += Time.deltaTime;
+
+                            if (chaseTimer > chaseTimeout)
+                            {
+                                // 추격 시간 초과 시 중단
+                                StopChasing();
+                            }
                         }
                     }
                 }
-            }
-            else if (isChasing)
-            {
-                // 추격 중이었지만 더 이상 추격 대상 없음
-                StopChasing();
-            }
-            else if (!isPatrolling && patrolCoroutine == null)
-            {
-                // 아무것도 안하고 있다면 다시 배회 시작
-                patrolCoroutine = StartCoroutine(PatrolRoutine());
-            }
-
-            // 걷기 애니메이션 유지 보조
-            if (!isChasing && !animator.GetBool("run"))
-            {
-                float speed = navMeshAgent.velocity.magnitude;
-
-                if (speed > 0.1f && navMeshAgent.hasPath)
+                else if (isChasing)
                 {
-                    animator.SetBool("walk", true);
-                    animator.SetBool("idle", false);
+                    // 추격 중이었지만 더 이상 추격 대상 없음
+                    StopChasing();
                 }
-                else if (!navMeshAgent.pathPending && navMeshAgent.remainingDistance <= navMeshAgent.stoppingDistance)
+                else if (!isPatrolling && patrolCoroutine == null)
                 {
-                    animator.SetBool("walk", false);
-                    animator.SetBool("idle", true);
-
-                    if (patrolCoroutine == null)
-                        patrolCoroutine = StartCoroutine(PatrolRoutine());
+                    // 아무것도 안하고 있다면 다시 배회 시작
+                    patrolCoroutine = StartCoroutine(PatrolRoutine());
                 }
+
+                // 걷기 애니메이션 유지 보조
+                if (!isChasing && !animator.GetBool("run"))
+                {
+                    float speed = navMeshAgent.velocity.magnitude;
+
+                    if (speed > 0.1f && navMeshAgent.hasPath)
+                    {
+                        animator.SetBool("walk", true);
+                        animator.SetBool("idle", false);
+                    }
+                    else if (!navMeshAgent.pathPending && navMeshAgent.remainingDistance <= navMeshAgent.stoppingDistance)
+                    {
+                        animator.SetBool("walk", false);
+                        animator.SetBool("idle", true);
+
+                        if (patrolCoroutine == null)
+                            patrolCoroutine = StartCoroutine(PatrolRoutine());
+                    }
+                }
+                TryPlayFootstep(); // 발소리
+            } else
+            {
+                Debug.Log("Agent is not on NavMesh.");
             }
-            TryPlayFootstep(); // 발소리
         }
 
         // --------------------[추격 종료 처리]--------------------
@@ -299,13 +306,12 @@ namespace AiSoundDetect.Extra
             navMeshAgent.isStopped = true;
 
             animator.ResetTrigger("attack");
-            animator.SetTrigger("attack"); 
+            animator.SetTrigger("attack");
 
             // 사운드 재생
             if (attackSound != null && attackAudioSource != null)
             {
-                attackAudioSource.clip = attackSound;
-                attackAudioSource.Play();
+                Invoke(nameof(PlayAttackSound), 1f); // 2초 뒤 실행
             }
 
             // 애니메이션이 실행되면 데미지 처리
@@ -417,16 +423,20 @@ namespace AiSoundDetect.Extra
             foreach (var hitCollider in hitColliders)
             {
                 if (hitCollider.CompareTag("Player"))
-                {   
-                    /* 플레이어 피통
-                    PlayerHealth player = hitCollider.GetComponent<PlayerHealth>();
-                    if (player != null)
+                {
+                    HPController playerHPController = hitCollider.GetComponent<HPController>();
+                    if (playerHPController != null)
                     {
-                        player.TakeDamage(10); // 예: 플레이어에 데미지를 주는 함수
+                        Debug.Log(gameObject.name + "이(가) 플레이어에게 공격을 가했습니다.");
+                        playerHPController.TakeDamage(50f); // 여기서 피해량을 설정합니다. 필요에 따라 변수로 만들 수 있습니다.
                     }
-                    */
                 }
             }
+        }
+        void PlayAttackSound()
+        {
+            attackAudioSource.clip = attackSound;
+            attackAudioSource.Play();
         }
 
 

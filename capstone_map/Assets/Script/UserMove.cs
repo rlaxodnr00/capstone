@@ -1,3 +1,4 @@
+using AiSoundDetect;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -33,6 +34,9 @@ public class UserMove : MonoBehaviour
 
     public float WalkSpeed => walkSpeed; // 읽기 전용 Getter
 
+    [Header("Sound Emitter Settings")]
+    public GameObject footstepEmitterPrefab; // 발소리 SoundEmitter 프리팹
+
     public float CurrentSpeed
     {
         get => currentSpeed;
@@ -56,6 +60,11 @@ public class UserMove : MonoBehaviour
         dir = Vector3.zero; // 벡터 초기화
         currentSpeed = walkSpeed; // 기본 속도 설정
         gravity = 10f;    // 중력값 설정
+        
+        
+        // 마우스 중앙 고정 포인터 숨기기
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     void Update()
@@ -161,6 +170,10 @@ public class UserMove : MonoBehaviour
     /// 발소리 로직 처리.
     /// 플레이어가 지면에 있고, 일정 속도로 움직일 때, 일정 간격마다 발소리를 재생합니다.
     /// </summary>
+    /// 
+
+    /*
+     * 수정 전버전
     void HandleFootsteps()
     {
         // 플레이어가 지면에 있고, 상당한 수평 이동이 있을 때 발소리 발동
@@ -196,4 +209,49 @@ public class UserMove : MonoBehaviour
             footstepTimer = 0f;
         }
     }
+
+    */
+
+    void HandleFootsteps()
+    {
+        Vector3 horizontalMove = new Vector3(dir.x, 0, dir.z);
+        if (controller.isGrounded && horizontalMove.magnitude > 0.1f)
+        {
+            footstepTimer += Time.deltaTime;
+            float stepInterval = baseStepInterval * (walkSpeed / currentSpeed);
+
+            if (footstepTimer >= stepInterval)
+            {
+                footstepTimer = 0f;
+
+                // 발소리 오디오 재생
+                if (footstepSource != null && footstepClips != null && footstepClips.Length > 0)
+                {
+                    int clipIndex = Random.Range(0, footstepClips.Length);
+                    float volume = Mathf.Clamp(currentSpeed / sprintSpeed, 0.3f, 1f);
+                    footstepSource.PlayOneShot(footstepClips[clipIndex], volume);
+                }
+
+                //  발소리 SoundEmitter 생성
+                if (footstepEmitterPrefab != null)
+                {
+                    // 현재 플레이어 위치에 생성
+                    GameObject emitter = Instantiate(footstepEmitterPrefab, transform.position, Quaternion.identity);
+
+                    // Sound_Emitter 스크립트가 있다면, 범위 설정
+                    Sound_Emitter emitterScript = emitter.GetComponent<Sound_Emitter>();
+                    if (emitterScript != null)
+                    {
+                        //emitterScript.soundRange = 5f; // 발소리 범위 설정 (원하는 값으로)
+                        //emitterScript.lifetime = 0.5f; // 몇 초 동안 유지할지 설정
+                    }
+                }
+            }
+        }
+        else
+        {
+            footstepTimer = 0f;
+        }
+    }
+
 }
