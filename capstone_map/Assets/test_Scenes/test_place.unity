@@ -23,10 +23,10 @@ RenderSettings:
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
-  m_AmbientIntensity: 1
+  m_AmbientIntensity: 0.3
   m_AmbientMode: 0
-  m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SubtractiveShadowColor: {r: 0.42753285, g: 0.46525764, b: 0.5622641, a: 1}
+  m_SkyboxMaterial: {fileID: 0}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -334,6 +334,75 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1071896624
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 836525577211296067, guid: 35e112cb1c895574c9bb5296749bf678, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 836525577211296067, guid: 35e112cb1c895574c9bb5296749bf678, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 836525577211296067, guid: 35e112cb1c895574c9bb5296749bf678, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 836525577211296067, guid: 35e112cb1c895574c9bb5296749bf678, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 6.033
+      objectReference: {fileID: 0}
+    - target: {fileID: 836525577211296067, guid: 35e112cb1c895574c9bb5296749bf678, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 836525577211296067, guid: 35e112cb1c895574c9bb5296749bf678, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -46.448
+      objectReference: {fileID: 0}
+    - target: {fileID: 836525577211296067, guid: 35e112cb1c895574c9bb5296749bf678, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.99893
+      objectReference: {fileID: 0}
+    - target: {fileID: 836525577211296067, guid: 35e112cb1c895574c9bb5296749bf678, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.03178647
+      objectReference: {fileID: 0}
+    - target: {fileID: 836525577211296067, guid: 35e112cb1c895574c9bb5296749bf678, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.0335793
+      objectReference: {fileID: 0}
+    - target: {fileID: 836525577211296067, guid: 35e112cb1c895574c9bb5296749bf678, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.0010682371
+      objectReference: {fileID: 0}
+    - target: {fileID: 836525577211296067, guid: 35e112cb1c895574c9bb5296749bf678, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 836525577211296067, guid: 35e112cb1c895574c9bb5296749bf678, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 836525577211296067, guid: 35e112cb1c895574c9bb5296749bf678, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7423785307216021420, guid: 35e112cb1c895574c9bb5296749bf678, type: 3}
+      propertyPath: m_Name
+      value: WomanWarrior
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 35e112cb1c895574c9bb5296749bf678, type: 3}
 --- !u!1001 &1309494280
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1060,6 +1129,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4725447294358923659, guid: de66a2e78c54a624ca1a988c2446a8b7, type: 3}
+      propertyPath: intensity
+      value: 0.35
+      objectReference: {fileID: 0}
     - target: {fileID: 7518408238966210930, guid: de66a2e78c54a624ca1a988c2446a8b7, type: 3}
       propertyPath: m_Name
       value: Mansion_Generator Sample
@@ -1174,6 +1247,10 @@ PrefabInstance:
       value: CapsulePlayer
       objectReference: {fileID: 0}
     - target: {fileID: 7676637907003538457, guid: 7bb934338465a99419c7a20dde76e18c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7676637907003538457, guid: 7bb934338465a99419c7a20dde76e18c, type: 3}
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
@@ -1256,3 +1333,4 @@ SceneRoots:
   - {fileID: 905651769640453434}
   - {fileID: 3528153952805651629}
   - {fileID: 1309494280}
+  - {fileID: 1071896624}

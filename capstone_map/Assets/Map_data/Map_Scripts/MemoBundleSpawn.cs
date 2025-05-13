@@ -23,7 +23,7 @@ public class MemoBundleSpawn : MonoBehaviour
         yield return new WaitForSeconds(1.0f);
 
         memoSpawn = bundle.GetComponentsInChildren<MemoBundlePoint>();
-        Debug.Log("메모 스폰 갯수 : " + memoSpawn.Length);
+        // Debug.Log("메모 스폰 갯수 : " + memoSpawn.Length);
 
         memoCount = Random.Range(minMemoCount, maxMemoCount);
 
@@ -51,7 +51,7 @@ public class MemoBundleSpawn : MonoBehaviour
                 // 선택된 위치에 메모 생성
                 GameObject newMemo = Instantiate(prefabToSpawn, target.transform);
 
-                Debug.Log("메모 생성: " + newMemo.name + " at position " + target.transform.position);
+                // Debug.Log("메모 생성: " + newMemo.name + " at position " + target.transform.position);
                 newMemo.GetComponentInChildren<Memo>().memoNumber = memoNum++;
             }
         }

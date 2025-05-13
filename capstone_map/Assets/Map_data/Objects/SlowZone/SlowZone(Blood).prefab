@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4724536558440062416}
   - component: {fileID: 173159092244718305}
   - component: {fileID: 2456831226334468942}
+  - component: {fileID: -6164881884917103468}
   m_Layer: 0
   m_Name: SlowZone(Blood)
   m_TagString: Untagged
@@ -29,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.2, y: 1, z: 0.2}
+  m_LocalScale: {x: 0.1, y: 1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -108,3 +109,15 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 8, y: 0.1, z: 8}
   m_Center: {x: 0, y: 0.04, z: 0}
+--- !u!114 &-6164881884917103468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 635835759013856473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ca1889cd9c7bc4469ffe3c53c486d2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

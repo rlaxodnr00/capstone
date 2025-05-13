@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8124821327302269957}
   - component: {fileID: 7770301123368735658}
+  - component: {fileID: 4725447294358923659}
   m_Layer: 0
   m_Name: Mansion_Generator Sample
   m_TagString: Untagged
@@ -131,3 +132,15 @@ MonoBehaviour:
   - Tag: base
     MinAmount: 5
     MaxAmount: 10
+--- !u!114 &4725447294358923659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7518408238966210930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7ddfc3716f5a7f40a6d9d2626467193, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

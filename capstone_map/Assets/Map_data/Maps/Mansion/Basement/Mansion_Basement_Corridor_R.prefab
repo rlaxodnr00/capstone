@@ -378,6 +378,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -6688610688747869349, guid: 1eae45afd4b7b534fb33b940bc175890, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 1245150072c624148aace54e9c8dbc19, type: 2}
+    - target: {fileID: -6135820033787185626, guid: 1eae45afd4b7b534fb33b940bc175890, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: aac43d6feac488449b0283a9711e4b5f, type: 2}
+    - target: {fileID: -4413516176401734134, guid: 1eae45afd4b7b534fb33b940bc175890, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 1245150072c624148aace54e9c8dbc19, type: 2}
+    - target: {fileID: -720992476306302821, guid: 1eae45afd4b7b534fb33b940bc175890, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 4c9f53c3fe65b964bb002004d3d60837, type: 2}
     - target: {fileID: 818101907399436855, guid: 1eae45afd4b7b534fb33b940bc175890, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -386,10 +402,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: mansion_basement_corridor_pipe
       objectReference: {fileID: 0}
+    - target: {fileID: 4590548933591574203, guid: 1eae45afd4b7b534fb33b940bc175890, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: aac43d6feac488449b0283a9711e4b5f, type: 2}
     - target: {fileID: 5607761432591265760, guid: 1eae45afd4b7b534fb33b940bc175890, type: 3}
       propertyPath: m_Name
       value: pipe_1
       objectReference: {fileID: 0}
+    - target: {fileID: 6581037733153192577, guid: 1eae45afd4b7b534fb33b940bc175890, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 4c9f53c3fe65b964bb002004d3d60837, type: 2}
     - target: {fileID: 6726750176065510321, guid: 1eae45afd4b7b534fb33b940bc175890, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
