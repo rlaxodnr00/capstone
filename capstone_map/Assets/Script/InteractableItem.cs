@@ -11,7 +11,8 @@ public class InteractableItem : MonoBehaviour, IInteractable
         // 인벤토리 연결 (Player 태그를 가진 오브젝트에서 PlayerInventory 컴포넌트를 찾음)
         if (playerInventory == null)
         {
-            playerInventory = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInventory>();
+            // playerInventory = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInventory>();
+            playerInventory = GameObject.Find("WomanWarrior").GetComponent<PlayerInventory>();
         }
     }
 

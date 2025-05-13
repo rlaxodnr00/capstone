@@ -368,6 +368,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Item
       objectReference: {fileID: 0}
+    - target: {fileID: 7346155536624278513, guid: a73a5eca180afdd4987919182aa4c6fe, type: 3}
+      propertyPath: playerInventory
+      value: 
+      objectReference: {fileID: 1707811398}
     - target: {fileID: 8833121778371610064, guid: a73a5eca180afdd4987919182aa4c6fe, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -4639,6 +4643,17 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1707811398 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6590032467840399818, guid: 35e112cb1c895574c9bb5296749bf678, type: 3}
+  m_PrefabInstance: {fileID: 1471860316}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f546a3119591e94ba2d09c6e00f2691, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1736542847
 GameObject:
   m_ObjectHideFlags: 0
