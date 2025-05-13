@@ -317,7 +317,7 @@ MonoBehaviour:
   m_particleSystem: {fileID: 0}
   m_iAudioClip: {fileID: 8300000, guid: 8e001351cd7065543a068386cde4c960, type: 3}
   m_ClipLenght: 0.45
-  soundEmitterManager: {fileID: 1484730864}
+  soundEmitterManager: {fileID: 0}
   AudioMethod: 0
   m_Volume: 1
   m_Pitch: 1
@@ -2426,6 +2426,10 @@ PrefabInstance:
     - target: {fileID: 1947933557009736786, guid: 5f4324124b3393c428a8468c5f9224f1, type: 3}
       propertyPath: m_Center.y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2232820629068731450, guid: 5f4324124b3393c428a8468c5f9224f1, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4235052032148297518, guid: 5f4324124b3393c428a8468c5f9224f1, type: 3}
       propertyPath: runSpeed
