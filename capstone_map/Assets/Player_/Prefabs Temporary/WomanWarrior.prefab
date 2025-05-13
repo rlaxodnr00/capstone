@@ -1141,6 +1141,7 @@ GameObject:
   - component: {fileID: 8996357828077018282}
   - component: {fileID: 6408613847759155653}
   - component: {fileID: 3307108925028802449}
+  - component: {fileID: 650859660327927671}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1278,6 +1279,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b305eee2555f6e45bb6387ddc2c6fa7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &650859660327927671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5506176055102527405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0f28a7b47debe34ab118c044918934a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shakeDuration: 0.4
+  shakeMagnitude: 0.1
+  dampingSpeed: 3
 --- !u!1 &5686798686802029024
 GameObject:
   m_ObjectHideFlags: 0
@@ -1772,7 +1788,10 @@ GameObject:
   - component: {fileID: 7552819472626579249}
   - component: {fileID: 6590032467840399818}
   - component: {fileID: 5715488099525115393}
+  - component: {fileID: 1451279232509401119}
+  - component: {fileID: 2659970740072637984}
   - component: {fileID: 4508158806252759867}
+  - component: {fileID: 2346286182752654785}
   m_Layer: 7
   m_Name: WomanWarrior
   m_TagString: Player
@@ -1972,6 +1991,39 @@ MonoBehaviour:
   baseThrowForce: 12
   upwardForceFactor: 0.5
   throwKey: 103
+--- !u!114 &1451279232509401119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7423785307216021420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09497841610d1af4d99f57ac80edad11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  currentHealth: 100
+  invincibleDuration: 1
+  exceptionDefaultDamage: 10
+--- !u!114 &2659970740072637984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7423785307216021420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1f6492fbed0443468620484771f4f4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxStamina: 100
+  currentStamina: 100
+  staminaDrainRate: 20
+  staminaRegenRate: 10
+  regenDelay: 2
 --- !u!82 &4508158806252759867
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2069,6 +2121,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2346286182752654785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7423785307216021420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7d0f912bbd7e734fa733e86f539bc72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactDistance: 3
+  crosshair: {fileID: 0}
 --- !u!1 &8089496206917162744
 GameObject:
   m_ObjectHideFlags: 0

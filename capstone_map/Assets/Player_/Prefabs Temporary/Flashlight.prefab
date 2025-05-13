@@ -182,6 +182,7 @@ MonoBehaviour:
   batteryLevel: 86
   batteryDrainRate: 0.4
   batteryChargeAmount: 50
+  maxBatteryLevel: 100
   flashlightLight: {fileID: 1908856763313624019}
 --- !u!114 &5301320957401333000
 MonoBehaviour:
@@ -192,7 +193,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5105903782479895724}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8be8586ac23f57f42b863631c9b487e3, type: 3}
+  m_Script: {fileID: 11500000, guid: 58b47836f17c1c64e80bc8e9a113fb76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   heldPosOffset: {x: -0.1, y: -0.0657, z: 0.1184616}
@@ -473,4 +474,5 @@ MonoBehaviour:
   batteryLevel: 86
   batteryDrainRate: 0.4
   batteryChargeAmount: 50
+  maxBatteryLevel: 100
   flashlightLight: {fileID: 1908856763313624019}

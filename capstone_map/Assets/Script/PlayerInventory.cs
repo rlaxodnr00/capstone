@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 /*
@@ -21,6 +22,7 @@ public class PlayerInventory : MonoBehaviour
 
     private int currentSlot = 0; //현재 선택 슬롯 인덱스
 
+    public int CurrentSlot => currentSlot;
     void Update()
     {
         //숫자 키 1 2 번으로 인벤토리 변경
@@ -57,7 +59,7 @@ public class PlayerInventory : MonoBehaviour
     }
 
     //현재 선택된 슬롯 아이템 드랍
-    public void DropCurrentItem() 
+    public void DropCurrentItem()
     {
         DropItem(currentSlot);
     }
@@ -72,7 +74,7 @@ public class PlayerInventory : MonoBehaviour
             if (inventoryInteractable != null)
             {
                 // 해당 아이템의 InventoryInteract() 메서드 호출
-                inventoryInteractable.InventoryInteract();
+                inventoryInteractable.InventoryInteract(this);
             }
         }
     }
@@ -82,15 +84,15 @@ public class PlayerInventory : MonoBehaviour
     void AssignItemToSlot(int slotIndex, GameObject item)
     {
         heldItems[slotIndex] = item; //현재 슬롯에 아이템 배정
-        
+
         //현재 슬롯이면 손, 아니면 허리에 위치시킴
         Transform targetTransform = (slotIndex == currentSlot) ? handTransform : waistTransform;
-        
 
-        var rot = item.GetComponent<HoldedItemRotation>();
-        if(rot != null)
+
+        var itemPosition = item.GetComponent<HoldedItemRotation>(); //오브젝트 세부위치
+        if (itemPosition != null)
         {
-            rot.ApplyHeld(targetTransform);
+            itemPosition.ApplyHeld(targetTransform);
         }
         else
         {
@@ -99,7 +101,7 @@ public class PlayerInventory : MonoBehaviour
             item.transform.localRotation = Quaternion.identity; //아이템이 바라보는 회전각 변경
         }
 
-        
+
 
         // Rigidbody가 있다면, 인벤토리에 있는 동안 물리 시뮬레이션을 중지시킴
         Rigidbody rb = item.GetComponent<Rigidbody>();
@@ -132,7 +134,7 @@ public class PlayerInventory : MonoBehaviour
         if (currentItem == null) return; //선택된 슬롯이 비어있으면 리턴
 
         // feetPoint보다 y축 약간 위에 드롭되도록 함
-        Vector3 dropPosition = feetPoint.position + Vector3.up * 0.2f; 
+        Vector3 dropPosition = feetPoint.position + Vector3.up * 0.2f;
 
         //드롭 위치 정확도 개선 코드인데 GPT가 캐리해서 잘 모름
         if (Physics.Raycast(dropPosition, Vector3.down, out RaycastHit hit, 5f))
@@ -141,10 +143,10 @@ public class PlayerInventory : MonoBehaviour
             dropPosition = hit.point + Vector3.up * (col?.bounds.extents.y ?? 0.2f);
         }
 
-        var rot = currentItem.GetComponent<HoldedItemRotation>();
-        if (rot != null)
+        var itemPosition = currentItem.GetComponent<HoldedItemRotation>();
+        if (itemPosition != null)
         {
-            rot.DropHeld(dropPosition);
+            itemPosition.DropHeld(dropPosition);
         }
         else
         {
@@ -152,16 +154,14 @@ public class PlayerInventory : MonoBehaviour
             currentItem.transform.SetParent(null); //인벤토리와 부모관계 해제
             currentItem.transform.position = dropPosition;
             currentItem.transform.rotation = Quaternion.identity;
-            
+
         }
-        currentItem.SetActive(true);
-
-
         // 인벤토리 프리뷰 카메라 및 UI 정리 << 이 내용 나중에 점검
         var previewController = currentItem.GetComponent<ItemPreviewController>();
         previewController?.DeactivatePreview(); // 프리뷰 비활성화
         uiController.ClearSlotPreviewTexture(slotIndex); // UI 텍스쳐 클리어
 
+        currentItem.SetActive(true);
         /*
          if (previewController != null)
     {
@@ -190,14 +190,43 @@ public class PlayerInventory : MonoBehaviour
             {
                 bool isHeld = (i == currentSlot);
                 Transform targetTransform = isHeld ? handTransform : waistTransform;
-                heldItems[i].transform.SetParent(targetTransform);
-                heldItems[i].transform.localPosition = Vector3.zero;
-                heldItems[i].transform.localRotation = Quaternion.identity;
+
+                var itemPosition = heldItems[i].GetComponent<HoldedItemRotation>();
+
+                if (itemPosition != null)
+                {
+                    itemPosition.ApplyHeld(targetTransform);
+                }
+                else
+                {
+                    heldItems[i].transform.SetParent(targetTransform);
+                    heldItems[i].transform.localPosition = Vector3.zero;
+                    heldItems[i].transform.localRotation = Quaternion.identity;
+                }
                 heldItems[i].SetActive(true);
             }
         }
     }
 
+    public void ItemThrow(int slotIndex) //던지기용 오브젝트 관계 해제 메소드
+    {
+        GameObject currentItem = heldItems[slotIndex];
+        if (currentItem == null) return;
+
+        // 인벤토리에서만 제거하고 위치는 건드리지 않음
+        heldItems[slotIndex] = null;
+
+        // 프리뷰 관련 비활성화
+        var previewController = currentItem.GetComponent<ItemPreviewController>();
+        previewController?.DeactivatePreview();
+
+        uiController.ClearSlotPreviewTexture(slotIndex);
+
+        currentItem.SetActive(true);
+
+        currentItem.transform.SetParent(null); // 부모 관계 해제
+
+    }
 
     //현재 손에 쥔 아이템 외부 참조용
     public GameObject GetCurrentItem()

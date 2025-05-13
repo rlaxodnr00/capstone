@@ -26,7 +26,7 @@ public interface ILightSwitchable //조명 관련 토글 기능 << 지울 예정
 
 public interface IInventoryInteractable //인벤토리 내부 상호작용
 {
-    void InventoryInteract();       // 기본 F키 상호작용
+    void InventoryInteract(PlayerInventory inventory);       // 기본 F키 상호작용
 }
 
 
