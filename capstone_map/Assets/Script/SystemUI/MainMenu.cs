@@ -4,20 +4,20 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     [Header("Main Button")]
-    public GameObject gameStart; //start ¹öÆ° ¿¬°á
-    public GameObject gameGuide; //guide ¹öÆ° ¿¬°á
-    public GameObject gameOption; //option ¹öÆ° ¿¬°á
-    public GameObject gameQuit; //quit ¹öÆ° ¿¬°á
+    public GameObject gameStart; //start ë²„íŠ¼ ì—°ê²°
+    public GameObject gameGuide; //guide ë²„íŠ¼ ì—°ê²°
+    public GameObject gameOption; //option ë²„íŠ¼ ì—°ê²°
+    public GameObject gameQuit; //quit ë²„íŠ¼ ì—°ê²°
 
     [Header("Guide Screens")]
-    public CanvasGroup guideScreens; //°¡ÀÌµå ½ºÅ©¸° ºÎ¸ğ
+    public CanvasGroup guideScreens; //ê°€ì´ë“œ ìŠ¤í¬ë¦° ë¶€ëª¨
     public CanvasGroup guideScreen;
     public CanvasGroup playGuideScreen;
     public CanvasGroup keyGuideScreen;
 
 
     [Header("Others")]
-    private CanvasGroup currentScreen; //È­¸éÀúÀå¿ë
+    private CanvasGroup currentScreen; //í™”ë©´ì €ì¥ìš©
 
 
     private void Start()
@@ -28,10 +28,10 @@ public class MainMenu : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape)) //ESC Å°·Î µÚ·Î°¡±â
+        if (Input.GetKeyDown(KeyCode.Escape)) //ESC í‚¤ë¡œ ë’¤ë¡œê°€ê¸°
         {
             GoBack();
-            Debug.Log("GoBack ½ÇÇà");
+            Debug.Log("GoBack ì‹¤í–‰");
         }
     }
 
@@ -46,50 +46,50 @@ public class MainMenu : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("We_Make_This_Map");
     }
 
-    public void GuideGame() //°¡ÀÌµå ¿ÀÇÂ
+    public void GuideGame() //ê°€ì´ë“œ ì˜¤í”ˆ
     {
-        SetCanvasGroup(guideScreens, true); //°¡ÀÌµå È­¸é È°¼ºÈ­
+        SetCanvasGroup(guideScreens, true); //ê°€ì´ë“œ í™”ë©´ í™œì„±í™”
         SetCanvasGroup(guideScreen, true);
         SetCanvasGroup(playGuideScreen, false);
         SetCanvasGroup(keyGuideScreen, false);
-        currentScreen = guideScreen;  // ÇöÀç È­¸é = °¡ÀÌµå È­¸éÀ¸·Î ¼³Á¤
+        currentScreen = guideScreen;  // í˜„ì¬ í™”ë©´ = ê°€ì´ë“œ í™”ë©´ìœ¼ë¡œ ì„¤ì •
         Debug.Log("GuideGame currentScreen : " + currentScreen);
     }
 
-    public void OpenKeyGuide() //Å° °¡ÀÌµå ¿ÀÇÂ
+    public void OpenKeyGuide() //í‚¤ ê°€ì´ë“œ ì˜¤í”ˆ
     {
         SetCanvasGroup(guideScreens, false);
         SetCanvasGroup(guideScreen, false);
         SetCanvasGroup(keyGuideScreen, true);
-        currentScreen = keyGuideScreen;  // ÇöÀç È­¸é =  Å° °¡ÀÌµå È­¸éÀ¸·Î ¼³Á¤
+        currentScreen = keyGuideScreen;  // í˜„ì¬ í™”ë©´ =  í‚¤ ê°€ì´ë“œ í™”ë©´ìœ¼ë¡œ ì„¤ì •
         Debug.Log("OpenKeyGuide currentScreen : " + currentScreen);
     }
 
-    public void OpenPlayGuide() //ÇÃ·¹ÀÌ °¡ÀÌµå ¿ÀÇÂ
+    public void OpenPlayGuide() //í”Œë ˆì´ ê°€ì´ë“œ ì˜¤í”ˆ
     {
         SetCanvasGroup(guideScreens, false);
         SetCanvasGroup(playGuideScreen, true);
         SetCanvasGroup(guideScreen, false);
-        currentScreen = playGuideScreen; // ÇöÀç È­¸é = ÇÃ·¹ÀÌ °¡ÀÌµå È­¸éÀ¸·Î ¼³Á¤
+        currentScreen = playGuideScreen; // í˜„ì¬ í™”ë©´ = í”Œë ˆì´ ê°€ì´ë“œ í™”ë©´ìœ¼ë¡œ ì„¤ì •
         Debug.Log("OpenPlayGuide currentScreen : " + currentScreen);
     }
 
 
     public void OptionGame()
     {
-        Debug.Log("¼³Á¤Ã¢ ¿ÀÇÂ");
+        Debug.Log("ì„¤ì •ì°½ ì˜¤í”ˆ");
     }
 
     public void QuitGame()
     {
-        Debug.Log("°ÔÀÓ Á¾·á");
+        Debug.Log("ê²Œì„ ì¢…ë£Œ");
         Application.Quit();
 
 
-        // À¯´ÏÆ¼ ¿¡µğÅÍ¿¡¼­´Â Á¾·áµÇÁö ¾ÊÀ¸¹Ç·Î, ¾Æ·¡ ÄÚµå Ãß°¡ °¡´É (¿¡µğÅÍ¿¡¼­¸¸ ½ÇÇà)
+        // ìœ ë‹ˆí‹° ì—ë””í„°ì—ì„œëŠ” ì¢…ë£Œë˜ì§€ ì•Šìœ¼ë¯€ë¡œ, ì•„ë˜ ì½”ë“œ ì¶”ê°€ ê°€ëŠ¥ (ì—ë””í„°ì—ì„œë§Œ ì‹¤í–‰)
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
 #endif
@@ -99,7 +99,7 @@ public class MainMenu : MonoBehaviour
 
     public void GoBack()
     {
-        //ÇÃ·¹ÀÌ °¡ÀÌµå or Å° °¡ÀÌµåÀÇ °æ¿ì °¡ÀÌµå È­¸éÀ¸·Î µ¹¾Æ°¨
+        //í”Œë ˆì´ ê°€ì´ë“œ or í‚¤ ê°€ì´ë“œì˜ ê²½ìš° ê°€ì´ë“œ í™”ë©´ìœ¼ë¡œ ëŒì•„ê°
         if (currentScreen == playGuideScreen || currentScreen == keyGuideScreen)
         {
             GuideGame();
@@ -112,7 +112,7 @@ public class MainMenu : MonoBehaviour
         }
 
 
-        //°¡ÀÌµå È­¸é¿¡¼­ µÚ·Î °¥ ½Ã
+        //ê°€ì´ë“œ í™”ë©´ì—ì„œ ë’¤ë¡œ ê°ˆ ì‹œ
         else if (currentScreen == guideScreen)
         {
             DefaultMainScreen();
@@ -123,9 +123,9 @@ public class MainMenu : MonoBehaviour
     private void SetCanvasGroup(CanvasGroup canvasGroup, bool isActive)
     {
         if (canvasGroup == null) return;
-        canvasGroup.alpha = isActive ? 1 : 0; //Åõ¸íµµ Á¶Àı
-        canvasGroup.interactable = isActive; //»óÈ£ÀÛ¿ë on / off
-        canvasGroup.blocksRaycasts = isActive; //raycast È°¼º / ºñÈ°¼ºÈ­
+        canvasGroup.alpha = isActive ? 1 : 0; //íˆ¬ëª…ë„ ì¡°ì ˆ
+        canvasGroup.interactable = isActive; //ìƒí˜¸ì‘ìš© on / off
+        canvasGroup.blocksRaycasts = isActive; //raycast í™œì„± / ë¹„í™œì„±í™”
     }
 
 
