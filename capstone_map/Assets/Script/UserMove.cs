@@ -7,35 +7,38 @@ using UnityEngine.UI;
 public class UserMove : MonoBehaviour
 {
     private CharacterController controller; // 캐릭터 컨트롤러
-    private CrouchHandler crouchHandler;      // 캐릭터 앉기 스크립트
+    private CrouchHandler crouchHandler;        // 캐릭터 앉기 스크립트
 
     private Vector3 dir; // 캐릭터 이동 벡터
 
     [Header("Speed Settings")]
-    public float currentSpeed = 2f;  // 현재 이동 속도
-    public float walkSpeed = 2f;     // 걷기 이동 속도
-    public float crouchSpeed = 1f;   // 앉기 이동 속도
-    public float sprintSpeed = 4f;   // 달리기 속도
+    public float currentSpeed = 2f;     // 현재 이동 속도
+    public float walkSpeed = 2f;        // 걷기 이동 속도
+    public float crouchSpeed = 1f;      // 앉기 이동 속도
+    public float sprintSpeed = 4f;      // 달리기 속도
 
     [Header("Other Settings")]
-    private float jumpForce = 2f;    // 점프력
-    public float gravity;          // 캐릭터 적용 중력
-    private bool jumpFlag = false; // 점프 상태 판별
+    private float jumpForce = 2f;        // 점프력
+    public float gravity;                // 캐릭터 적용 중력
+    private bool jumpFlag = false;       // 점프 상태 판별
 
     private float moveX = 0f;
     private float moveZ = 0f;
 
     [Header("Mouse Settings")]
-    public Transform viewPivot;    // 머리 회전 기준점
-    public Transform headBone;     // 실제 머리 본 (ex: Bip001 Head)
+    public Transform viewPivot;         // 머리 회전 기준점
+    public Transform headBone;          // 실제 머리 본 (ex: Bip001 Head)
     [SerializeField] private float mouseSpeed = 8f; // 마우스 이동 속도
-    private float mouseX = 0f;     // 좌우 회전값 변수
-    private float mouseY = 0f;     // 상하 회전값 변수
+    private float mouseX = 0f;          // 좌우 회전값 변수
+    private float mouseY = 0f;          // 상하 회전값 변수
 
     public float WalkSpeed => walkSpeed; // 읽기 전용 Getter
 
     [Header("Sound Emitter Settings")]
-    public GameObject footstepEmitterPrefab; // 발소리 SoundEmitter 프리팹
+    public Sound_Emitter footstepEmitter; // 발소리 SoundEmitter 컴포넌트 (에디터에서 할당)
+    public AudioClip[] footstepClips;     // 발소리 AudioClip 배열
+    public float baseStepInterval = 0.5f; // 걷기 속도 기준 기본 발걸음 간격 (초)
+    private float footstepTimer = 0f;     // 발걸음 타이머
 
     public float CurrentSpeed
     {
@@ -45,12 +48,15 @@ public class UserMove : MonoBehaviour
 
     // -----------------------------------------------------------------
     // [Header] Footstep Settings
-    [Header("Footstep Settings")]
-    public AudioSource footstepSource;      // 발소리 재생용 AudioSource
-    public AudioClip[] footstepClips;         // 발소리 AudioClip 배열
-    public float baseStepInterval = 0.5f;     // 걷기 속도 기준 기본 발걸음 간격 (초)
-    private float footstepTimer = 0f;         // 발걸음 타이머
+    // [Header("Footstep Settings")]
+    // public AudioSource footstepSource;          // 발소리 재생용 AudioSource
+    // public AudioClip[] footstepClips;          // 발소리 AudioClip 배열
+    // public float baseStepInterval = 0.5f;      // 걷기 속도 기준 기본 발걸음 간격 (초)
+    // private float footstepTimer = 0f;          // 발걸음 타이머
     // -----------------------------------------------------------------
+
+    // [Header("Sound Emitter Settings")]
+    // public GameObject footstepEmitterPrefab; // 발소리 SoundEmitter 프리팹
 
     private void Start()
     {
@@ -59,21 +65,42 @@ public class UserMove : MonoBehaviour
 
         dir = Vector3.zero; // 벡터 초기화
         currentSpeed = walkSpeed; // 기본 속도 설정
-        gravity = 10f;    // 중력값 설정
-        
-        
+        gravity = 10f;      // 중력값 설정
+
+
         // 마우스 중앙 고정 포인터 숨기기
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
+        // Sound_Emitter 컴포넌트가 할당되지 않았을 경우 현재 오브젝트에서 찾음
+        if (footstepEmitter == null)
+        {
+            footstepEmitter = GetComponent<Sound_Emitter>();
+            if (footstepEmitter == null)
+            {
+                Debug.LogError("Sound_Emitter 컴포넌트가 필요합니다.");
+                enabled = false; // 컴포넌트 비활성화
+            }
+            else
+            {
+                // AudioMethod를 AudioClip으로 설정 (Sound_Emitter를 직접 사용하므로)
+                footstepEmitter.AudioMethod = Sound_Emitter.audioChoice.AudioClip;
+            }
+        }
+        else
+        {
+            // AudioMethod를 AudioClip으로 설정 (Sound_Emitter를 직접 사용하므로)
+            footstepEmitter.AudioMethod = Sound_Emitter.audioChoice.AudioClip;
+        }
     }
 
     void Update()
     {
-        PlayerMove();     // 플레이어 이동
-        PlayerCrouch();   // 구르기(앉기)
-        ScreenMove();     // 화면(카메라) 이동
-        PlayerJump();     // 플레이어 점프
-        HandleFootsteps(); // 발소리 처리 추가
+        PlayerMove();      // 플레이어 이동
+        PlayerCrouch();    // 구르기(앉기)
+        ScreenMove();      // 화면(카메라) 이동
+        PlayerJump();      // 플레이어 점프
+        HandleFootsteps(); // 발소리 처리
     }
 
     void PlayerMove()
@@ -166,14 +193,36 @@ public class UserMove : MonoBehaviour
         headBone.localEulerAngles = new Vector3(angles.x, angles.y, 0f); // Z축 고정
     }
 
-    /// <summary>
-    /// 발소리 로직 처리.
-    /// 플레이어가 지면에 있고, 일정 속도로 움직일 때, 일정 간격마다 발소리를 재생합니다.
-    /// </summary>
-    /// 
+    void HandleFootsteps()
+    {
+        Vector3 horizontalMove = new Vector3(dir.x, 0, dir.z);
+        if (controller.isGrounded && horizontalMove.magnitude > 0.1f)
+        {
+            footstepTimer += Time.deltaTime;
+            float stepInterval = baseStepInterval * (walkSpeed / currentSpeed);
+
+            if (footstepTimer >= stepInterval)
+            {
+                footstepTimer = 0f;
+
+                // 발소리 재생 (Sound_Emitter 사용)
+                if (footstepEmitter != null && footstepClips != null && footstepClips.Length > 0)
+                {
+                    int clipIndex = Random.Range(0, footstepClips.Length);
+                    footstepEmitter.m_AudioClip = footstepClips[clipIndex];
+                    footstepEmitter.m_Pitch = Time.timeScale > 0 ? 1f : 0f; // 일시정지 시 피치 0으로 설정
+                    footstepEmitter.ClipPlay(); // Sound_Emitter의 ClipPlay 함수 호출
+                }
+            }
+        }
+        else
+        {
+            footstepTimer = 0f;
+        }
+    }
 
     /*
-     * 수정 전버전
+    // 수정 전 버전
     void HandleFootsteps()
     {
         // 플레이어가 지면에 있고, 상당한 수평 이동이 있을 때 발소리 발동
@@ -209,9 +258,9 @@ public class UserMove : MonoBehaviour
             footstepTimer = 0f;
         }
     }
-
     */
 
+    /*
     void HandleFootsteps()
     {
         Vector3 horizontalMove = new Vector3(dir.x, 0, dir.z);
@@ -253,5 +302,5 @@ public class UserMove : MonoBehaviour
             footstepTimer = 0f;
         }
     }
-
+    */
 }
