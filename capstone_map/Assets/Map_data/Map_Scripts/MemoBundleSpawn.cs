@@ -6,7 +6,7 @@ public class MemoBundleSpawn : MonoBehaviour
 {
     public GameObject bundle;
     MemoBundlePoint[] memoSpawn;
-    public GameObject prefabToSpawn; // »ı¼ºÇÒ ¸Ş¸ğ ÇÁ¸®ÆÕ
+    public GameObject prefabToSpawn; // ìƒì„±í•  ë©”ëª¨ í”„ë¦¬íŒ¹
 
     public int minMemoCount = 3;
     public int maxMemoCount = 7;
@@ -16,14 +16,14 @@ public class MemoBundleSpawn : MonoBehaviour
     {
         if (bundle == null)
         {
-            Debug.Log("¹øµé ÄÁÅ×ÀÌ³Ê ¾øÀ½");
+            Debug.Log("ë²ˆë“¤ ì»¨í…Œì´ë„ˆ ì—†ìŒ");
             yield break;
         }
 
         yield return new WaitForSeconds(1.0f);
 
         memoSpawn = bundle.GetComponentsInChildren<MemoBundlePoint>();
-        Debug.Log("¸Ş¸ğ ½ºÆù °¹¼ö : " + memoSpawn.Length);
+        Debug.Log("ë©”ëª¨ ìŠ¤í° ê°¯ìˆ˜ : " + memoSpawn.Length);
 
         memoCount = Random.Range(minMemoCount, maxMemoCount);
 
@@ -38,20 +38,20 @@ public class MemoBundleSpawn : MonoBehaviour
 
         int memoNum = 1;
 
-        // memoCount ¸¸Å­ ·£´ıÀ¸·Î »Ì¾Æ¼­ ¸Ş¸ğ »ı¼º
+        // memoCount ë§Œí¼ ëœë¤ìœ¼ë¡œ ë½‘ì•„ì„œ ë©”ëª¨ ìƒì„±
         var selectedTargets = memoSpawn
-            .OrderBy(x => Random.value) // ·£´ıÀ¸·Î ¼¯±â
-            .Take(memoCount)           // memoCount ¸¸Å­ ¼±ÅÃ
+            .OrderBy(x => Random.value) // ëœë¤ìœ¼ë¡œ ì„ê¸°
+            .Take(memoCount)           // memoCount ë§Œí¼ ì„ íƒ
             .ToArray();
 
         if (prefabToSpawn != null)
         {
             foreach (var target in selectedTargets)
             {
-                // ¼±ÅÃµÈ À§Ä¡¿¡ ¸Ş¸ğ »ı¼º
+                // ì„ íƒëœ ìœ„ì¹˜ì— ë©”ëª¨ ìƒì„±
                 GameObject newMemo = Instantiate(prefabToSpawn, target.transform);
 
-                Debug.Log("¸Ş¸ğ »ı¼º: " + newMemo.name + " at position " + target.transform.position);
+                Debug.Log("ë©”ëª¨ ìƒì„±: " + newMemo.name + " at position " + target.transform.position);
                 newMemo.GetComponentInChildren<Memo>().memoNumber = memoNum++;
             }
         }

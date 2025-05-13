@@ -71,7 +71,7 @@ public class Door_Interaction : MonoBehaviour
 
         Debug.Log("distance : " + Vector3.Distance(player.position, door.position).ToString() + " / angle : " + angle.ToString());
 
-        // ÇÃ·¹ÀÌ¾îÀÇ ½Ã¾ß°¢(FOV) ¾È¿¡ ÀÖ´ÂÁö È®ÀÎ (°Å¸®°¡ °¡±î¿ï °æ¿ì 90µµ ±îÁö °Ë»ç)
+        // í”Œë ˆì´ì–´ì˜ ì‹œì•¼ê°(FOV) ì•ˆì— ìˆëŠ”ì§€ í™•ì¸ (ê±°ë¦¬ê°€ ê°€ê¹Œìš¸ ê²½ìš° 90ë„ ê¹Œì§€ ê²€ì‚¬)
         return (angle < fieldOfViewAngle) || ((Vector3.Distance(player.position, door.position) <= minDistance) && angle < 75f);
     }
 }

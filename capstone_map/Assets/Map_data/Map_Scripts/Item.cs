@@ -22,7 +22,7 @@ public class Item : Interactable
 
     public override void OnInteract()
     {
-        // ¾ÆÀÌÅÛ È¹µæ ÇÔ¼ö
+        // ì•„ì´í…œ íšë“ í•¨ìˆ˜
         ItemSpawnPoint spawnPoint = GetComponentInParent<ItemSpawnPoint>();
         if (spawnPoint != null)
         {

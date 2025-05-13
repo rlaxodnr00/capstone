@@ -35,13 +35,13 @@ public class Door : Interactable
         // base.OnInteract();
         // Debug.Log("Door Interacted");
 
-        // ¿­·ÁÀÖ´Â ¹®À» ´İ°Å³ª, ¹®ÀÌ Àá±âÁö ¾Ê¾ÒÀ» ¶§
+        // ì—´ë ¤ìˆëŠ” ë¬¸ì„ ë‹«ê±°ë‚˜, ë¬¸ì´ ì ê¸°ì§€ ì•Šì•˜ì„ ë•Œ
         if (animator.GetBool("open") || !animator.GetBool("locked"))
         {
             animator.SetBool("open", !animator.GetBool("open"));
         }
         
-        // ¼Ò¸® Àç»ı
+        // ì†Œë¦¬ ì¬ìƒ
         if (audioS != null && open != null && close != null && locked != null)
         {
             if (animator.GetBool("locked")) audioS.PlayOneShot(locked);

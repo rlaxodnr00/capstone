@@ -20,7 +20,7 @@ public class ItemManager : MonoBehaviour
 
     void Update()
     {
-        // ¾ÆÀÌÅÛ »ı¼º Å×½ºÆ® ÄÚµå (Q¸¦ ´­·¯ »ı¼º)
+        // ì•„ì´í…œ ìƒì„± í…ŒìŠ¤íŠ¸ ì½”ë“œ (Që¥¼ ëˆŒëŸ¬ ìƒì„±)
         /*
         if (Input.GetKeyDown(KeyCode.Q))
         {
@@ -35,7 +35,7 @@ public class ItemManager : MonoBehaviour
         }
         */
 
-        // ÀÏÁ¤ ½Ã°£ ¸¶´Ù ¾ÆÀÌÅÛÀ» »ı¼ºÇÔ
+        // ì¼ì • ì‹œê°„ ë§ˆë‹¤ ì•„ì´í…œì„ ìƒì„±í•¨
         
         timer += Time.deltaTime;
         if (timer >= itemDelay)
@@ -48,15 +48,15 @@ public class ItemManager : MonoBehaviour
 
     void CreateItem()
     {
-        // ¾ÆÀÌÅÛ »ı¼º À§Ä¡°¡ ¾øÀ» °æ¿ì »ı¼ºÇÏÁö ¾ÊÀ½
+        // ì•„ì´í…œ ìƒì„± ìœ„ì¹˜ê°€ ì—†ì„ ê²½ìš° ìƒì„±í•˜ì§€ ì•ŠìŒ
         if (itemSpawn.Length == 0)
         {
             return;
         }
-        // ¸Ê¿¡ ÀÖ´Â "¸ğµç" ¾ÆÀÌÅÛ »ı¼º ÁöÁ¡ Áß ÇÏ³ª¸¦ ÁöÁ¤ÇÔ
+        // ë§µì— ìˆëŠ” "ëª¨ë“ " ì•„ì´í…œ ìƒì„± ì§€ì  ì¤‘ í•˜ë‚˜ë¥¼ ì§€ì •í•¨
         int index = Random.Range(0, itemSpawn.Length);
         
-        // ¾ÆÀÌÅÛ »ı¼º ÁöÁ¡ÀÇ ÇÔ¼ö·Î ¾ÆÀÌÅÛ »ı¼º
+        // ì•„ì´í…œ ìƒì„± ì§€ì ì˜ í•¨ìˆ˜ë¡œ ì•„ì´í…œ ìƒì„±
         if (itemSpawn[index] != null)
         {
             itemSpawn[index].ItemCreate();

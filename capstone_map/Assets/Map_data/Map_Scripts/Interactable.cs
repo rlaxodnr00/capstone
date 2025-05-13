@@ -2,21 +2,21 @@ using UnityEngine;
 
 public class Interactable : MonoBehaviour
 {
-    // ÇÃ·¹ÀÌ¾î°¡ ¿ÀºêÁ§Æ®¸¦ ¹Ù¶óº¼ ¶§ È£ÃâµÇ´Â ÇÔ¼ö
+    // í”Œë ˆì´ì–´ê°€ ì˜¤ë¸Œì íŠ¸ë¥¼ ë°”ë¼ë³¼ ë•Œ í˜¸ì¶œë˜ëŠ” í•¨ìˆ˜
     public virtual void OnLookAt()
     {
-        // Debug.Log(gameObject.name + "¸¦ ¹Ù¶óº½.");
+        // Debug.Log(gameObject.name + "ë¥¼ ë°”ë¼ë´„.");
     }
 
-    // ÇÃ·¹ÀÌ¾î°¡ ¿ÀºêÁ§Æ®¿¡¼­ ½Ã¼±À» µ¹¸± ¶§ È£ÃâµÇ´Â ÇÔ¼ö
+    // í”Œë ˆì´ì–´ê°€ ì˜¤ë¸Œì íŠ¸ì—ì„œ ì‹œì„ ì„ ëŒë¦´ ë•Œ í˜¸ì¶œë˜ëŠ” í•¨ìˆ˜
     public virtual void OnLookAway()
     {
-        // Debug.Log(gameObject.name + "¿¡¼­ ½Ã¼±À» µ¹¸².");
+        // Debug.Log(gameObject.name + "ì—ì„œ ì‹œì„ ì„ ëŒë¦¼.");
     }
 
-    // ÇÃ·¹ÀÌ¾î°¡ »óÈ£ÀÛ¿ëÇÒ ¶§ È£ÃâµÇ´Â ÇÔ¼ö
+    // í”Œë ˆì´ì–´ê°€ ìƒí˜¸ì‘ìš©í•  ë•Œ í˜¸ì¶œë˜ëŠ” í•¨ìˆ˜
     public virtual void OnInteract()
     {
-        // Debug.Log(gameObject.name + "¿Í »óÈ£ÀÛ¿ëÇÔ.");
+        // Debug.Log(gameObject.name + "ì™€ ìƒí˜¸ì‘ìš©í•¨.");
     }
 }

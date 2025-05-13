@@ -2,18 +2,18 @@ using UnityEngine;
 
 public class Player_Interaction : MonoBehaviour
 {
-    public float interactionDistance = 3f; // »óÈ£ÀÛ¿ë °¡´ÉÇÑ °Å¸®
-    // public LayerMask interactableLayer; // »óÈ£ÀÛ¿ë °¡´ÉÇÑ ¿ÀºêÁ§Æ®ÀÇ ·¹ÀÌ¾î
+    public float interactionDistance = 3f; // ìƒí˜¸ì‘ìš© ê°€ëŠ¥í•œ ê±°ë¦¬
+    // public LayerMask interactableLayer; // ìƒí˜¸ì‘ìš© ê°€ëŠ¥í•œ ì˜¤ë¸Œì íŠ¸ì˜ ë ˆì´ì–´
 
-    private Camera playerCamera; // ÇÃ·¹ÀÌ¾î Ä«¸Ş¶ó
-    private Interactable currentInteractable; // ÇöÀç °¨ÁöµÈ »óÈ£ÀÛ¿ë °¡´ÉÇÑ ¿ÀºêÁ§Æ®
+    private Camera playerCamera; // í”Œë ˆì´ì–´ ì¹´ë©”ë¼
+    private Interactable currentInteractable; // í˜„ì¬ ê°ì§€ëœ ìƒí˜¸ì‘ìš© ê°€ëŠ¥í•œ ì˜¤ë¸Œì íŠ¸
     public GameObject interactionUI;
     public float interactionMaxCooldown = 0.5f;
     private float interactionCooldown = 0f;
 
     void Start()
     {
-        playerCamera = Camera.main; // ¸ŞÀÎ Ä«¸Ş¶ó¸¦ °¡Á®¿È
+        playerCamera = Camera.main; // ë©”ì¸ ì¹´ë©”ë¼ë¥¼ ê°€ì ¸ì˜´
         if (interactionUI != null)
         {
             interactionUI.SetActive(false);
@@ -27,8 +27,8 @@ public class Player_Interaction : MonoBehaviour
             Debug.Log(currentInteractable.name);
         }
 
-        CheckForInteractable(); // »óÈ£ÀÛ¿ë °¡´ÉÇÑ ¿ÀºêÁ§Æ® °¨Áö
-        HandleInteraction(); // ÇÃ·¹ÀÌ¾î ÀÔ·Â Ã³¸®
+        CheckForInteractable(); // ìƒí˜¸ì‘ìš© ê°€ëŠ¥í•œ ì˜¤ë¸Œì íŠ¸ ê°ì§€
+        HandleInteraction(); // í”Œë ˆì´ì–´ ì…ë ¥ ì²˜ë¦¬
 
         if (interactionCooldown > 0f)
         {
@@ -38,20 +38,20 @@ public class Player_Interaction : MonoBehaviour
 
     void CheckForInteractable()
     {
-        // ÇÃ·¹ÀÌ¾î Ä«¸Ş¶ó¿¡¼­ Á¤¸é ¹æÇâÀ¸·Î ·¹ÀÌ »ı¼º
+        // í”Œë ˆì´ì–´ ì¹´ë©”ë¼ì—ì„œ ì •ë©´ ë°©í–¥ìœ¼ë¡œ ë ˆì´ ìƒì„±
         Ray ray = new Ray(playerCamera.transform.position, playerCamera.transform.forward);
         RaycastHit hit;
 
-        // ¸ğµç ·¹ÀÌ¾î¸¦ ´ë»óÀ¸·Î ·¹ÀÌÄ³½ºÆ® ½ÇÇà
+        // ëª¨ë“  ë ˆì´ì–´ë¥¼ ëŒ€ìƒìœ¼ë¡œ ë ˆì´ìºìŠ¤íŠ¸ ì‹¤í–‰
         if (Physics.Raycast(ray, out hit, interactionDistance))
         {
             GameObject hitObject = hit.collider.gameObject;
             int hitLayer = hitObject.layer;
 
-            // »óÈ£ÀÛ¿ë ·¹ÀÌ¾î°¡ ¾Æ´Ñ ·¹ÀÌ¾îÀÎÁö È®ÀÎ
+            // ìƒí˜¸ì‘ìš© ë ˆì´ì–´ê°€ ì•„ë‹Œ ë ˆì´ì–´ì¸ì§€ í™•ì¸
             if (hitLayer != LayerMask.NameToLayer("Interactable"))
             {
-                // »óÈ£ÀÛ¿ë ºÒ°¡ Ã³¸®
+                // ìƒí˜¸ì‘ìš© ë¶ˆê°€ ì²˜ë¦¬
                 if (currentInteractable != null)
                 {
                     currentInteractable.OnLookAway();
@@ -64,7 +64,7 @@ public class Player_Interaction : MonoBehaviour
                 return;
             }
 
-            // »óÈ£ÀÛ¿ë ÄÄÆ÷³ÍÆ® È®ÀÎ
+            // ìƒí˜¸ì‘ìš© ì»´í¬ë„ŒíŠ¸ í™•ì¸
             Interactable interactable = hitObject.GetComponent<Interactable>();
             if (interactable != null)
             {
@@ -83,7 +83,7 @@ public class Player_Interaction : MonoBehaviour
                     }
                 }
 
-                // »õ·Ó°Ô °¨ÁöµÈ ¿ÀºêÁ§Æ®¶ó¸é º¯°æ Ã³¸®
+                // ìƒˆë¡­ê²Œ ê°ì§€ëœ ì˜¤ë¸Œì íŠ¸ë¼ë©´ ë³€ê²½ ì²˜ë¦¬
                 if (currentInteractable != interactable)
                 {
                     if (currentInteractable != null)
@@ -96,7 +96,7 @@ public class Player_Interaction : MonoBehaviour
             }
         }
 
-        // °¨ÁöµÈ ¿ÀºêÁ§Æ®°¡ ¾øÀ¸¸é ±âÁ¸ ¿ÀºêÁ§Æ®¿¡¼­ ½Ã¼±À» µ¹·È´Ù°í Ã³¸®
+        // ê°ì§€ëœ ì˜¤ë¸Œì íŠ¸ê°€ ì—†ìœ¼ë©´ ê¸°ì¡´ ì˜¤ë¸Œì íŠ¸ì—ì„œ ì‹œì„ ì„ ëŒë ¸ë‹¤ê³  ì²˜ë¦¬
         if (currentInteractable != null)
         {
             currentInteractable.OnLookAway();
@@ -111,7 +111,7 @@ public class Player_Interaction : MonoBehaviour
 
     void HandleInteraction()
     {
-        // ÇöÀç °¨ÁöµÈ ¿ÀºêÁ§Æ®°¡ ÀÖ°í, »óÈ£ÀÛ¿ë Å° (Input Manager¿¡¼­ ¼³Á¤)¸¦ ´­·¶À» ¶§ »óÈ£ÀÛ¿ë ½ÇÇà
+        // í˜„ì¬ ê°ì§€ëœ ì˜¤ë¸Œì íŠ¸ê°€ ìˆê³ , ìƒí˜¸ì‘ìš© í‚¤ (Input Managerì—ì„œ ì„¤ì •)ë¥¼ ëˆŒë €ì„ ë•Œ ìƒí˜¸ì‘ìš© ì‹¤í–‰
         if (currentInteractable != null && Input.GetButtonDown("Interact") && interactionCooldown <= 0f)
         {
             currentInteractable.OnInteract();

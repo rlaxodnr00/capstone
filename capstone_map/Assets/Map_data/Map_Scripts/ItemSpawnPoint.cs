@@ -19,10 +19,10 @@ public class ItemSpawnPoint : MonoBehaviour
 
     public void ItemCreate()
     {
-        // ÀÌ ÁöÁ¡¿¡ ¾ÆÀÌÅÛÀÌ ÀÖ´ÂÁö °Ë»ç
+        // ì´ ì§€ì ì— ì•„ì´í…œì´ ìˆëŠ”ì§€ ê²€ì‚¬
         if (!Item)
         {
-            // ¾ø´Ù¸é ¾ÆÀÌÅÛ ¸ñ·Ï Áß ·£´ıÀ¸·Î ¾ÆÀÌÅÛ »ı¼º
+            // ì—†ë‹¤ë©´ ì•„ì´í…œ ëª©ë¡ ì¤‘ ëœë¤ìœ¼ë¡œ ì•„ì´í…œ ìƒì„±
             Item = true;
             int index = Random.Range(0, itemList.Length);
             if (itemList[index] != null)

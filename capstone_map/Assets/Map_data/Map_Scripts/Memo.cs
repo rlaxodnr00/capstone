@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class Memo :Interactable
 {
-    // ¸Ş¸ğÀå ¹øÈ£
+    // ë©”ëª¨ì¥ ë²ˆí˜¸
     public int memoNumber;
-    // ¸Ş¸ğÀå UI
-    // ¸Ş¸ğÀå ÅØ½ºÆ® µî
+    // ë©”ëª¨ì¥ UI
+    // ë©”ëª¨ì¥ í…ìŠ¤íŠ¸ ë“±
 
     public override void OnLookAt()
     {
@@ -14,12 +14,12 @@ public class Memo :Interactable
 
     public override void OnLookAway()
     {
-        // ¸Ş¸ğÀåÀ» ¿­¾î µÎ°í ½Ã¼±À» µ¹¸®¸é ¸Ş¸ğÀåÀÌ ´İÈû
+        // ë©”ëª¨ì¥ì„ ì—´ì–´ ë‘ê³  ì‹œì„ ì„ ëŒë¦¬ë©´ ë©”ëª¨ì¥ì´ ë‹«í˜
     }
 
     public override void OnInteract()
     {
-        // ¸Ş¸ğÀå ¿­±â
-        Debug.Log(memoNumber + "¹ø ¸Ş¸ğÀå »óÈ£ÀÛ¿ë");
+        // ë©”ëª¨ì¥ ì—´ê¸°
+        Debug.Log(memoNumber + "ë²ˆ ë©”ëª¨ì¥ ìƒí˜¸ì‘ìš©");
     }
 }

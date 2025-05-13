@@ -18,13 +18,13 @@ public class Safe : Interactable
 
     public override void OnInteract()
     {
-        // ¹®ÀÌ ¿­·ÁÀÖ°Å³ª Àá±âÁö ¾Ê¾ÒÀ» ¶§
+        // ë¬¸ì´ ì—´ë ¤ìˆê±°ë‚˜ ì ê¸°ì§€ ì•Šì•˜ì„ ë•Œ
         if (animator.GetBool("open") || !animator.GetBool("locked"))
         {
             animator.SetBool("open", !animator.GetBool("open"));
         }
 
-        // È¿°úÀ½ÀÌ ÀÖÀ¸¸é Àç»ı
+        // íš¨ê³¼ìŒì´ ìˆìœ¼ë©´ ì¬ìƒ
         if (audioS != null && clip != null)
         {
             audioS.PlayOneShot(clip);

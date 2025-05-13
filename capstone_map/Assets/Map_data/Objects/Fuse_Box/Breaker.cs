@@ -41,7 +41,7 @@ public class Breaker : MonoBehaviour
                 originalEmissionColors[renderer] = originalEmission;
 
                 renderer.material.SetColor("_EmissionColor", Color.black);
-                DynamicGI.SetEmissive(renderer, Color.black); // ¶óÀÌÆ®¸Ê °»½Å¿ë
+                DynamicGI.SetEmissive(renderer, Color.black); // ë¼ì´íŠ¸ë§µ ê°±ì‹ ìš©
             }
         }
     }

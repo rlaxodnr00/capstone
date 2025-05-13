@@ -5,9 +5,9 @@ public class LightSwitch : Interactable
 {
     private Animator animator;
 
-    public GameObject lights;               // Á¶¸í ±×·ì
-    private Light[] lightCP;                // Light ÄÄÆ÷³ÍÆ®µé
-    private Renderer[] renderers;           // MeshRendererµé
+    public GameObject lights;               // ì¡°ëª… ê·¸ë£¹
+    private Light[] lightCP;                // Light ì»´í¬ë„ŒíŠ¸ë“¤
+    private Renderer[] renderers;           // MeshRendererë“¤
 
     private Dictionary<Renderer, Color> originalEmissionColors = new();
 
@@ -15,12 +15,17 @@ public class LightSwitch : Interactable
     {
         animator = GetComponent<Animator>();
 
+        if (lights == null)
+        {
+            Debug.LogWarning($"LightSwitch on {gameObject.name} does not have 'lights' assigned. The switch will not control any lights.", this);
+        }
+
         if (lights != null)
         {
             lightCP = lights.GetComponentsInChildren<Light>(true);
             renderers = lights.GetComponentsInChildren<Renderer>(true);
 
-            // Emission »ö»ó ÀúÀå
+            // Emission ìƒ‰ìƒ ì €ì¥
             foreach (Renderer rend in renderers)
             {
                 if (rend.material.HasProperty("_EmissionColor"))
@@ -54,7 +59,7 @@ public class LightSwitch : Interactable
 
         if (lights != null)
         {
-            // Light ÄÄÆ÷³ÍÆ® ²ô±â/ÄÑ±â
+            // Light ì»´í¬ë„ŒíŠ¸ ë„ê¸°/ì¼œê¸°
             ApplyLightState(toggle);
 
             // Debug.Log("Lights toggled: " + toggle);
@@ -72,6 +77,12 @@ public class LightSwitch : Interactable
 
     private void ApplyLightState(bool state)
     {
+        if (lightCP == null || renderers == null)
+        {
+            // This can happen if 'lights' was not assigned in Start
+            // or if GetComponentsInChildren failed to find any components.
+            return;
+        }
         foreach (Light light in lightCP)
         {
             light.enabled = state;
