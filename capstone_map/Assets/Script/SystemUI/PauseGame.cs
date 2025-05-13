@@ -57,6 +57,8 @@ public class PauseGame : MonoBehaviour
 
     public void Exit()
     {
+        // 나갈 때 timeScale 복원
+        Time.timeScale = 1;
         SceneManager.LoadScene("MainMenu");
     }
 }
