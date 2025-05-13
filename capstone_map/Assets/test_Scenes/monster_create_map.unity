@@ -2852,8 +2852,8 @@ MonoBehaviour:
   attackSound: {fileID: 8300000, guid: 1c7a7ef3052a05344b9d9a3d061d9989, type: 3}
   attackAudioSource: {fileID: 2141798301086462422}
   monseterVoice: {fileID: 2141798301086462421}
-  walkSpeed: 2
-  runSpeed: 4
+  walkSpeed: 1
+  runSpeed: 2
   attackRange: 0.2
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

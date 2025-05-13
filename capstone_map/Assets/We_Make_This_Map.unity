@@ -2514,6 +2514,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4235052032148297518, guid: 5f4324124b3393c428a8468c5f9224f1, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4235052032148297518, guid: 5f4324124b3393c428a8468c5f9224f1, type: 3}
       propertyPath: walkSpeed
       value: 0.5
       objectReference: {fileID: 0}
@@ -2576,8 +2580,26 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7393829171424744720, guid: 5f4324124b3393c428a8468c5f9224f1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2004467626}
   m_SourcePrefab: {fileID: 100100000, guid: 5f4324124b3393c428a8468c5f9224f1, type: 3}
+--- !u!82 &930803030 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 8205883913776792731, guid: 5f4324124b3393c428a8468c5f9224f1, type: 3}
+  m_PrefabInstance: {fileID: 930803029}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &930803031 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 1113727216304369731, guid: 5f4324124b3393c428a8468c5f9224f1, type: 3}
+  m_PrefabInstance: {fileID: 930803029}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &930803032 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 2232820629068731450, guid: 5f4324124b3393c428a8468c5f9224f1, type: 3}
+  m_PrefabInstance: {fileID: 930803029}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &961739749
 GameObject:
   m_ObjectHideFlags: 0
@@ -5238,6 +5260,31 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7393829171424744720, guid: 5f4324124b3393c428a8468c5f9224f1, type: 3}
   m_PrefabInstance: {fileID: 930803029}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2004467626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2004467625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57afb185779be0b4c891d4e899d77843, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AIHearing: {fileID: 2004467625}
+  chaseTarget: 1
+  patrolRadius: 10
+  patrolWaitTime: 1.5
+  walkSounds: []
+  runSounds: []
+  movementAudioSource: {fileID: 930803032}
+  attackSound: {fileID: 8300000, guid: 1c7a7ef3052a05344b9d9a3d061d9989, type: 3}
+  attackAudioSource: {fileID: 930803031}
+  monseterVoice: {fileID: 930803030}
+  walkSpeed: 2
+  runSpeed: 4
+  attackRange: 3.3
 --- !u!1 &2015857887
 GameObject:
   m_ObjectHideFlags: 0
