@@ -90,7 +90,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -4766017759750415202, guid: e83d1af04c3fe76428a3194cd123e8de, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 270668371211418519, guid: e83d1af04c3fe76428a3194cd123e8de, type: 3}
       propertyPath: m_Layer
@@ -188,7 +188,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86a8b80af81a2eb4ea81a9e63ddd6783, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audio: {fileID: 5183447047862517096}
+  audioS: {fileID: 0}
   open: {fileID: 8300000, guid: d0870c964a2354d8094ce31e769a7290, type: 3}
   close: {fileID: 8300000, guid: 04213f14ae5074a84b3c41aef6b6a00f, type: 3}
   locked: {fileID: 8300000, guid: 6ed0f8509e9e44272a85f74fdc61879b, type: 3}

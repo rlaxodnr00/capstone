@@ -157,7 +157,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -3093913939796226565, guid: 6bb0205dd027cb54da0c02977f0edf89, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -1317397733499337436, guid: 6bb0205dd027cb54da0c02977f0edf89, type: 3}
       propertyPath: m_Layer
@@ -201,7 +201,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: fed8537cceca3734bb3734d3028bce0f, type: 2}
     - target: {fileID: 775085978249709713, guid: 6bb0205dd027cb54da0c02977f0edf89, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 775085978249709713, guid: 6bb0205dd027cb54da0c02977f0edf89, type: 3}
       propertyPath: m_IsActive
@@ -225,7 +225,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: fed8537cceca3734bb3734d3028bce0f, type: 2}
     - target: {fileID: 1765275733701078145, guid: 6bb0205dd027cb54da0c02977f0edf89, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5900268279949595008, guid: 6bb0205dd027cb54da0c02977f0edf89, type: 3}
       propertyPath: m_Layer
@@ -318,7 +318,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f04bb9701fb39f7479af05c0d83e381a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audio: {fileID: 3900133929911861639}
+  audioS: {fileID: 0}
   open: {fileID: 8300000, guid: a200ceb3276a64815ba89e6db4488604, type: 3}
   close: {fileID: 8300000, guid: eeb40c82002604d4080b1810e3a3cd21, type: 3}
 --- !u!95 &3315733478572195712
@@ -505,7 +505,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f04bb9701fb39f7479af05c0d83e381a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audio: {fileID: 5281467603816745559}
+  audioS: {fileID: 0}
   open: {fileID: 8300000, guid: a200ceb3276a64815ba89e6db4488604, type: 3}
   close: {fileID: 8300000, guid: eeb40c82002604d4080b1810e3a3cd21, type: 3}
 --- !u!95 &7586371512036637656

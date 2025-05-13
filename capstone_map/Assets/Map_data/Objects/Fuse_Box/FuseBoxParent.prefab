@@ -102,7 +102,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 4c9f53c3fe65b964bb002004d3d60837, type: 2}
     - target: {fileID: 6158041375294819764, guid: 4a73afb5afbd65d4299eec156e56c9b0, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6158041375294819764, guid: 4a73afb5afbd65d4299eec156e56c9b0, type: 3}
       propertyPath: m_IsActive
@@ -238,7 +238,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9644ad7af738524cb4872ab19a06a49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audio: {fileID: 284119027501975528}
+  audioS: {fileID: 0}
 --- !u!114 &6901409593116826392
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -410,7 +410,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   handleCollider: {fileID: 2429350280521084932}
-  audio: {fileID: 9169000707844657870}
+  audioSource: {fileID: 0}
   clip: {fileID: 8300000, guid: eeb40c82002604d4080b1810e3a3cd21, type: 3}
 --- !u!82 &9169000707844657870
 AudioSource:

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3215778305040948031}
   - component: {fileID: 6541596386708579931}
   - component: {fileID: 5768201657319707903}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: FireworkParent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -67,6 +67,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea68816ac6fcd00458cd1b74cf10cb93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactionUI: {fileID: 0}
 --- !u!1001 &4458587901659916436
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -115,13 +116,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -4819223349682164798, guid: 00e5a57313bd6184c8be2ab40f6301a9, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: -2511240423080479738, guid: 00e5a57313bd6184c8be2ab40f6301a9, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 00e5a57313bd6184c8be2ab40f6301a9, type: 3}
       propertyPath: m_Name
       value: firework
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 00e5a57313bd6184c8be2ab40f6301a9, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3907091372267947420, guid: 00e5a57313bd6184c8be2ab40f6301a9, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7403708954433960935, guid: 00e5a57313bd6184c8be2ab40f6301a9, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
