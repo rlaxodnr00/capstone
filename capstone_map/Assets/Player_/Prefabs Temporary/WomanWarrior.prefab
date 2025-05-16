@@ -1920,7 +1920,6 @@ GameObject:
   - component: {fileID: 1451279232509401119}
   - component: {fileID: 2659970740072637984}
   - component: {fileID: 4508158806252759867}
-  - component: {fileID: 2346286182752654785}
   m_Layer: 7
   m_Name: WomanWarrior
   m_TagString: Player
@@ -1938,7 +1937,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0.03178534, y: 0.03358297, z: -0.0010685897, w: 0.9989298}
   m_LocalPosition: {x: 9.485, y: 0.001, z: -0.167}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
+  m_LocalScale: {x: 0.08, y: 0.08, z: 0.08}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1051576307219457678}
@@ -1991,11 +1990,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0dc7b6e5fab907a47a26485ae8a7a2f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentSpeed: 2
-  walkSpeed: 2
-  crouchSpeed: 1
-  sprintSpeed: 4
-  gravity: 0
+  currentSpeed: 1
+  walkSpeed: 1
+  crouchSpeed: 0.6
+  sprintSpeed: 1.6
+  gravity: 2
   viewPivot: {fileID: 7406453781474018184}
   headBone: {fileID: 4854632396611199181}
   mouseSpeed: 6
@@ -2250,20 +2249,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &2346286182752654785
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7423785307216021420}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7d0f912bbd7e734fa733e86f539bc72, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  interactDistance: 3
-  crosshair: {fileID: 0}
 --- !u!1 &8089496206917162744
 GameObject:
   m_ObjectHideFlags: 0
