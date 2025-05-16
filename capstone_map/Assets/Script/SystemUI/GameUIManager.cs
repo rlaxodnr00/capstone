@@ -41,6 +41,16 @@ public class GameUIManager : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        if (ScreenTransition.Instance != null)
+        {
+            ScreenTransition.Instance.StartFadeIn();
+        }
+
+    }
+
+
     public void UpdateBatteryUI(float batteryLevel)
     {
         if (batteryUI != null)

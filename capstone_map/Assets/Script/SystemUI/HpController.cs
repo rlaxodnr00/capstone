@@ -70,9 +70,9 @@ public class HPController : MonoBehaviour
         Debug.Log("무적 상태 종료");
     }
 
-    //사망 연출 코루틴
-    //1. 플레이어가 엎어지며 화면 서서히 암전 << 가능하면
-    //2. 일정 시간 후 재시작
+    // 사망 연출 코루틴
+    // 플레이어가 엎어지며 화면 서서히 암전 << 가능하면
+    // 일정 시간 후 재시작
     private IEnumerator HandleDeathSequence()
     {
         // 플레이어 쓰러짐 처리 
@@ -85,15 +85,18 @@ public class HPController : MonoBehaviour
             animator.SetTrigger("Die"); //현재 존재하지 않는 애니메이션. 해당 방식 연출 고려중.
         }
 
+        // 몇 초 대기
+        yield return new WaitForSeconds(1f);
+
         // 화면 페이드 아웃 (GameUIManager에 위임)
         //GameUIManager.Instance.StartFadeOut(); // 추후 구현 고려
+        ScreenTransition.Instance.StartFadeOut("We_Make_This_Map");
 
-        // 3. 몇 초 대기
-        yield return new WaitForSeconds(3f);
+        
 
-        // 4. 씬 다시 불러오기
-        Scene currentScene = SceneManager.GetActiveScene();
-        SceneManager.LoadScene(currentScene.buildIndex);
+        // 씬 다시 불러오기
+        //Scene currentScene = SceneManager.GetActiveScene();
+        //SceneManager.LoadScene(currentScene.buildIndex);
     }
 
 

@@ -12,13 +12,13 @@ public class UserMove : MonoBehaviour
     private Vector3 dir; // 캐릭터 이동 벡터
 
     [Header("Speed Settings")]
-    public float currentSpeed = 2f;     // 현재 이동 속도
-    public float walkSpeed = 2f;        // 걷기 이동 속도
-    public float crouchSpeed = 1f;      // 앉기 이동 속도
-    public float sprintSpeed = 4f;      // 달리기 속도
+    public float currentSpeed = 1f;     // 현재 이동 속도
+    public float walkSpeed = 1f;        // 걷기 이동 속도
+    public float crouchSpeed = 0.6f;      // 앉기 이동 속도
+    public float sprintSpeed = 1.6f;      // 달리기 속도
 
     [Header("Other Settings")]
-    private float jumpForce = 2f;        // 점프력
+    public float jumpForce = 2.2f;        // 점프력
     public float gravity;                // 캐릭터 적용 중력
     private bool jumpFlag = false;       // 점프 상태 판별
 
@@ -103,6 +103,8 @@ public class UserMove : MonoBehaviour
         HandleFootsteps(); // 발소리 처리
     }
 
+
+
     void PlayerMove()
     {
         if (Time.timeScale == 0) return; // 일시정지 중이면 이동 X
@@ -148,14 +150,23 @@ public class UserMove : MonoBehaviour
         {
             if (jumpFlag)
             {
-                dir.y += jumpForce;
                 jumpFlag = false;
             }
             else
             {
-                dir.y -= gravity * Time.deltaTime;
+                dir.y -= gravity * Time.deltaTime * 0.4f;
             }
         }
+
+        // 바닥에 있으면 
+        if (controller.isGrounded && dir.y < 0)
+        {
+            Debug.Log("착지: dir.y = " + dir.y);
+            dir.y = Mathf.Lerp(dir.y, -2f, Time.deltaTime * 20f); 
+        }
+
+
+
     }
 
     void PlayerCrouch()

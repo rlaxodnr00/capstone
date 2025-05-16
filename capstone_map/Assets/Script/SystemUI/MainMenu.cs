@@ -22,6 +22,7 @@ public class MainMenu : MonoBehaviour
 
     private void Start()
     {
+        //Time.timeScale = 1f; // 다시 정상 시간 흐름으로 복구하여 버튼 클릭 가능하게
         DefaultMainScreen();
     }
 
@@ -46,7 +47,8 @@ public class MainMenu : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene("We_Make_This_Map");
+        ScreenTransition.Instance.StartFadeOut("We_Make_This_Map");
+        //SceneManager.LoadScene("We_Make_This_Map");
     }
 
     public void GuideGame() //가이드 오픈
