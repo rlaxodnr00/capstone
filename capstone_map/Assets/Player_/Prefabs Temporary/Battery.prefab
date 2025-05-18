@@ -148,7 +148,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5194855209081598618}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8be8586ac23f57f42b863631c9b487e3, type: 3}
+  m_Script: {fileID: 11500000, guid: 58b47836f17c1c64e80bc8e9a113fb76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   heldPosOffset: {x: 0, y: 0, z: 0}

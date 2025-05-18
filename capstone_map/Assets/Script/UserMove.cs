@@ -161,7 +161,6 @@ public class UserMove : MonoBehaviour
         // 바닥에 있으면 
         if (controller.isGrounded && dir.y < 0)
         {
-            Debug.Log("착지: dir.y = " + dir.y);
             dir.y = Mathf.Lerp(dir.y, -2f, Time.deltaTime * 20f); 
         }
 

@@ -356,6 +356,14 @@ PrefabInstance:
       propertyPath: 'impactSources.Array.data[2]'
       value: 
       objectReference: {fileID: 2066927258}
+    - target: {fileID: 5090880890959331189, guid: a73a5eca180afdd4987919182aa4c6fe, type: 3}
+      propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5102062218712587149, guid: a73a5eca180afdd4987919182aa4c6fe, type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 512
+      objectReference: {fileID: 0}
     - target: {fileID: 6250075463649435060, guid: a73a5eca180afdd4987919182aa4c6fe, type: 3}
       propertyPath: m_Name
       value: KawaiiDuck
@@ -1646,6 +1654,10 @@ PrefabInstance:
     - target: {fileID: 3689511409613948227, guid: a73a5eca180afdd4987919182aa4c6fe, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5102062218712587149, guid: a73a5eca180afdd4987919182aa4c6fe, type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 512
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5545968631647527437, guid: a73a5eca180afdd4987919182aa4c6fe, type: 3}

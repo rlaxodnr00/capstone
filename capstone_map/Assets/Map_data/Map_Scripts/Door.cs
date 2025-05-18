@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Door : Interactable
+public class Door : Interactable, IInteractable
 {
     private Animator animator;
 
@@ -48,5 +48,10 @@ public class Door : Interactable
             else if (animator.GetBool("open")) audioS.PlayOneShot(open);
             else audioS.PlayOneShot(close);
         }
+    }
+
+    public void Interact()
+    {
+        OnInteract();
     }
 }
