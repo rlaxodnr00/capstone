@@ -141,6 +141,7 @@ public class UserMove : MonoBehaviour
      }
 
      */
+/*
     void PlayerMove()
     {
         if (Time.timeScale == 0) return; // 일시정지 중이면 무시
@@ -177,7 +178,7 @@ public class UserMove : MonoBehaviour
         //Debug.Log($"점프시 dir.y: {dir.y}, isGrounded: {controller.isGrounded}");
 
     }
-    /*
+    
     void PlayerJump()
     {
         // 점프 입력 & 착지 상태일 때
@@ -214,6 +215,7 @@ public class UserMove : MonoBehaviour
         }
     }
     */
+    /*
     void PlayerJump()
     {
         // 점프 시도 (스페이스 + 지면)
@@ -316,7 +318,7 @@ public class UserMove : MonoBehaviour
             footstepTimer = 0f;
         }
     }
-
+*/
     /*
     // 수정 전 버전
     void HandleFootsteps()
