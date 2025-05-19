@@ -1699,6 +1699,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a73a5eca180afdd4987919182aa4c6fe, type: 3}
+--- !u!4 &502544620 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 836525577211296067, guid: 35e112cb1c895574c9bb5296749bf678, type: 3}
+  m_PrefabInstance: {fileID: 1471860316}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &552586183
 GameObject:
   m_ObjectHideFlags: 0
@@ -2806,9 +2811,49 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 690545713738097057, guid: fedd8f2e70aa76649aacc8c1823cab2c, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 690545713738097057, guid: fedd8f2e70aa76649aacc8c1823cab2c, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 1354754669597936276, guid: fedd8f2e70aa76649aacc8c1823cab2c, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -135
+      objectReference: {fileID: 0}
+    - target: {fileID: 1354754669597936276, guid: fedd8f2e70aa76649aacc8c1823cab2c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 140
+      objectReference: {fileID: 0}
+    - target: {fileID: 4109338194345825947, guid: fedd8f2e70aa76649aacc8c1823cab2c, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 134
+      objectReference: {fileID: 0}
+    - target: {fileID: 4109338194345825947, guid: fedd8f2e70aa76649aacc8c1823cab2c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 140
+      objectReference: {fileID: 0}
+    - target: {fileID: 4332233596096982054, guid: fedd8f2e70aa76649aacc8c1823cab2c, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 4332233596096982054, guid: fedd8f2e70aa76649aacc8c1823cab2c, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 200
+      objectReference: {fileID: 0}
     - target: {fileID: 6215084111002816675, guid: fedd8f2e70aa76649aacc8c1823cab2c, type: 3}
       propertyPath: m_Name
       value: GameManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 6342463946362345803, guid: fedd8f2e70aa76649aacc8c1823cab2c, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 6342463946362345803, guid: fedd8f2e70aa76649aacc8c1823cab2c, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 7626180646985870550, guid: fedd8f2e70aa76649aacc8c1823cab2c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2849,6 +2894,14 @@ PrefabInstance:
     - target: {fileID: 7626180646985870550, guid: fedd8f2e70aa76649aacc8c1823cab2c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8599121072494765891, guid: fedd8f2e70aa76649aacc8c1823cab2c, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 8599121072494765891, guid: fedd8f2e70aa76649aacc8c1823cab2c, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 200
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4968,7 +5021,7 @@ MonoBehaviour:
   monsterCount: 2
   minDistanceFromPlayer: 10
   minDistanceBetweenMonsters: 5
-  playerTransform: {fileID: 0}
+  playerTransform: {fileID: 502544620}
 --- !u!114 &1953015042
 MonoBehaviour:
   m_ObjectHideFlags: 0
