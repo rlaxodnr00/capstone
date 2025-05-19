@@ -2,8 +2,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.UI;*/
 
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+/*
 public class UserMove : MonoBehaviour
 {
     private CharacterController controller; // 캐릭터 컨트롤러
@@ -141,79 +145,82 @@ public class UserMove : MonoBehaviour
      }
 
      */
-    void PlayerMove()
+/*
+void PlayerMove()
+{
+   if (Time.timeScale == 0) return; // 일시정지 중이면 무시
+
+   moveX = Input.GetAxis("Horizontal");
+   moveZ = Input.GetAxis("Vertical");
+
+   Vector3 moveDir = new Vector3(moveX, 0, moveZ);
+   moveDir = controller.transform.TransformDirection(moveDir);
+
+   dir.x = moveDir.x;
+   dir.z = moveDir.z;
+
+   // 현재 속도 설정
+   if (crouchHandler.IsCrouching())
+   {
+       currentSpeed = crouchSpeed;
+   }
+   else if (Input.GetKey(KeyCode.LeftShift) && GetComponent<PlayerStamina>().currentStamina > 0)
+   {
+       currentSpeed = sprintSpeed;
+   }
+   else
+   {
+       currentSpeed = walkSpeed;
+   }
+
+   // Y는 점프/중력에 따로 맡기고, 이동은 XZ만 속도 곱해서 처리
+   Vector3 moveXZ = new Vector3(dir.x, 0, dir.z) * currentSpeed;
+   Vector3 moveY = new Vector3(0, dir.y, 0);
+   Vector3 finalMove = moveXZ + moveY;
+
+   controller.Move(finalMove * Time.deltaTime);
+   //Debug.Log($"점프시 dir.y: {dir.y}, isGrounded: {controller.isGrounded}");
+
+}
+*/
+/*
+void PlayerJump()
+{
+    // 점프 입력 & 착지 상태일 때
+    if (Input.GetKeyDown(KeyCode.Space) && controller.isGrounded)
     {
-        if (Time.timeScale == 0) return; // 일시정지 중이면 무시
+        jumpFlag = true;
 
-        moveX = Input.GetAxis("Horizontal");
-        moveZ = Input.GetAxis("Vertical");
+        // 현재 속도 기반 점프력 계산
+        float finalJumpForce = baseJumpForce + (currentSpeed * speedMultiplier);
 
-        Vector3 moveDir = new Vector3(moveX, 0, moveZ);
-        moveDir = controller.transform.TransformDirection(moveDir);
+        // 중력 기반 점프 초기속도 계산 (v = sqrt(2gh) 응용)
+        dir.y = Mathf.Sqrt(finalJumpForce * 2f * gravity);
 
-        dir.x = moveDir.x;
-        dir.z = moveDir.z;
+        Debug.Log($"점프: 최종점프력={finalJumpForce}, 초기속도={dir.y}");
+    }
 
-        // 현재 속도 설정
-        if (crouchHandler.IsCrouching())
+    // 공중에 있을 때 중력 적용
+    if (!controller.isGrounded)
+    {
+        if (jumpFlag)
         {
-            currentSpeed = crouchSpeed;
-        }
-        else if (Input.GetKey(KeyCode.LeftShift) && GetComponent<PlayerStamina>().currentStamina > 0)
-        {
-            currentSpeed = sprintSpeed;
+            jumpFlag = false; // 한 번만 점프 가능
         }
         else
         {
-            currentSpeed = walkSpeed;
+            dir.y -= gravity * Time.deltaTime;
         }
+    }   
 
-        // Y는 점프/중력에 따로 맡기고, 이동은 XZ만 속도 곱해서 처리
-        Vector3 moveXZ = new Vector3(dir.x, 0, dir.z) * currentSpeed;
-        Vector3 moveY = new Vector3(0, dir.y, 0);
-        Vector3 finalMove = moveXZ + moveY;
-
-        controller.Move(finalMove * Time.deltaTime);
-        //Debug.Log($"점프시 dir.y: {dir.y}, isGrounded: {controller.isGrounded}");
-
-    }
-    /*
-    void PlayerJump()
+    // 땅에 닿았을 때 Y속도 초기화
+    if (controller.isGrounded && dir.y < 0f)
     {
-        // 점프 입력 & 착지 상태일 때
-        if (Input.GetKeyDown(KeyCode.Space) && controller.isGrounded)
-        {
-            jumpFlag = true;
-
-            // 현재 속도 기반 점프력 계산
-            float finalJumpForce = baseJumpForce + (currentSpeed * speedMultiplier);
-
-            // 중력 기반 점프 초기속도 계산 (v = sqrt(2gh) 응용)
-            dir.y = Mathf.Sqrt(finalJumpForce * 2f * gravity);
-
-            Debug.Log($"점프: 최종점프력={finalJumpForce}, 초기속도={dir.y}");
-        }
-
-        // 공중에 있을 때 중력 적용
-        if (!controller.isGrounded)
-        {
-            if (jumpFlag)
-            {
-                jumpFlag = false; // 한 번만 점프 가능
-            }
-            else
-            {
-                dir.y -= gravity * Time.deltaTime;
-            }
-        }   
-
-        // 땅에 닿았을 때 Y속도 초기화
-        if (controller.isGrounded && dir.y < 0f)
-        {
-            dir.y = -2f; // 가볍게 눌러붙게
-        }
+        dir.y = -2f; // 가볍게 눌러붙게
     }
-    */
+}
+*/
+/*    
     void PlayerJump()
     {
         // 점프 시도 (스페이스 + 지면)
@@ -316,7 +323,7 @@ public class UserMove : MonoBehaviour
             footstepTimer = 0f;
         }
     }
-
+*/
     /*
     // 수정 전 버전
     void HandleFootsteps()
@@ -400,9 +407,7 @@ void HandleFootsteps()
 }
 */
 
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+
 
 public class UserMove : MonoBehaviour
 {
