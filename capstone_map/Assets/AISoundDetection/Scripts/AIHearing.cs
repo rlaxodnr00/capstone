@@ -145,7 +145,10 @@ public class AIHearing : MonoBehaviour
                         soundDetected = true;
                         targetObj = hit.transform.position;
                     }
+
                 }
+
+
             }
         }
         #endregion
