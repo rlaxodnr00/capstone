@@ -2,9 +2,15 @@ using UnityEngine;
 
 public class LobbyDoor : Door
 {
+    GameObject player;
+    PlayerInventory inven;
+
     private void Start()
     {
         animator = GetComponent<Animator>();
+        player = GameObject.Find("WomanWarrior");
+        inven = player.GetComponent<PlayerInventory>();
+        animator.SetBool("locked", true);
     }
     public LobbyDoor otherDoor;
 
@@ -16,10 +22,10 @@ public class LobbyDoor : Door
     public override void OnInteract()
     {
         // 문이 잠겼고 열쇠가 있으면
-        if (animator.GetBool("locked") && "key" == "true")
+        if (animator.GetBool("locked") && isKeyHeld(inven.heldItems ,inven.CurrentSlot))
         {
             // 열쇠를 소모하고?
-
+            Debug.Log("문 열림");
             // 문을 연다.
             animator.SetBool("locked", false);
             // 양쪽을 같이 연다.
@@ -36,5 +42,13 @@ public class LobbyDoor : Door
     public void InteractWith()
     {
         base.OnInteract();
+    }
+
+    public bool isKeyHeld(GameObject[] inven, int slot)
+    {
+        Key key = inven[slot].GetComponent<Key>();
+
+        if (key != null) return true;
+        return false;
     }
 }
