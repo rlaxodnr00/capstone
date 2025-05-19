@@ -1,4 +1,5 @@
 using AiSoundDetect;
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,7 +19,7 @@ public class UserMove : MonoBehaviour
     public float sprintSpeed = 1.6f;    // 달리기 속도
 
     [Header("Other Settings")]
-    private bool jumpFlag = false;          // 점프 상태 판별
+    public bool isJumping = false;          // 점프 상태 판별
     public float baseJumpHeight = 0.6f;     // 일반 점프력
     public float runJumpExtra = 0.3f;       // 달릴 때 점프력
     public float gravity = 7;               // 스케일 보정된 중력
@@ -175,7 +176,6 @@ public class UserMove : MonoBehaviour
 
         controller.Move(finalMove * Time.deltaTime);
         //Debug.Log($"점프시 dir.y: {dir.y}, isGrounded: {controller.isGrounded}");
-
     }
     /*
     void PlayerJump()
@@ -226,7 +226,7 @@ public class UserMove : MonoBehaviour
                 jumpHeight += runJumpExtra;
 
             dir.y = Mathf.Sqrt(jumpHeight * 2f * gravity); // 초기 점프 속도 계산
-            jumpFlag = true;
+            isJumping = true;
         }
 
         // 공중 중력 처리 << 왜 적용해도 거의 차이 없게 느껴지지
@@ -243,7 +243,7 @@ public class UserMove : MonoBehaviour
                 dir.y -= gravity * jumpFallMultiplier * Time.deltaTime;
             }
 
-            jumpFlag = false; // 공중에 뜨면 jumpFlag 초기화
+            isJumping = false; // 공중에 뜨면 jumpFlag 초기화
         }
 
         // 땅에 닿았으면 y속도 초기화
@@ -316,6 +316,9 @@ public class UserMove : MonoBehaviour
             footstepTimer = 0f;
         }
     }
+
+    // 외부에서 이동 방향 벡터 접근용 (FootstepHandler에서 사용됨)
+    public Vector3 MoveDirection => dir;
 
     /*
     // 수정 전 버전
