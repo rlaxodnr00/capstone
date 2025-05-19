@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Audio;
 
-public class fuse_handle : Interactable
+public class fuse_handle : Interactable, IInteractable
 {
     private Animator animator;
 
@@ -47,6 +47,11 @@ public class fuse_handle : Interactable
             audioS.Play();
             StartCoroutine(StopAudio(2f));
         }
+    }
+
+    public void Interact()
+    {
+        OnInteract();
     }
 
     IEnumerator StopAudio(float seconds)

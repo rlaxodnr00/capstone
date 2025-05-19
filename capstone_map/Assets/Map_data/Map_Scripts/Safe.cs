@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Safe : Interactable
+public class Safe : Interactable, IInteractable
 {
     Animator animator;
     AudioSource audioS;
@@ -30,5 +30,10 @@ public class Safe : Interactable
             audioS.PlayOneShot(clip);
         }
 
+    }
+
+    public void Interact()
+    {
+        OnInteract();
     }
 }

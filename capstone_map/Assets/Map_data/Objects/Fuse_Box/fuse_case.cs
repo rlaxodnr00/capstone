@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class fuse_case : Interactable
+public class fuse_case : Interactable, IInteractable
 {
     private Animator animator;
     public BoxCollider handleCollider;
@@ -14,12 +14,12 @@ public class fuse_case : Interactable
 
     public override void OnLookAt()
     {
-        
+
     }
 
     public override void OnLookAway()
     {
-        
+
     }
 
     public override void OnInteract()
@@ -31,5 +31,10 @@ public class fuse_case : Interactable
         {
             audioSource.PlayOneShot(clip);
         }
+    }
+    
+    public void Interact()
+    {
+        OnInteract();
     }
 }
