@@ -349,6 +349,17 @@ PrefabInstance:
       addedObject: {fileID: 1742520230}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a73a5eca180afdd4987919182aa4c6fe, type: 3}
+--- !u!114 &49056190 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1170255037730737719, guid: 35e112cb1c895574c9bb5296749bf678, type: 3}
+  m_PrefabInstance: {fileID: 1471860316}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c119168add3cbd24eada8fd3ef844c28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &61238582
 GameObject:
   m_ObjectHideFlags: 0
@@ -4218,7 +4229,13 @@ PrefabInstance:
     - {fileID: 2346286182752654785, guid: 35e112cb1c895574c9bb5296749bf678, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7423785307216021420, guid: 35e112cb1c895574c9bb5296749bf678, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1497694194}
+    - targetCorrespondingSourceObject: {fileID: 7423785307216021420, guid: 35e112cb1c895574c9bb5296749bf678, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1497694193}
   m_SourcePrefab: {fileID: 100100000, guid: 35e112cb1c895574c9bb5296749bf678, type: 3}
 --- !u!114 &1484730864 stripped
 MonoBehaviour:
@@ -4231,6 +4248,48 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7b456334851ff944b9ae3b8575ab99d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1497694192 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7423785307216021420, guid: 35e112cb1c895574c9bb5296749bf678, type: 3}
+  m_PrefabInstance: {fileID: 1471860316}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1497694193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1497694192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82d9cba6a452134428f0e4205ab65f84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  walkStepInterval: 0.5
+  runStepInterval: 0.3
+  footstepSource: {fileID: 1497694195}
+  soundEmitter: {fileID: 49056190}
+--- !u!114 &1497694194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1497694192}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 883b08ca77386f84c81225bab2832ff1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  footstepSources: []
+  jumpSounds: []
+  normalStepInterval: 0.4
+  crouchStepInterval: 0.6
+--- !u!82 &1497694195 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 4508158806252759867, guid: 35e112cb1c895574c9bb5296749bf678, type: 3}
+  m_PrefabInstance: {fileID: 1471860316}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1575969516 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7987077021681026237, guid: f1dfc6e966a1a30488a25ddeb2743d64, type: 3}
