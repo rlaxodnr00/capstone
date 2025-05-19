@@ -116,7 +116,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tags:
   - basement_exit
-  - base
   createsTags: []
   deadEndChance: 100
 --- !u!1 &8187496264921391955

@@ -11,18 +11,25 @@ public class BaseDoor : Door
         player = GameObject.Find("WomanWarrior");
         inven = player.GetComponent<PlayerInventory>();
         animator.SetBool("locked", true);
+
     }
 
     public override void OnInteract()
     {
-        // 문이 잠겼을 때 (마스크가 있는지 확인하는 코드 필요,
-        // 문이 가까이 있어서 마스크 없이 탈출하는 경우 방지)
-        if (animator.GetBool("locked") || isMaskHeld(inven.heldItems ,inven.CurrentSlot))
+        // Debug.Log("문 상태: " + animator.GetBool("locked") + "마스크 상태: "
+        //    + isMaskHeld(inven.heldItems, inven.CurrentSlot));
+        // 문이 잠겼고 마스크가 있으면
+        if (animator.GetBool("locked") && isMaskHeld(inven.heldItems, inven.CurrentSlot))
         {
-            // 
-
+            Debug.Log("문 열림");
             // 문을 연다.
             animator.SetBool("locked", false);
+        }
+        // 문이 잠기지 않았거나 마스크가 없으면 기존 코드로 동작
+        else
+        {
+            Debug.Log("기존 코드로 동작");
+            base.OnInteract();
         }
     }
     

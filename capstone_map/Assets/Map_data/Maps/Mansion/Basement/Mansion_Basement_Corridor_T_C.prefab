@@ -329,7 +329,7 @@ MonoBehaviour:
   - basement_corridor_corner
   - basement_mech
   - basement_exit
-  deadEndChance: 1
+  deadEndChance: 0
 --- !u!1001 &900815920721960711
 PrefabInstance:
   m_ObjectHideFlags: 0
