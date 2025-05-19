@@ -422,13 +422,16 @@ public class UserMove : MonoBehaviour
     [Header("Speed Settings")]
     public float currentSpeed = 1f;     // 현재 이동 속도
     public float walkSpeed = 1f;        // 걷기 이동 속도
-    public float crouchSpeed = 0.6f;      // 앉기 이동 속도
-    public float sprintSpeed = 1.6f;      // 달리기 속도
+    public float crouchSpeed = 0.6f;    // 앉기 이동 속도
+    public float sprintSpeed = 1.6f;    // 달리기 속도
 
     [Header("Other Settings")]
-    public float jumpForce = 2.2f;        // 점프력
-    public float gravity;                // 캐릭터 적용 중력
-    private bool jumpFlag = false;       // 점프 상태 판별
+    private bool jumpFlag = false;          // 점프 상태 판별
+    public float baseJumpHeight = 0.6f;     // 일반 점프력
+    public float runJumpExtra = 0.3f;       // 달릴 때 점프력
+    public float gravity = 7;               // 스케일 보정된 중력
+    public float jumpFallMultiplier = 0.6f; // 하강 시 중력 배율
+    public float jumpRiseMultiplier = 0.9f; // 상승 시 중력 배율
 
     private float moveX = 0f;
     private float moveZ = 0f;
@@ -455,7 +458,6 @@ public class UserMove : MonoBehaviour
 
         dir = Vector3.zero; // 벡터 초기화
         currentSpeed = walkSpeed; // 기본 속도 설정
-        gravity = 10f;       // 중력값 설정
 
         // 마우스 중앙 고정 포인터 숨기기
         Cursor.lockState = CursorLockMode.Locked;
@@ -472,7 +474,7 @@ public class UserMove : MonoBehaviour
 
     void PlayerMove()
     {
-        if (Time.timeScale == 0) return; // 일시정지 중이면 이동 X
+        if (Time.timeScale == 0) return; // 일시정지 중이면 무시
 
         moveX = Input.GetAxis("Horizontal");
         moveZ = Input.GetAxis("Vertical");
@@ -480,53 +482,68 @@ public class UserMove : MonoBehaviour
         Vector3 moveDir = new Vector3(moveX, 0, moveZ);
         moveDir = controller.transform.TransformDirection(moveDir);
 
-        // 수평 이동 벡터 업데이트 (Y 값은 별도로 점프 처리)
         dir.x = moveDir.x;
         dir.z = moveDir.z;
 
-        // 이동 속도 조정
+        // 현재 속도 설정
         if (crouchHandler.IsCrouching())
         {
-            CurrentSpeed = crouchSpeed;
+            currentSpeed = crouchSpeed;
         }
         else if (Input.GetKey(KeyCode.LeftShift) && GetComponent<PlayerStamina>().currentStamina > 0)
         {
-            CurrentSpeed = sprintSpeed;
+            currentSpeed = sprintSpeed;
         }
         else
         {
-            CurrentSpeed = walkSpeed;
+            currentSpeed = walkSpeed;
         }
 
-        controller.Move(dir * currentSpeed * Time.deltaTime);
-    }
+        // Y는 점프/중력에 따로 맡기고, 이동은 XZ만 속도 곱해서 처리
+        Vector3 moveXZ = new Vector3(dir.x, 0, dir.z) * currentSpeed;
+        Vector3 moveY = new Vector3(0, dir.y, 0);
+        Vector3 finalMove = moveXZ + moveY;
 
+        controller.Move(finalMove * Time.deltaTime);
+        //Debug.Log($"점프시 dir.y: {dir.y}, isGrounded: {controller.isGrounded}");
+
+    }
     void PlayerJump()
     {
+        // 점프 시도 (스페이스 + 지면)
         if (Input.GetKeyDown(KeyCode.Space) && controller.isGrounded)
         {
-            Debug.Log("점프");
+            float jumpHeight = baseJumpHeight;
+
+            // 달리는 중이면 추가 높이
+            if (Input.GetKey(KeyCode.LeftShift))
+                jumpHeight += runJumpExtra;
+
+            dir.y = Mathf.Sqrt(jumpHeight * 2f * gravity); // 초기 점프 속도 계산
             jumpFlag = true;
-            dir.y = jumpForce;
         }
 
-        // 바닥에 있지 않으면 중력 적용
+        // 공중 중력 처리 << 왜 적용해도 거의 차이 없게 느껴지지
         if (!controller.isGrounded)
         {
-            if (jumpFlag)
+            if (dir.y > 0)
             {
-                jumpFlag = false;
+                // 상승 중 : 중력 감속을 완화시켜 더 오래 정점에 머물게
+                dir.y -= gravity * jumpRiseMultiplier * Time.deltaTime;
             }
             else
             {
-                dir.y -= gravity * Time.deltaTime * 0.4f;
+                // 하강 중 : 더 빠르게 떨어지게 하여 포물선 완성
+                dir.y -= gravity * jumpFallMultiplier * Time.deltaTime;
             }
+
+            jumpFlag = false; // 공중에 뜨면 jumpFlag 초기화
         }
 
-        // 바닥에 있으면
+        // 땅에 닿았으면 y속도 초기화
         if (controller.isGrounded && dir.y < 0)
         {
-            dir.y = Mathf.Lerp(dir.y, -2f, Time.deltaTime * 20f);
+            dir.y = -2f; // 땅에 붙게 << 의미 없어보이는데 일단 적용함
         }
     }
 
