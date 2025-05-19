@@ -223,145 +223,143 @@ void PlayerJump()
 /*    
     void PlayerJump()
     {
-        // 점프 시도 (스페이스 + 지면)
-        if (Input.GetKeyDown(KeyCode.Space) && controller.isGrounded)
-        {
-            float jumpHeight = baseJumpHeight;
+        float jumpHeight = baseJumpHeight;
 
-            // 달리는 중이면 추가 높이
-            if (Input.GetKey(KeyCode.LeftShift))
-                jumpHeight += runJumpExtra;
+        // 달리는 중이면 추가 높이
+        if (Input.GetKey(KeyCode.LeftShift))
+            jumpHeight += runJumpExtra;
 
-            dir.y = Mathf.Sqrt(jumpHeight * 2f * gravity); // 초기 점프 속도 계산
-            jumpFlag = true;
-        }
-
-        // 공중 중력 처리 << 왜 적용해도 거의 차이 없게 느껴지지
-        if (!controller.isGrounded)
-        {
-            if (dir.y > 0)
-            {
-                // 상승 중 : 중력 감속을 완화시켜 더 오래 정점에 머물게
-                dir.y -= gravity * jumpRiseMultiplier * Time.deltaTime;
-            }
-            else
-            {
-                // 하강 중 : 더 빠르게 떨어지게 하여 포물선 완성
-                dir.y -= gravity * jumpFallMultiplier * Time.deltaTime;
-            }
-
-            jumpFlag = false; // 공중에 뜨면 jumpFlag 초기화
-        }
-
-        // 땅에 닿았으면 y속도 초기화
-        if (controller.isGrounded && dir.y < 0)
-        {
-            dir.y = -2f; // 땅에 붙게 << 의미 없어보이는데 일단 적용함
-        }
+        dir.y = Mathf.Sqrt(jumpHeight * 2f * gravity); // 초기 점프 속도 계산
+        jumpFlag = true;
     }
 
-
-    void PlayerCrouch()
+    // 공중 중력 처리 << 왜 적용해도 거의 차이 없게 느껴지지
+    if (!controller.isGrounded)
     {
-        if (Input.GetKeyDown(KeyCode.LeftControl))
+        if (dir.y > 0)
         {
-            crouchHandler.CrouchTransition();
-            Debug.Log("Left Control 입력 감지됨. 상태 변경 시도");
-        }
-    }
-
-    void ScreenMove()
-    {
-        if (Time.timeScale == 0f) return; // 일시정지 시 마우스 입력 차단
-
-        mouseX += Input.GetAxis("Mouse X") * mouseSpeed;
-        mouseY += Input.GetAxis("Mouse Y") * mouseSpeed;
-        mouseY = Mathf.Clamp(mouseY, -60f, 60f);
-
-        // 좌우 회전: 플레이어 본체 회전
-        transform.rotation = Quaternion.Euler(0, mouseX, 0);
-
-        // 상하 회전: ViewPivot 회전
-        viewPivot.localRotation = Quaternion.Euler(-mouseY, 0, 0);
-    }
-
-    void OnAnimatorIK(int layerIndex)
-    {
-        if (headBone == null || viewPivot == null) return;
-
-        Vector3 lookTarget = viewPivot.position + viewPivot.forward * 10f;
-        headBone.LookAt(lookTarget);
-
-        Vector3 angles = headBone.localEulerAngles;
-        headBone.localEulerAngles = new Vector3(angles.x, angles.y, 0f); // Z축 고정
-    }
-
-    void HandleFootsteps()
-    {
-        Vector3 horizontalMove = new Vector3(dir.x, 0, dir.z);
-        if (controller.isGrounded && horizontalMove.magnitude > 0.1f)
-        {
-            footstepTimer += Time.deltaTime;
-            float stepInterval = baseStepInterval * (walkSpeed / currentSpeed);
-
-            if (footstepTimer >= stepInterval)
-            {
-                footstepTimer = 0f;
-
-                // 발소리 재생 (Sound_Emitter 사용)
-                if (footstepEmitter != null && footstepClips != null && footstepClips.Length > 0)
-                {
-                    int clipIndex = Random.Range(0, footstepClips.Length);
-                    footstepEmitter.m_AudioClip = footstepClips[clipIndex];
-                    footstepEmitter.m_Pitch = Time.timeScale > 0 ? 1f : 0f; // 일시정지 시 피치 0으로 설정
-                    footstepEmitter.ClipPlay(); // Sound_Emitter의 ClipPlay 함수 호출
-                }
-            }
+            // 상승 중 : 중력 감속을 완화시켜 더 오래 정점에 머물게
+            dir.y -= gravity * jumpRiseMultiplier * Time.deltaTime;
         }
         else
         {
-            footstepTimer = 0f;
+            // 하강 중 : 더 빠르게 떨어지게 하여 포물선 완성
+            dir.y -= gravity * jumpFallMultiplier * Time.deltaTime;
         }
+
+        jumpFlag = false; // 공중에 뜨면 jumpFlag 초기화
     }
 */
     /*
     // 수정 전 버전
     void HandleFootsteps()
     {
-        // 플레이어가 지면에 있고, 상당한 수평 이동이 있을 때 발소리 발동
-        Vector3 horizontalMove = new Vector3(dir.x, 0, dir.z);
-        if (controller.isGrounded && horizontalMove.magnitude > 0.1f)
+        dir.y = -2f; // 땅에 붙게 << 의미 없어보이는데 일단 적용함
+    }
+}
+
+
+void PlayerCrouch()
+{
+    if (Input.GetKeyDown(KeyCode.LeftControl))
+    {
+        crouchHandler.CrouchTransition();
+        Debug.Log("Left Control 입력 감지됨. 상태 변경 시도");
+    }
+}
+
+void ScreenMove()
+{
+    if (Time.timeScale == 0f) return; // 일시정지 시 마우스 입력 차단
+
+    mouseX += Input.GetAxis("Mouse X") * mouseSpeed;
+    mouseY += Input.GetAxis("Mouse Y") * mouseSpeed;
+    mouseY = Mathf.Clamp(mouseY, -60f, 60f);
+
+    // 좌우 회전: 플레이어 본체 회전
+    transform.rotation = Quaternion.Euler(0, mouseX, 0);
+
+    // 상하 회전: ViewPivot 회전
+    viewPivot.localRotation = Quaternion.Euler(-mouseY, 0, 0);
+}
+
+void OnAnimatorIK(int layerIndex)
+{
+    if (headBone == null || viewPivot == null) return;
+
+    Vector3 lookTarget = viewPivot.position + viewPivot.forward * 10f;
+    headBone.LookAt(lookTarget);
+
+    Vector3 angles = headBone.localEulerAngles;
+    headBone.localEulerAngles = new Vector3(angles.x, angles.y, 0f); // Z축 고정
+}
+
+void HandleFootsteps()
+{
+    Vector3 horizontalMove = new Vector3(dir.x, 0, dir.z);
+    if (controller.isGrounded && horizontalMove.magnitude > 0.1f)
+    {
+        footstepTimer += Time.deltaTime;
+        float stepInterval = baseStepInterval * (walkSpeed / currentSpeed);
+
+        if (footstepTimer >= stepInterval)
         {
-            // 발소리 타이머 누적
-            footstepTimer += Time.deltaTime;
+            footstepTimer = 0f;
 
-            // 현재 속도에 따라 발걸음 간격 조절 (속도가 빠르면 간격 짧음)
-            // 기본 간격(baseStepInterval)이 걷기 속도(walkSpeed) 기준일 때,
-            // 현재 속도가 빨라지면 비례해서 간격을 줄인다.
-            float stepInterval = baseStepInterval * (walkSpeed / currentSpeed);
-
-            if (footstepTimer >= stepInterval)
+            // 발소리 재생 (Sound_Emitter 사용)
+            if (footstepEmitter != null && footstepClips != null && footstepClips.Length > 0)
             {
-                footstepTimer = 0f;
-                // 발소리 AudioSource와 클립들이 올바르게 할당되어 있는지 확인
-                if (footstepSource != null && footstepClips != null && footstepClips.Length > 0)
-                {
-                    // 랜덤으로 발소리 클립 선택
-                    int clipIndex = Random.Range(0, footstepClips.Length);
-                    // 볼륨: 현재 속도에 비례 (예: 달릴 때 강하게)
-                    // 여기는 스프린트 속도 기준으로 정규화하되, 최소 0.3 정도는 유지.
-                    float volume = Mathf.Clamp(currentSpeed / sprintSpeed, 0.3f, 1f);
-                    footstepSource.PlayOneShot(footstepClips[clipIndex], volume);
-                }
+                int clipIndex = Random.Range(0, footstepClips.Length);
+                footstepEmitter.m_AudioClip = footstepClips[clipIndex];
+                footstepEmitter.m_Pitch = Time.timeScale > 0 ? 1f : 0f; // 일시정지 시 피치 0으로 설정
+                footstepEmitter.ClipPlay(); // Sound_Emitter의 ClipPlay 함수 호출
             }
         }
-        else
+    }
+    else
+    {
+        footstepTimer = 0f;
+    }
+}
+*/
+/*
+// 수정 전 버전
+void HandleFootsteps()
+{
+    // 플레이어가 지면에 있고, 상당한 수평 이동이 있을 때 발소리 발동
+    Vector3 horizontalMove = new Vector3(dir.x, 0, dir.z);
+    if (controller.isGrounded && horizontalMove.magnitude > 0.1f)
+    {
+        // 발소리 타이머 누적
+        footstepTimer += Time.deltaTime;
+
+        // 현재 속도에 따라 발걸음 간격 조절 (속도가 빠르면 간격 짧음)
+        // 기본 간격(baseStepInterval)이 걷기 속도(walkSpeed) 기준일 때,
+        // 현재 속도가 빨라지면 비례해서 간격을 줄인다.
+        float stepInterval = baseStepInterval * (walkSpeed / currentSpeed);
+
+        if (footstepTimer >= stepInterval)
         {
-            // 이동이 없거나 공중이면 타이머 리셋
             footstepTimer = 0f;
+            // 발소리 AudioSource와 클립들이 올바르게 할당되어 있는지 확인
+            if (footstepSource != null && footstepClips != null && footstepClips.Length > 0)
+            {
+                // 랜덤으로 발소리 클립 선택
+                int clipIndex = Random.Range(0, footstepClips.Length);
+                // 볼륨: 현재 속도에 비례 (예: 달릴 때 강하게)
+                // 여기는 스프린트 속도 기준으로 정규화하되, 최소 0.3 정도는 유지.
+                float volume = Mathf.Clamp(currentSpeed / sprintSpeed, 0.3f, 1f);
+                footstepSource.PlayOneShot(footstepClips[clipIndex], volume);
+            }
         }
     }
-    */
+    else
+    {
+        // 이동이 없거나 공중이면 타이머 리셋
+        footstepTimer = 0f;
+    }
+}
+*/
 
 /*
 void HandleFootsteps()
@@ -417,7 +415,7 @@ public class UserMove : MonoBehaviour
     private Vector3 dir; // 캐릭터 이동 벡터
 
     public Vector3 MoveDirection => dir;
-    public bool IsJumping => jumpFlag; // 점프 상태를 외부에서 알 수 있도록 함
+    public bool isJumping => jumpFlag; // 점프 상태를 외부에서 알 수 있도록 함
 
     [Header("Speed Settings")]
     public float currentSpeed = 1f;     // 현재 이동 속도

@@ -1699,11 +1699,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a73a5eca180afdd4987919182aa4c6fe, type: 3}
---- !u!4 &502544620 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 836525577211296067, guid: 35e112cb1c895574c9bb5296749bf678, type: 3}
-  m_PrefabInstance: {fileID: 1471860316}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &552586183
 GameObject:
   m_ObjectHideFlags: 0
@@ -5661,6 +5656,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+<<<<<<< HEAD
     - target: {fileID: 3528930750508451001, guid: 50e48bad097903e46b81e9c66cd126e2, type: 3}
       propertyPath: m_Name
       value: GasMask
@@ -5713,11 +5709,17 @@ PrefabInstance:
       propertyPath: m_CullingMask.m_Bits
       value: 512
       objectReference: {fileID: 0}
+=======
+>>>>>>> choi
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
+<<<<<<< HEAD
   m_SourcePrefab: {fileID: 100100000, guid: 50e48bad097903e46b81e9c66cd126e2, type: 3}
+=======
+  m_SourcePrefab: {fileID: 100100000, guid: 3220e3b3ae9a16540b7642fe168ab534, type: 3}
+>>>>>>> choi
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -5739,7 +5741,7 @@ SceneRoots:
   - {fileID: 5894023528402624271}
   - {fileID: 1350576513}
   - {fileID: 1830625705}
+  - {fileID: 603216681}
   - {fileID: 2114800228869739834}
   - {fileID: 930803029}
-  - {fileID: 603216681}
   - {fileID: 1471860316}

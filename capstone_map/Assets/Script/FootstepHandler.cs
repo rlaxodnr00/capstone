@@ -92,12 +92,12 @@ public class FootstepHandler : MonoBehaviour
 
     void HandleJumpSound()
     {
-        if (controller.isGrounded && !userMove.IsJumping)
+        if (controller.isGrounded && !userMove.isJumping)
         {
             hasJumped = false;
         }
 
-        if (userMove.IsJumping && !hasJumped && jumpSounds != null && jumpSounds.Length > 0)
+        if (userMove.isJumping && !hasJumped && jumpSounds != null && jumpSounds.Length > 0)
         {
             int soundIndex = Random.Range(0, jumpSounds.Length);
             jumpSounds[soundIndex].Play();
