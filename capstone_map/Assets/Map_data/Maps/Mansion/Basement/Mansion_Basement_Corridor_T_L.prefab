@@ -153,7 +153,7 @@ MonoBehaviour:
   - basement_corridor_corner
   - basement_mech
   - basement_exit
-  deadEndChance: 1
+  deadEndChance: 0
 --- !u!1 &3774482345013526914
 GameObject:
   m_ObjectHideFlags: 0
@@ -576,6 +576,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8245399048904907662, guid: 7759313494367a749bc97af97ea68910, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: a013a073cfb7f4946aca7f5f213db147, type: 2}
+    - target: {fileID: -7599323864828923772, guid: 7759313494367a749bc97af97ea68910, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: a013a073cfb7f4946aca7f5f213db147, type: 2}
+    - target: {fileID: -6688610688747869349, guid: 7759313494367a749bc97af97ea68910, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 1245150072c624148aace54e9c8dbc19, type: 2}
+    - target: {fileID: -6042827423148036047, guid: 7759313494367a749bc97af97ea68910, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: a73ce97174548ff43becf7076bf810d5, type: 2}
+    - target: {fileID: -4413516176401734134, guid: 7759313494367a749bc97af97ea68910, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: a73ce97174548ff43becf7076bf810d5, type: 2}
+    - target: {fileID: -720992476306302821, guid: 7759313494367a749bc97af97ea68910, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 4c9f53c3fe65b964bb002004d3d60837, type: 2}
+    - target: {fileID: -712437861099719709, guid: 7759313494367a749bc97af97ea68910, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: a013a073cfb7f4946aca7f5f213db147, type: 2}
     - target: {fileID: 818101907399436855, guid: 7759313494367a749bc97af97ea68910, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -584,10 +612,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: mansion_basement_T_cross_pipe
       objectReference: {fileID: 0}
+    - target: {fileID: 2066309133893151359, guid: 7759313494367a749bc97af97ea68910, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 4c9f53c3fe65b964bb002004d3d60837, type: 2}
+    - target: {fileID: 4395704789976774429, guid: 7759313494367a749bc97af97ea68910, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 4c9f53c3fe65b964bb002004d3d60837, type: 2}
+    - target: {fileID: 6581037733153192577, guid: 7759313494367a749bc97af97ea68910, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 4c9f53c3fe65b964bb002004d3d60837, type: 2}
     - target: {fileID: 6726750176065510321, guid: 7759313494367a749bc97af97ea68910, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 991a81af233083b4a825a8ac63d1db4a, type: 2}
+    - target: {fileID: 7484300794032529530, guid: 7759313494367a749bc97af97ea68910, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 4c9f53c3fe65b964bb002004d3d60837, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

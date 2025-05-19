@@ -1,7 +1,7 @@
 using System.Net.Sockets;
 using UnityEngine;
 
-public class Drawers : Interactable
+public class Drawers : Interactable, IInteractable
 {
     private Animator animator;
     public AudioSource audioS;
@@ -14,12 +14,12 @@ public class Drawers : Interactable
 
     public override void OnLookAt()
     {
-        
+
     }
 
     public override void OnLookAway()
     {
-        
+
     }
 
     public override void OnInteract()
@@ -30,5 +30,10 @@ public class Drawers : Interactable
         {
             audioS.PlayOneShot(clip, 0.3f);
         }
+    }
+    
+    public void Interact()
+    {
+        OnInteract();
     }
 }

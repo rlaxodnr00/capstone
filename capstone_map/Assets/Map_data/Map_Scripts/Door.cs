@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Door : Interactable, IInteractable
 {
-    private Animator animator;
+    public Animator animator;
 
     public AudioSource audioS;
     public AudioClip open;
@@ -13,7 +13,7 @@ public class Door : Interactable, IInteractable
         animator = GetComponent<Animator>();
     }
 
-    public void Doorlock(bool locked)
+    public virtual void Doorlock(bool locked)
     {
         animator.SetBool("locked", locked);
     }

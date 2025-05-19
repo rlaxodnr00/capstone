@@ -181,7 +181,8 @@ MonoBehaviour:
   createsTags:
   - basement_corridor
   - basement_corridor_t
-  deadEndChance: 1
+  - basement_exit
+  deadEndChance: 0
 --- !u!1 &8187496264921391955
 GameObject:
   m_ObjectHideFlags: 0

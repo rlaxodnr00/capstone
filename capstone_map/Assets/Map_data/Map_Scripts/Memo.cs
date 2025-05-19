@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Memo :Interactable
+public class Memo : Interactable, IInteractable
 {
     // 메모장 번호
     public int memoNumber;
@@ -9,7 +9,7 @@ public class Memo :Interactable
 
     public override void OnLookAt()
     {
-        
+
     }
 
     public override void OnLookAway()
@@ -20,6 +20,11 @@ public class Memo :Interactable
     public override void OnInteract()
     {
         // 메모장 열기
-        Debug.Log(memoNumber + "번 메모장 상호작용");
+        Debug.Log("메모장 상호작용");
+    }
+    
+    public void Interact()
+    {
+        OnInteract();
     }
 }

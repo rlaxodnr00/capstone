@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-public class LightSwitch : Interactable
+public class LightSwitch : Interactable, IInteractable
 {
     private Animator animator;
 
@@ -64,6 +64,11 @@ public class LightSwitch : Interactable
 
             // Debug.Log("Lights toggled: " + toggle);
         }
+    }
+
+    public void Interact()
+    {
+        OnInteract();
     }
 
     public void RestoreLightFromBreaker()

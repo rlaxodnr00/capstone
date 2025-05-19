@@ -156,8 +156,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lobbyDoors:
-  - {fileID: 2533882781077844835}
-  - {fileID: 4010044717532098183}
+  - {fileID: 3412415364773791397}
+  - {fileID: 7430526193460173488}
 --- !u!1 &1136148159230655397
 GameObject:
   m_ObjectHideFlags: 0
@@ -2472,27 +2472,47 @@ PrefabInstance:
       propertyPath: m_Name
       value: DoorParent
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7388601011526158276, guid: 90bdf87f489cdeb40b8c973d25e1f38b, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 7388601011526158276, guid: 90bdf87f489cdeb40b8c973d25e1f38b, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 199865836646452338, guid: 90bdf87f489cdeb40b8c973d25e1f38b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3412415364773791397}
   m_SourcePrefab: {fileID: 100100000, guid: 90bdf87f489cdeb40b8c973d25e1f38b, type: 3}
 --- !u!4 &1791502474351470996 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6737120669566737715, guid: 90bdf87f489cdeb40b8c973d25e1f38b, type: 3}
   m_PrefabInstance: {fileID: 5018062835650163879}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2533882781077844835 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7388601011526158276, guid: 90bdf87f489cdeb40b8c973d25e1f38b, type: 3}
+--- !u!1 &5144708796757063893 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 199865836646452338, guid: 90bdf87f489cdeb40b8c973d25e1f38b, type: 3}
   m_PrefabInstance: {fileID: 5018062835650163879}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+--- !u!114 &3412415364773791397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5144708796757063893}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86a8b80af81a2eb4ea81a9e63ddd6783, type: 3}
+  m_Script: {fileID: 11500000, guid: 015c99846fa9fda4db2c08e32a9dd9b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 0}
+  audioS: {fileID: 0}
+  open: {fileID: 8300000, guid: d0870c964a2354d8094ce31e769a7290, type: 3}
+  close: {fileID: 8300000, guid: 04213f14ae5074a84b3c41aef6b6a00f, type: 3}
+  locked: {fileID: 8300000, guid: 6ed0f8509e9e44272a85f74fdc61879b, type: 3}
+  otherDoor: {fileID: 7430526193460173488}
 --- !u!1001 &5282726306408541278
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2871,27 +2891,43 @@ PrefabInstance:
       propertyPath: m_Name
       value: DoorParent (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7388601011526158276, guid: 90bdf87f489cdeb40b8c973d25e1f38b, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 199865836646452338, guid: 90bdf87f489cdeb40b8c973d25e1f38b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7430526193460173488}
   m_SourcePrefab: {fileID: 100100000, guid: 90bdf87f489cdeb40b8c973d25e1f38b, type: 3}
 --- !u!4 &887227372695385200 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6737120669566737715, guid: 90bdf87f489cdeb40b8c973d25e1f38b, type: 3}
   m_PrefabInstance: {fileID: 5849928618699221315}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &4010044717532098183 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7388601011526158276, guid: 90bdf87f489cdeb40b8c973d25e1f38b, type: 3}
+--- !u!1 &6046381562528343345 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 199865836646452338, guid: 90bdf87f489cdeb40b8c973d25e1f38b, type: 3}
   m_PrefabInstance: {fileID: 5849928618699221315}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+--- !u!114 &7430526193460173488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6046381562528343345}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86a8b80af81a2eb4ea81a9e63ddd6783, type: 3}
+  m_Script: {fileID: 11500000, guid: 015c99846fa9fda4db2c08e32a9dd9b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 0}
+  audioS: {fileID: 0}
+  open: {fileID: 8300000, guid: d0870c964a2354d8094ce31e769a7290, type: 3}
+  close: {fileID: 8300000, guid: 04213f14ae5074a84b3c41aef6b6a00f, type: 3}
+  locked: {fileID: 8300000, guid: 6ed0f8509e9e44272a85f74fdc61879b, type: 3}
+  otherDoor: {fileID: 3412415364773791397}
 --- !u!1001 &5996982221223284309
 PrefabInstance:
   m_ObjectHideFlags: 0
