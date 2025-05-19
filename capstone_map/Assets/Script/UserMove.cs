@@ -6,6 +6,7 @@ using UnityEngine.UI;*/
 
 using System.Collections;
 using System.Collections.Generic;
+using AiSoundDetect;
 using UnityEngine;
 /*
 public class UserMove : MonoBehaviour
@@ -250,76 +251,76 @@ void PlayerJump()
         jumpFlag = false; // 공중에 뜨면 jumpFlag 초기화
     }
 */
-    /*
-    // 수정 전 버전
-    void HandleFootsteps()
-    {
-        dir.y = -2f; // 땅에 붙게 << 의미 없어보이는데 일단 적용함
-    }
+/*
+// 수정 전 버전
+void HandleFootsteps()
+{
+    dir.y = -2f; // 땅에 붙게 << 의미 없어보이는데 일단 적용함
+}
 }
 
 
 void PlayerCrouch()
 {
-    if (Input.GetKeyDown(KeyCode.LeftControl))
-    {
-        crouchHandler.CrouchTransition();
-        Debug.Log("Left Control 입력 감지됨. 상태 변경 시도");
-    }
+if (Input.GetKeyDown(KeyCode.LeftControl))
+{
+    crouchHandler.CrouchTransition();
+    Debug.Log("Left Control 입력 감지됨. 상태 변경 시도");
+}
 }
 
 void ScreenMove()
 {
-    if (Time.timeScale == 0f) return; // 일시정지 시 마우스 입력 차단
+if (Time.timeScale == 0f) return; // 일시정지 시 마우스 입력 차단
 
-    mouseX += Input.GetAxis("Mouse X") * mouseSpeed;
-    mouseY += Input.GetAxis("Mouse Y") * mouseSpeed;
-    mouseY = Mathf.Clamp(mouseY, -60f, 60f);
+mouseX += Input.GetAxis("Mouse X") * mouseSpeed;
+mouseY += Input.GetAxis("Mouse Y") * mouseSpeed;
+mouseY = Mathf.Clamp(mouseY, -60f, 60f);
 
-    // 좌우 회전: 플레이어 본체 회전
-    transform.rotation = Quaternion.Euler(0, mouseX, 0);
+// 좌우 회전: 플레이어 본체 회전
+transform.rotation = Quaternion.Euler(0, mouseX, 0);
 
-    // 상하 회전: ViewPivot 회전
-    viewPivot.localRotation = Quaternion.Euler(-mouseY, 0, 0);
+// 상하 회전: ViewPivot 회전
+viewPivot.localRotation = Quaternion.Euler(-mouseY, 0, 0);
 }
 
 void OnAnimatorIK(int layerIndex)
 {
-    if (headBone == null || viewPivot == null) return;
+if (headBone == null || viewPivot == null) return;
 
-    Vector3 lookTarget = viewPivot.position + viewPivot.forward * 10f;
-    headBone.LookAt(lookTarget);
+Vector3 lookTarget = viewPivot.position + viewPivot.forward * 10f;
+headBone.LookAt(lookTarget);
 
-    Vector3 angles = headBone.localEulerAngles;
-    headBone.localEulerAngles = new Vector3(angles.x, angles.y, 0f); // Z축 고정
+Vector3 angles = headBone.localEulerAngles;
+headBone.localEulerAngles = new Vector3(angles.x, angles.y, 0f); // Z축 고정
 }
 
 void HandleFootsteps()
 {
-    Vector3 horizontalMove = new Vector3(dir.x, 0, dir.z);
-    if (controller.isGrounded && horizontalMove.magnitude > 0.1f)
-    {
-        footstepTimer += Time.deltaTime;
-        float stepInterval = baseStepInterval * (walkSpeed / currentSpeed);
+Vector3 horizontalMove = new Vector3(dir.x, 0, dir.z);
+if (controller.isGrounded && horizontalMove.magnitude > 0.1f)
+{
+    footstepTimer += Time.deltaTime;
+    float stepInterval = baseStepInterval * (walkSpeed / currentSpeed);
 
-        if (footstepTimer >= stepInterval)
-        {
-            footstepTimer = 0f;
-
-            // 발소리 재생 (Sound_Emitter 사용)
-            if (footstepEmitter != null && footstepClips != null && footstepClips.Length > 0)
-            {
-                int clipIndex = Random.Range(0, footstepClips.Length);
-                footstepEmitter.m_AudioClip = footstepClips[clipIndex];
-                footstepEmitter.m_Pitch = Time.timeScale > 0 ? 1f : 0f; // 일시정지 시 피치 0으로 설정
-                footstepEmitter.ClipPlay(); // Sound_Emitter의 ClipPlay 함수 호출
-            }
-        }
-    }
-    else
+    if (footstepTimer >= stepInterval)
     {
         footstepTimer = 0f;
+
+        // 발소리 재생 (Sound_Emitter 사용)
+        if (footstepEmitter != null && footstepClips != null && footstepClips.Length > 0)
+        {
+            int clipIndex = Random.Range(0, footstepClips.Length);
+            footstepEmitter.m_AudioClip = footstepClips[clipIndex];
+            footstepEmitter.m_Pitch = Time.timeScale > 0 ? 1f : 0f; // 일시정지 시 피치 0으로 설정
+            footstepEmitter.ClipPlay(); // Sound_Emitter의 ClipPlay 함수 호출
+        }
     }
+}
+else
+{
+    footstepTimer = 0f;
+}
 }
 */
 /*
@@ -361,49 +362,9 @@ void HandleFootsteps()
 }
 */
 
-/*
-void HandleFootsteps()
-{
-    Vector3 horizontalMove = new Vector3(dir.x, 0, dir.z);
-    if (controller.isGrounded && horizontalMove.magnitude > 0.1f)
-    {
-        footstepTimer += Time.deltaTime;
-        float stepInterval = baseStepInterval * (walkSpeed / currentSpeed);
 
-        if (footstepTimer >= stepInterval)
-        {
-            footstepTimer = 0f;
 
-            // 발소리 오디오 재생
-            if (footstepSource != null && footstepClips != null && footstepClips.Length > 0)
-            {
-                int clipIndex = Random.Range(0, footstepClips.Length);
-                float volume = Mathf.Clamp(currentSpeed / sprintSpeed, 0.3f, 1f);
-                footstepSource.PlayOneShot(footstepClips[clipIndex], volume);
-            }
 
-            //  발소리 SoundEmitter 생성
-            if (footstepEmitterPrefab != null)
-            {
-                // 현재 플레이어 위치에 생성
-                GameObject emitter = Instantiate(footstepEmitterPrefab, transform.position, Quaternion.identity);
-
-                // Sound_Emitter 스크립트가 있다면, 범위 설정
-                Sound_Emitter emitterScript = emitter.GetComponent<Sound_Emitter>();
-                if (emitterScript != null)
-                {
-                    //emitterScript.soundRange = 5f; // 발소리 범위 설정 (원하는 값으로)
-                    //emitterScript.lifetime = 0.5f; // 몇 초 동안 유지할지 설정
-                }
-            }
-        }
-    }
-    else
-    {
-        footstepTimer = 0f;
-    }
-}
-*/
 
 
 
@@ -443,11 +404,23 @@ public class UserMove : MonoBehaviour
 
     public float WalkSpeed => walkSpeed; // 읽기 전용 Getter
 
+    [Header("Sound Emitter Settings")]
+    public Sound_Emitter footstepEmitter; // 발소리 SoundEmitter 컴포넌트 (에디터에서 할당)
+    public AudioClip[] footstepClips;     // 발소리 AudioClip 배열
+    public float baseStepInterval = 0.5f; // 걷기 속도 기준 기본 발걸음 간격 (초)
+    private float footstepTimer = 0f;     // 발걸음 타이머
+    public GameObject footstepEmitterPrefab; // 발소리 SoundEmitter 프리팹
+
     public float CurrentSpeed
     {
         get => currentSpeed;
         set => currentSpeed = Mathf.Clamp(value, 0.5f, 5f); // 이동 속도 값 제한
     }
+
+    // -----------------------------------------------------------------
+    [Header("Footstep Settings")]
+    public AudioSource footstepSource;          // 발소리 재생용 AudioSource
+    // -----------------------------------------------------------------
 
     private void Start()
     {
@@ -468,6 +441,7 @@ public class UserMove : MonoBehaviour
         PlayerCrouch();   // 구르기(앉기)
         ScreenMove();     // 화면(카메라) 이동
         PlayerJump();     // 플레이어 점프
+        HandleFootsteps(); // 발소리 처리
     }
 
     void PlayerMove()
@@ -579,4 +553,46 @@ public class UserMove : MonoBehaviour
         Vector3 angles = headBone.localEulerAngles;
         headBone.localEulerAngles = new Vector3(angles.x, angles.y, 0f); // Z축 고정
     }
+    
+    void HandleFootsteps()
+{
+    Vector3 horizontalMove = new Vector3(dir.x, 0, dir.z);
+    if (controller.isGrounded && horizontalMove.magnitude > 0.1f)
+    {
+        footstepTimer += Time.deltaTime;
+        float stepInterval = baseStepInterval * (walkSpeed / currentSpeed);
+
+        if (footstepTimer >= stepInterval)
+        {
+            footstepTimer = 0f;
+
+            // 발소리 오디오 재생
+            if (footstepSource != null && footstepClips != null && footstepClips.Length > 0)
+            {
+                int clipIndex = Random.Range(0, footstepClips.Length);
+                float volume = Mathf.Clamp(currentSpeed / sprintSpeed, 0.3f, 1f);
+                footstepSource.PlayOneShot(footstepClips[clipIndex], volume);
+            }
+
+            //  발소리 SoundEmitter 생성
+            if (footstepEmitterPrefab != null)
+            {
+                // 현재 플레이어 위치에 생성
+                GameObject emitter = Instantiate(footstepEmitterPrefab, transform.position, Quaternion.identity);
+
+                // Sound_Emitter 스크립트가 있다면, 범위 설정
+                Sound_Emitter emitterScript = emitter.GetComponent<Sound_Emitter>();
+                if (emitterScript != null)
+                {
+                    //emitterScript.soundRange = 5f; // 발소리 범위 설정 (원하는 값으로)
+                    //emitterScript.lifetime = 0.5f; // 몇 초 동안 유지할지 설정
+                }
+            }
+        }
+    }
+    else
+    {
+        footstepTimer = 0f;
+    }
+}
 }
