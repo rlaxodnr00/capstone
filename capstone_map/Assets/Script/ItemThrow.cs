@@ -8,16 +8,17 @@ public class ItemThrow : MonoBehaviour
     // 던지기 시작 위치 (플레이어의 손 또는 카메라 위치 등)
     public Transform throwOrigin;
 
+
     // 기본 던지기 힘 (이 값은 던지는 느낌을 조절하기 위해 조정 가능)
     public float baseThrowForce = 12f;
 
     // 던질 때 추가할 상승각(예: 약간 위로 던지기 위함)
-    public float upwardForceFactor = 0.5f;
+    public float upwardForceFactor = 0.2f;
 
     // 던지기 입력 키 (여기서는 G키)
     public KeyCode throwKey = KeyCode.G;
 
-    
+
     void Update()
     {
         // G키 눌렀을 때 던지기 실행
@@ -45,7 +46,9 @@ public class ItemThrow : MonoBehaviour
         }
 
         // 아이템 드롭 처리 (이미 플레이어 인벤토리에서 해당 아이템을 제거하도록 구현되어 있어야 함)
-        playerInventory.DropCurrentItem();
+        // 인벤토리 제거만 수행하고, 위치/회전은 그대로
+        playerInventory.ItemThrow(playerInventory.CurrentSlot); // 현재 선택 슬롯 기준
+
 
         // 던질 아이템에 Rigidbody가 없다면 추가
         Rigidbody rb = currentItem.GetComponent<Rigidbody>();

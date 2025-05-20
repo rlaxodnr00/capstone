@@ -46,6 +46,9 @@ public class GameUIManager : MonoBehaviour
 
     private void Start()
     {
+        //Physics.gravity = new Vector3(0, -0.981f, 0); // 스케일 0.1 기준 중력 보정
+        //Debug.Log("중력 설정됨: " + Physics.gravity);
+
         if (ScreenTransition.Instance != null)
         {
             ScreenTransition.Instance.StartFadeIn();
