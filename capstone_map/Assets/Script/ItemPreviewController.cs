@@ -16,7 +16,7 @@ public class ItemPreviewController : MonoBehaviour
         }
         else
         {
-            Debug.LogError("ItemPreviewController의 previewCamera 변수가 할당되지 않았습니다.");
+            Debug.Log("ItemPreviewController의 previewCamera 변수가 할당되지 않았습니다.");
         }
     }
 
