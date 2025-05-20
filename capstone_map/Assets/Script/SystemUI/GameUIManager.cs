@@ -24,6 +24,9 @@ public class GameUIManager : MonoBehaviour
     [Header("Hit Effect")]
     public RawImage hitImage;
 
+    [Header("Timer UI")]
+    public GameOverTimer gameOverTimer;
+
     private void Awake()
     {
         if (Instance == null)
