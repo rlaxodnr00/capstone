@@ -4237,6 +4237,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1497694193}
   m_SourcePrefab: {fileID: 100100000, guid: 35e112cb1c895574c9bb5296749bf678, type: 3}
+--- !u!82 &1471860317 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 8213506364862070626, guid: 35e112cb1c895574c9bb5296749bf678, type: 3}
+  m_PrefabInstance: {fileID: 1471860316}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1484730864 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6448335968752880783, guid: f1dfc6e966a1a30488a25ddeb2743d64, type: 3}
@@ -4267,7 +4272,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   walkStepInterval: 0.5
   runStepInterval: 0.3
-  footstepSource: {fileID: 1497694195}
+  footstepSource: {fileID: 1471860317}
   soundEmitter: {fileID: 49056190}
 --- !u!114 &1497694194
 MonoBehaviour:
@@ -4285,11 +4290,6 @@ MonoBehaviour:
   jumpSounds: []
   normalStepInterval: 0.4
   crouchStepInterval: 0.6
---- !u!82 &1497694195 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 4508158806252759867, guid: 35e112cb1c895574c9bb5296749bf678, type: 3}
-  m_PrefabInstance: {fileID: 1471860316}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1575969516 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7987077021681026237, guid: f1dfc6e966a1a30488a25ddeb2743d64, type: 3}
