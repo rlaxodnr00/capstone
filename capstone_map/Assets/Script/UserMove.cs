@@ -147,6 +147,7 @@ public class UserMove : MonoBehaviour
 
      */
 /*
+
 void PlayerMove()
 {
    if (Time.timeScale == 0) return; // 일시정지 중이면 무시
@@ -189,6 +190,9 @@ void PlayerJump()
 {
     // 점프 입력 & 착지 상태일 때
     if (Input.GetKeyDown(KeyCode.Space) && controller.isGrounded)
+=======
+    void PlayerMove()
+>>>>>>> 83ee1e0fce54d9fa75a5e396305ddded80a78b1a
     {
         jumpFlag = true;
 
@@ -219,9 +223,12 @@ void PlayerJump()
     {
         dir.y = -2f; // 가볍게 눌러붙게
     }
+
 }
 */
 /*    
+
+
     void PlayerJump()
     {
         float jumpHeight = baseJumpHeight;
@@ -230,8 +237,75 @@ void PlayerJump()
         if (Input.GetKey(KeyCode.LeftShift))
             jumpHeight += runJumpExtra;
 
+
         dir.y = Mathf.Sqrt(jumpHeight * 2f * gravity); // 초기 점프 속도 계산
         jumpFlag = true;
+
+            // 중력 기반 점프 초기속도 계산 (v = sqrt(2gh) 응용)
+            dir.y = Mathf.Sqrt(finalJumpForce * 2f * gravity);
+
+            Debug.Log($"점프: 최종점프력={finalJumpForce}, 초기속도={dir.y}");
+        }
+
+        // 공중에 있을 때 중력 적용
+        if (!controller.isGrounded)
+        {
+            if (jumpFlag)
+            {
+                jumpFlag = false; // 한 번만 점프 가능
+            }
+            else
+            {
+                dir.y -= gravity * Time.deltaTime;
+            }
+        }   
+
+        // 땅에 닿았을 때 Y속도 초기화
+        if (controller.isGrounded && dir.y < 0f)
+        {
+            dir.y = -2f; // 가볍게 눌러붙게
+        }
+    }
+    */
+    /*
+    void PlayerJump()
+    {
+        // 점프 시도 (스페이스 + 지면)
+        if (Input.GetKeyDown(KeyCode.Space) && controller.isGrounded)
+        {
+            float jumpHeight = baseJumpHeight;
+
+            // 달리는 중이면 추가 높이
+            if (Input.GetKey(KeyCode.LeftShift))
+                jumpHeight += runJumpExtra;
+
+            dir.y = Mathf.Sqrt(jumpHeight * 2f * gravity); // 초기 점프 속도 계산
+            jumpFlag = true;
+        }
+
+        // 공중 중력 처리 << 왜 적용해도 거의 차이 없게 느껴지지
+        if (!controller.isGrounded)
+        {
+            if (dir.y > 0)
+            {
+                // 상승 중 : 중력 감속을 완화시켜 더 오래 정점에 머물게
+                dir.y -= gravity * jumpRiseMultiplier * Time.deltaTime;
+            }
+            else
+            {
+                // 하강 중 : 더 빠르게 떨어지게 하여 포물선 완성
+                dir.y -= gravity * jumpFallMultiplier * Time.deltaTime;
+            }
+
+            jumpFlag = false; // 공중에 뜨면 jumpFlag 초기화
+        }
+
+        // 땅에 닿았으면 y속도 초기화
+        if (controller.isGrounded && dir.y < 0)
+        {
+            dir.y = -2f; // 땅에 붙게 << 의미 없어보이는데 일단 적용함
+        }
+>>>>>>> 83ee1e0fce54d9fa75a5e396305ddded80a78b1a
     }
 
     // 공중 중력 처리 << 왜 적용해도 거의 차이 없게 느껴지지
@@ -316,6 +390,7 @@ if (controller.isGrounded && horizontalMove.magnitude > 0.1f)
             footstepEmitter.ClipPlay(); // Sound_Emitter의 ClipPlay 함수 호출
         }
     }
+
 }
 else
 {
@@ -330,6 +405,12 @@ void HandleFootsteps()
     // 플레이어가 지면에 있고, 상당한 수평 이동이 있을 때 발소리 발동
     Vector3 horizontalMove = new Vector3(dir.x, 0, dir.z);
     if (controller.isGrounded && horizontalMove.magnitude > 0.1f)
+
+*/
+    /*
+    // 수정 전 버전
+    void HandleFootsteps()
+
     {
         // 발소리 타이머 누적
         footstepTimer += Time.deltaTime;

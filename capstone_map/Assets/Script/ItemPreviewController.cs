@@ -9,9 +9,17 @@ public class ItemPreviewController : MonoBehaviour
 
     void Awake()
     {
-        previewCamera.enabled = false;
-        previewCamera.targetTexture = null;
+        if (previewCamera != null)
+        {
+            previewCamera.enabled = false;
+            previewCamera.targetTexture = null;
+        }
+        else
+        {
+            Debug.Log("ItemPreviewController의 previewCamera 변수가 할당되지 않았습니다.");
+        }
     }
+
 
     // 프리뷰 카메라 활성화 및 렌더 텍스처 할당
     public void ActivatePreview(RenderTexture targetRenderTexture)
