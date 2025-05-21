@@ -155,9 +155,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf258331e056a52448b482343415636c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lobbyDoors:
-  - {fileID: 3412415364773791397}
-  - {fileID: 7430526193460173488}
 --- !u!1 &1136148159230655397
 GameObject:
   m_ObjectHideFlags: 0
@@ -5381,7 +5378,7 @@ PrefabInstance:
     - target: {fileID: 2439576662414601354, guid: 3c8dafe498eeaef48a7bdc5ecc4cc572, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: ea818b996fdb26147b3096da10921c18, type: 2}
+      objectReference: {fileID: 2100000, guid: 156836b69f449af43b99588618f222c6, type: 2}
     - target: {fileID: 2882726243828437960, guid: 3c8dafe498eeaef48a7bdc5ecc4cc572, type: 3}
       propertyPath: m_Type
       value: 0

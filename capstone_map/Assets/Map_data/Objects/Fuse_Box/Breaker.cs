@@ -10,7 +10,7 @@ public class Breaker : MonoBehaviour
     {
         get;
         private set;
-    }
+    } = true;
 
     private Dictionary<Light, bool> lightStates = new();
     private Dictionary<Renderer, Color> originalEmissionColors = new();
