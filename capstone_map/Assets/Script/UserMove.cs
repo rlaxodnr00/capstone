@@ -505,9 +505,9 @@ public class UserMove : MonoBehaviour
 
     [Header("Other Settings")]
     private bool jumpFlag = false;          // 점프 상태 판별
-    public float baseJumpHeight = 0.6f;     // 일반 점프력
-    public float runJumpExtra = 0.3f;       // 달릴 때 점프력
-    public float gravity = 7;               // 스케일 보정된 중력
+    public float baseJumpHeight = 0.06f;     // 일반 점프력 /0.6
+    public float runJumpExtra = 0.03f;       // 달릴 때 점프력 /0.3
+    public float gravity = 1;          // 중력 /7
     public float jumpFallMultiplier = 0.6f; // 하강 시 중력 배율
     public float jumpRiseMultiplier = 0.9f; // 상승 시 중력 배율
 
