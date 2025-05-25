@@ -7,6 +7,7 @@ public class HPController : MonoBehaviour
 {
     [Header("Health Settings")]
     public float maxHealth = 100f;         // 최대 체력
+    public float minHealth = 0f;                //최저 체력
     public float currentHealth = 100f;     // 현재 체력
     public float invincibleDuration = 1f;    // 무적 지속 시간 (초)
     public float exceptionDefaultDamage = 10f;      // 기본 데미지 (EnemyDamage 컴포넌트가 없을 경우)
@@ -31,13 +32,25 @@ public class HPController : MonoBehaviour
             OnHealthChanged += GameUIManager.Instance.UpdateHealthUI;
         }
     }
+    public void TakeHeal(float healAmount)
+    {
+        if (isInvincible) return;
+
+        currentHealth = Mathf.Clamp(currentHealth + healAmount, minHealth, maxHealth);
+        Debug.Log("HP 회복: " + healAmount + " | 남은 체력: " + currentHealth);
+
+        // 체력 변화 이벤트 발생
+        OnHealthChanged?.Invoke(currentHealth, maxHealth);
+    }
+
+
 
     //데미지를 받아 체력을 감소시키고, 체력 변경 이벤트를 발생
     public void TakeDamage(float damageAmount)
     {
         if (isInvincible) return;
 
-        currentHealth = Mathf.Clamp(currentHealth - damageAmount, 0f, maxHealth);
+        currentHealth = Mathf.Clamp(currentHealth - damageAmount, minHealth, maxHealth);
         Debug.Log("HP 감소: " + damageAmount + " | 남은 체력: " + currentHealth);
 
         // 체력 변화 이벤트 발생

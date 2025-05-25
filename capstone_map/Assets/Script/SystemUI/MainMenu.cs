@@ -17,12 +17,16 @@ public class MainMenu : MonoBehaviour
 
 
     [Header("Others")]
+    public CanvasGroup settingScreen;
     private CanvasGroup currentScreen; //화면저장용
 
+    [Header("코드 간략화")]
+    public bool IsSingleScreenActive => currentScreen == guideScreen || currentScreen == settingScreen; //메인화면 + 1
+    public bool IsInGuideDetailScreen => currentScreen == playGuideScreen || currentScreen == keyGuideScreen; // 가이드 세부 화면
 
     private void Start()
     {
-        //Time.timeScale = 1f; // 다시 정상 시간 흐름으로 복구하여 버튼 클릭 가능하게
+        //Time.timeScale = 1f; // 다시 정상 시간 흐름으로 복구하여 버튼 클릭 가능하게 / 왜 없어도 잘됨
         DefaultMainScreen();
     }
 
@@ -32,7 +36,7 @@ public class MainMenu : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape)) //ESC 키로 뒤로가기
         {
             GoBack();
-            Debug.Log("GoBack 실행");
+            //Debug.Log("GoBack 실행");
         }
     }
 
@@ -42,12 +46,13 @@ public class MainMenu : MonoBehaviour
         SetCanvasGroup(guideScreen, true);
         SetCanvasGroup(playGuideScreen, false);
         SetCanvasGroup(keyGuideScreen, false);
+        SetCanvasGroup(settingScreen, false);
         currentScreen = null;
     }
 
     public void StartGame()
     {
-        ScreenTransition.Instance.StartFadeOut("We_Make_This_Map");
+        ScreenTransition.Instance.StartFadeOut("We_Make_This_Map"); //연출 포함하여 씬 전환
         //SceneManager.LoadScene("We_Make_This_Map");
     }
 
@@ -80,9 +85,11 @@ public class MainMenu : MonoBehaviour
     }
 
 
-    public void OptionGame()
+    public void SettingGame()
     {
-        Debug.Log("설정창 오픈");
+        SetCanvasGroup(settingScreen, true); //설정 화면 활성화
+        currentScreen = settingScreen;
+        Debug.Log("OpenPlayGuide currentScreen : " + currentScreen);
     }
 
     public void QuitGame()
@@ -102,20 +109,15 @@ public class MainMenu : MonoBehaviour
     public void GoBack()
     {
         //플레이 가이드 or 키 가이드의 경우 가이드 화면으로 돌아감
-        if (currentScreen == playGuideScreen || currentScreen == keyGuideScreen)
+        if (IsInGuideDetailScreen)
         {
             GuideGame();
-            /*
-            SetCanvasGroup(playGuideScreen, false);
-            SetCanvasGroup(keyGuideScreen, false);
-            SetCanvasGroup(guideScreen, true);
-            currentScreen = guideScreen;*/
             Debug.Log("GoBack if currentScreen : " + currentScreen);
         }
 
 
-        //가이드 화면에서 뒤로 갈 시
-        else if (currentScreen == guideScreen)
+        //가이드 화면, 설정 화면에서 뒤로 갈 시(메인화면으로 갈 경우)
+        else if (IsSingleScreenActive)
         {
             DefaultMainScreen();
             Debug.Log("GoBack elif currentScreen : " + currentScreen);

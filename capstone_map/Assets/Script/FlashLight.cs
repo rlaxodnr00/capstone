@@ -27,7 +27,7 @@ public class Flashlight : MonoBehaviour, ICustomInteractable, IInventoryInteract
 
     void Start()
     {
-        // Inspector에서 할당되지 않았다면 하위에서 Light 컴포넌트 검색
+        // Inspector에서 할당되지 않았다면 하위에서 Light 컴포넌트 검색(그냥넣어봄)
         if (flashlightLight == null)
         {
             flashlightLight = GetComponentInChildren<Light>();

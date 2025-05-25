@@ -157,7 +157,7 @@ GameObject:
   - component: {fileID: 4017288321166673963}
   - component: {fileID: 6095317998359418667}
   m_Layer: 9
-  m_Name: D_KawaiiDuck
+  m_Name: D_KawaiiDuck(notUse)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
