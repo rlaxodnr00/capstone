@@ -1080,6 +1080,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: ItemManager
       objectReference: {fileID: 0}
+    - target: {fileID: 7390906441635105240, guid: 7c587f58a999a734caf0880fa8bef4eb, type: 3}
+      propertyPath: mapRootObject
+      value: 
+      objectReference: {fileID: 605401997}
+    - target: {fileID: 7390906441635105240, guid: 7c587f58a999a734caf0880fa8bef4eb, type: 3}
+      propertyPath: limitedItemConfigs.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7390906441635105240, guid: 7c587f58a999a734caf0880fa8bef4eb, type: 3}
+      propertyPath: limitedItemConfigs.Array.data[0].itemPrefab
+      value: 
+      objectReference: {fileID: 8219098367242666401, guid: 667cf30c40cd6ce418d0da4371262f6a, type: 3}
+    - target: {fileID: 7390906441635105240, guid: 7c587f58a999a734caf0880fa8bef4eb, type: 3}
+      propertyPath: limitedItemConfigs.Array.data[0].maxTotalSpawns
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8306826106023848787, guid: 7c587f58a999a734caf0880fa8bef4eb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
