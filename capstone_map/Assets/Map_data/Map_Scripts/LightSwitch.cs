@@ -52,10 +52,10 @@ public class LightSwitch : Interactable, IInteractable
         bool toggle = !animator.GetBool("light_toggle");
         animator.SetBool("light_toggle", toggle);
 
-        //if (!Breaker.power)
-        //{
-        //    return;
-        //}
+        if (!Breaker.power)
+        {
+           return;
+        }
 
         if (lights != null)
         {
