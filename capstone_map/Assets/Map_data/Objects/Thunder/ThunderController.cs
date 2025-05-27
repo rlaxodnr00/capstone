@@ -15,6 +15,11 @@ public class ThunderController : MonoBehaviour
     public float soundDelay = 0.3f; // 빛이 번쩍인 후 소리가 나기까지의 지연 시간 (초)
     private AudioSource audioSource; // 천둥 소리를 재생할 AudioSource
 
+    [Header("Cooldown Settings")]
+    public float minCooldown = 120f;
+    public float maxCooldown = 180f;
+    private float nextThundertime;
+
     private bool isThunderInProgress = false; // 현재 번개 효과가 진행 중인지 여부
 
     void Start()
@@ -58,6 +63,8 @@ public class ThunderController : MonoBehaviour
         audioSource.maxDistance = 500f;  // 이 거리를 벗어나면 소리가 거의 들리지 않음
         audioSource.rolloffMode = AudioRolloffMode.Logarithmic; // 거리에 따른 소리 감쇠 방식
         audioSource.playOnAwake = false; // 시작 시 자동 재생 방지
+
+        SetNextRandomThunderTime();
     }
 
     // Thunderstrike 호출시 번개가 침
@@ -127,6 +134,7 @@ public class ThunderController : MonoBehaviour
             lightToFlash.enabled = false;
         }
 
+        SetNextRandomThunderTime();
         isThunderInProgress = false;
     }
 
@@ -152,5 +160,16 @@ public class ThunderController : MonoBehaviour
             Debug.Log("Test key 'T' pressed. Triggering Thunderstrike.");
             Thunderstrike();
         }
+
+        if (Time.time >= nextThundertime && !isThunderInProgress)
+        {
+            Thunderstrike();
+        }
+    }
+
+    private void SetNextRandomThunderTime()
+    {
+        float randomCooldown = Random.Range(minCooldown, maxCooldown);
+        nextThundertime = Time.time + randomCooldown;
     }
 }

@@ -31,6 +31,11 @@ public class Breaker : MonoBehaviour
         Light[] lights = breakerRoot.GetComponentsInChildren<Light>(true);
         foreach (Light light in lights)
         {
+            if (light.GetComponentInParent<ThunderController>() != null)
+            {
+                continue;
+            }
+
             lightStates[light] = light.enabled;
             light.enabled = false;
 
@@ -53,6 +58,11 @@ public class Breaker : MonoBehaviour
         {
             Light light = pair.Key;
             bool wasOn = pair.Value;
+
+            if (light.GetComponentInParent<ThunderController>() != null)
+            {
+                continue;
+            }
 
             if (light != null)
             {
