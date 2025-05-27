@@ -3,43 +3,63 @@ using AiSoundDetect; // Sound_Emitter를 사용하기 위해 네임스페이스 
 
 public class ItemDropSound : MonoBehaviour
 {
-    public Sound_Emitter soundEmitter; // 아이템에 부착된 Sound_Emitter
-    // public AudioClip dropSound;       // 더 이상 필요 없음
-    public AudioSource itemAudioSource; // 아이템에 부착된 AudioSource
+    public AudioClip[] dropSounds; // 재생할 사운드 클립 배열
 
-    private bool hasLanded = false;   // 착지 여부를 확인하는 변수
+    private Sound_Emitter soundEmitter; // 아이템의 자식 오브젝트에 있는 Sound_Emitter 참조
+    private AudioSource audioSource;   // SoundEmitter의 자식 오브젝트에 있는 AudioSource 참조
+    private bool hasLanded = false;    // 착지 여부를 확인하는 변수
 
-    private void Awake()
+    void Awake()
     {
-        // Sound_Emitter가 없으면 자동으로 추가
-        if (soundEmitter == null)
+        // 자식 오브젝트 "SoundEmitter"를 찾고, 그 안에서 Sound_Emitter 컴포넌트와 AudioSource 컴포넌트를 찾습니다.
+        Transform soundEmitterTransform = transform.Find("SoundEmitter");
+        if (soundEmitterTransform != null)
         {
-            soundEmitter = gameObject.AddComponent<Sound_Emitter>();
-            // Sound_Emitter 설정 (필요한 경우)
-            soundEmitter.AudioMethod = Sound_Emitter.audioChoice.AudioSource; // AudioSource 모드로 설정
+            soundEmitter = soundEmitterTransform.GetComponent<Sound_Emitter>();
+            audioSource = soundEmitterTransform.GetComponentInChildren<AudioSource>();
         }
 
-        // AudioSource가 없으면 자동으로 추가
-        if (itemAudioSource == null)
+        // Sound_Emitter나 AudioSource가 없으면 경고 메시지 출력
+        if (soundEmitter == null)
         {
-            itemAudioSource = gameObject.AddComponent<AudioSource>();
+            Debug.LogWarning("ItemDropSound: No Sound_Emitter found on 'SoundEmitter' child object. Please ensure the hierarchy is correct.", this);
+        }
+        if (audioSource == null)
+        {
+            Debug.LogWarning("ItemDropSound: No AudioSource found under 'SoundEmitter' child object. Please ensure the hierarchy is correct.", this);
+        }
+
+        // Sound_Emitter의 AudioMethod를 AudioSource로 설정
+        if (soundEmitter != null)
+        {
+            soundEmitter.AudioMethod = Sound_Emitter.audioChoice.AudioSource; // Sound_Emitter가 AudioSource를 사용하도록 설정
+            soundEmitter.objectEmitterSource = audioSource; // Sound_Emitter에 AudioSource 할당
         }
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        // 한 번만 실행되도록 hasLanded 체크
-        if (!hasLanded)
+        // 한 번만 실행되도록 hasLanded 체크 및 사운드 클립이 있는지 확인
+        if (!hasLanded && dropSounds != null && dropSounds.Length > 0)
         {
             hasLanded = true;
-            PlayDropSound();
+            PlayRandomDropSound();
         }
     }
 
-    private void PlayDropSound()
+    private void PlayRandomDropSound()
     {
-        // 사운드 재생
-        soundEmitter.objectEmitterSource = itemAudioSource; // SoundEmitter에 AudioSource 할당
-        itemAudioSource.Play();
+        if (soundEmitter != null && audioSource != null)
+        {
+            // 등록된 사운드 클립 중 랜덤으로 하나 선택
+            int randomIndex = Random.Range(0, dropSounds.Length);
+            AudioClip selectedClip = dropSounds[randomIndex];
+
+            // 선택된 사운드 클립을 AudioSource에 할당
+            audioSource.clip = selectedClip;
+            
+            // Sound_Emitter를 통해 소리 재생 시작
+            soundEmitter.ClipPlay(); // Sound_Emitter의 ClipPlay() 호출
+        }
     }
 }

@@ -65,6 +65,7 @@ namespace AiSoundDetect.Extra
         
         public float attackRange = 0.4f; // 공격 가능 거리
 
+        
         // --------------------[추격 사운드 쿨타임]--------------------
 
         private float voiceCooldown = 5f; // 추격 사운드 재생 간격
@@ -74,8 +75,9 @@ namespace AiSoundDetect.Extra
 
         private float chaseTimeout = 10f; // 추격 지속 시간 제한
         private float chaseTimer = 0f; // 현재 추격 경과 시간
+
+        // --------------------[]--------------------
         
-        // --------------------[초기화]--------------------
 
         void Start()
         {
@@ -416,23 +418,40 @@ namespace AiSoundDetect.Extra
         }
 
         private void DealDamage()
-        {
-            // 공격이 끝난 시점에 실제 데미지를 주는 코드
-            Collider[] hitColliders = Physics.OverlapSphere(transform.position + transform.forward * 1.5f, 1.5f);
+{
+    // 현재 위치에서 약간 앞에 구 형태의 범위 내에 있는 모든 Collider를 감지합니다.
+    Collider[] hitColliders = Physics.OverlapSphere(transform.position + transform.forward * 1.5f, 1.5f);
 
-            foreach (var hitCollider in hitColliders)
+    foreach (var hitCollider in hitColliders)
+    {
+        // 감지된 Collider가 "Player" 태그를 가지고 있는지 확인합니다.
+        if (hitCollider.CompareTag("Player"))
+        {
+            // 플레이어의 HPController 컴포넌트를 가져옵니다.
+            HPController playerHPController = hitCollider.GetComponent<HPController>();
+
+            // HPController가 존재하는지 확인합니다.
+            if (playerHPController != null)
             {
-                if (hitCollider.CompareTag("Player"))
+                // AI의 현재 위치와 플레이어의 현재 위치 사이의 거리를 계산합니다.
+                float distanceToPlayer = Vector3.Distance(transform.position, hitCollider.transform.position);
+
+                // 플레이어가 설정된 attackRange 내에 있는지 확인합니다.
+                if (distanceToPlayer <= attackRange+0.2f)
                 {
-                    HPController playerHPController = hitCollider.GetComponent<HPController>();
-                    if (playerHPController != null)
-                    {
-                        Debug.Log(gameObject.name + "이(가) 플레이어에게 공격을 가했습니다.");
-                        playerHPController.TakeDamage(50f); // 여기서 피해량을 설정합니다. 필요에 따라 변수로 만들 수 있습니다.
-                    }
+                    Debug.Log(gameObject.name + "이(가) 플레이어에게 공격을 가했습니다. (감지 거리: " + distanceToPlayer.ToString("F2") + "m)");
+                    // 플레이어에게 피해를 입힙니다. 피해량은 50f로 설정되어 있습니다.
+                    playerHPController.TakeDamage(50f); 
                 }
+                // (선택 사항) 만약 플레이어가 OverlapSphere에는 감지되었지만, attackRange를 벗어났을 경우 로그
+                // else
+                // {
+                //      Debug.Log(gameObject.name + "의 공격이 플레이어에게 감지되었으나, 유효 공격 거리(" + attackRange.ToString("F2") + "m)를 벗어났습니다. 현재 거리: " + distanceToPlayer.ToString("F2") + "m");
+                // }
             }
         }
+    }
+}
         void PlayAttackSound()
         {
             attackAudioSource.clip = attackSound;
