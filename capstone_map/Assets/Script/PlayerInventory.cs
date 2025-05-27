@@ -134,14 +134,22 @@ public class PlayerInventory : MonoBehaviour
         if (currentItem == null) return; //선택된 슬롯이 비어있으면 리턴
 
         // feetPoint보다 y축 약간 위에 드롭되도록 함
-        Vector3 dropPosition = feetPoint.position + Vector3.up * 0.2f;
+        Vector3 dropPosition = feetPoint.position + Vector3.up * 0.15f;
+        float rayDistance = 1.0f; //충분히 아래까지 탐지하도록 증가
 
         //드롭 위치 정확도 개선 코드인데 GPT가 캐리해서 잘 모름
-        if (Physics.Raycast(dropPosition, Vector3.down, out RaycastHit hit, 5f))
+        if (Physics.Raycast(dropPosition, Vector3.down, out RaycastHit hit, rayDistance))
         {
             Collider col = currentItem.GetComponentInChildren<Collider>();
-            dropPosition = hit.point + Vector3.up * (col?.bounds.extents.y ?? 0.2f);
+            float yOffset = col?.bounds.extents.y ?? 0.01f;
+            dropPosition = hit.point + Vector3.up * yOffset; 
         }
+        else
+        {
+            // 혹시라도 땅을 못 찍었을 경우, feetPoint 바로 위에 드롭
+            dropPosition = feetPoint.position + Vector3.up * 0.05f;
+        }
+
 
         var itemPosition = currentItem.GetComponent<HoldedItemRotation>();
         if (itemPosition != null)

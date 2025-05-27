@@ -56,11 +56,13 @@ public class ItemSpawnPoint : MonoBehaviour
             Item = true; // 스폰 포인트가 점유되었음을 표시
 
             // 아이템을 스폰 포인트의 위치와 회전값으로 생성하고, 스폰 포인트의 자식으로 설정
-            GameObject spawnedItem = Instantiate(prefabToSpawn, tf.position, tf.rotation, tf);
+            //GameObject spawnedItem = Instantiate(prefabToSpawn, tf.position, tf.rotation, tf);
+            Quaternion prefabRotation = prefabToSpawn.transform.rotation;
+            GameObject spawnedItem = Instantiate(prefabToSpawn, tf.position, prefabRotation, tf);
             // 자식으로 설정했으므로, 로컬 위치/회전을 (0,0,0)으로 맞추고 싶다면 아래처럼 할 수 있습니다.
             // spawnedItem.transform.localPosition = Vector3.zero;
             // spawnedItem.transform.localRotation = Quaternion.identity;
-            
+
             // Debug.Log($"ItemSpawnPoint ({gameObject.name}): Successfully spawned '{prefabToSpawn.name}'.");
         }
         else

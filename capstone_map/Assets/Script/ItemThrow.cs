@@ -10,10 +10,10 @@ public class ItemThrow : MonoBehaviour
 
 
     // 기본 던지기 힘 (이 값은 던지는 느낌을 조절하기 위해 조정 가능)
-    public float baseThrowForce = 12f;
+    public float baseThrowForce = 0.2f;
 
     // 던질 때 추가할 상승각(예: 약간 위로 던지기 위함)
-    public float upwardForceFactor = 0.2f;
+    public float upwardForceFactor = 0.34f;
 
     // 던지기 입력 키 (여기서는 G키)
     public KeyCode throwKey = KeyCode.G;

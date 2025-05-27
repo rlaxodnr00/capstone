@@ -43,7 +43,7 @@ Camera:
   m_GameObject: {fileID: 7149012489933684084}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
+  m_ClearFlags: 2
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
@@ -73,7 +73,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 512
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -152,6 +152,7 @@ GameObject:
   - component: {fileID: 6297411451017169726}
   - component: {fileID: 6419612132021831780}
   - component: {fileID: 2969767740952343318}
+  - component: {fileID: -3297863877342735560}
   m_Layer: 9
   m_Name: HPPotion
   m_TagString: Untagged
@@ -169,7 +170,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.09, y: 0.07, z: 0.08}
+  m_LocalScale: {x: 0.009, y: 0.007, z: 0.008}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4460324375463200228}
@@ -274,7 +275,7 @@ MonoBehaviour:
   heldPosOffset: {x: 0, y: 0, z: 0}
   heldRotOffsetEuler: {x: 0, y: 0, z: 0}
   dropPosOffset: {x: 0, y: 0, z: 0}
-  dropRotOffsetEuler: {x: 0, y: 0, z: 0}
+  dropRotOffsetEuler: {x: -90, y: -0.8, z: 0}
 --- !u!114 &2969767740952343318
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -288,3 +289,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healAmount: 20
+--- !u!65 &-3297863877342735560
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8219098367242666401}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 6, y: 20, z: 6}
+  m_Center: {x: 0, y: 0, z: 0}
