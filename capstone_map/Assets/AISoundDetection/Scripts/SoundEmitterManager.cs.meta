@@ -1,5 +1,12 @@
 fileFormatVersion: 2
 guid: d7b456334851ff944b9ae3b8575ab99d
+AssetOrigin:
+  serializedVersion: 1
+  productId: 211829
+  packageName: AI Sound Detection
+  packageVersion: 18.4
+  assetPath: Assets/AISoundDetection/Scripts/SoundEmitterManager.cs
+  uploadId: 650967
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
@@ -9,10 +16,3 @@ MonoImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 211829
-  packageName: AI Sound Detection
-  packageVersion: 18.4
-  assetPath: Assets/AISoundDetection/Scripts/SoundEmitterManager.cs
-  uploadId: 650967
