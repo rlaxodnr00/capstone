@@ -497,8 +497,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05f03992f5b90dd4fbfc5a18662aee54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundEmitter: {fileID: 4366909912775077990}
-  itemAudioSource: {fileID: 5283530584441026363}
+  dropSounds: []
 --- !u!1 &7600825031306109482
 GameObject:
   m_ObjectHideFlags: 0
@@ -510,7 +509,7 @@ GameObject:
   - component: {fileID: 2854661689316750607}
   - component: {fileID: 4366909912775077990}
   m_Layer: 9
-  m_Name: sound_Emitter
+  m_Name: SoundEmitter
   m_TagString: SoundEmitter
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

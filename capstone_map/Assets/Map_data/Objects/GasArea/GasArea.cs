@@ -2,12 +2,17 @@ using UnityEngine;
 
 public class GasArea : MonoBehaviour
 {
+    
+
     void OnTriggerEnter(Collider other)
     {
         // 플레이어 태그를 가진 오브젝트인지 확인
         if (other.CompareTag("Player"))
         {
-            // 플레이어에게 피해를 주는 코드
+            if (other.GetComponent<GasDamage>())
+            {
+                other.GetComponent<GasDamage>().addGas();
+            }
             Debug.Log("플레이어가 가스 영역에 들어왔습니다.");
         }
     }
@@ -17,7 +22,7 @@ public class GasArea : MonoBehaviour
         // 플레이어 태그를 가진 오브젝트인지 확인
         if (other.CompareTag("Player"))
         {
-            // 플레이어에게 피해를 주는 코드
+            other.GetComponent<GasDamage>().removeGas();
             Debug.Log("플레이어가 가스 영역에서 나갔습니다.");
         }
     }
