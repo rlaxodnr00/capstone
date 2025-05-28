@@ -130,9 +130,5 @@ public class MainMenu : MonoBehaviour
         canvasGroup.alpha = isActive ? 1 : 0; //투명도 조절
         canvasGroup.interactable = isActive; //상호작용 on / off
         canvasGroup.blocksRaycasts = isActive; //raycast 활성 / 비활성화
-    }
-
-
-
-   
+    }   
 }

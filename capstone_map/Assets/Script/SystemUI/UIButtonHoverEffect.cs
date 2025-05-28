@@ -18,8 +18,18 @@ public class UIButtonHoverEffect : MonoBehaviour, IPointerEnterHandler, IPointer
     private void Update()
     {
         // 마우스를 올리면 확대, 아니면 원래 크기로 복귀
+        //Vector3 targetScale = isHovered ? originalScale * scaleMultiplier : originalScale;
+        //targetTransform.localScale = Vector3.Lerp(targetTransform.localScale, targetScale, Time.deltaTime * animationSpeed);
+
+        //게임이 일시정지(Time.timeScale = 0) 상태여도 동작하게 만듦
         Vector3 targetScale = isHovered ? originalScale * scaleMultiplier : originalScale;
-        targetTransform.localScale = Vector3.Lerp(targetTransform.localScale, targetScale, Time.deltaTime * animationSpeed);
+        targetTransform.localScale = Vector3.Lerp(targetTransform.localScale, targetScale, Time.unscaledDeltaTime * animationSpeed);
+    }
+
+    //OnDisable : 오브젝트 비활성화 시 호출
+    private void OnDisable() //UI 비활성화 시 애니메이션 영향으로 커진 상태 초기화
+    {
+        ResetScaleImmediately();
     }
 
     public void OnPointerEnter(PointerEventData eventData)
@@ -29,6 +39,12 @@ public class UIButtonHoverEffect : MonoBehaviour, IPointerEnterHandler, IPointer
 
     public void OnPointerExit(PointerEventData eventData)
     {
+        isHovered = false;
+    }
+
+    public void ResetScaleImmediately() //스케일 복구 코드
+    {
+        targetTransform.localScale = originalScale;
         isHovered = false;
     }
 }

@@ -34,25 +34,13 @@ public class PauseGame : MonoBehaviour
     {
         if (Input.GetButtonDown("Pause"))
         {
-            switch (currentState)
-            {
-                case PauseState.None:
-                    OpenPauseMenu();
-                    break;
-
-                case PauseState.Menu:
-                    Resume(); // 다시 ESC → 게임 복귀
-                    break;
-
-                case PauseState.Settings:
-                    CloseSettings(); // 설정창에서 ESC → 메뉴로 돌아가기
-                    break;
-            }
+            OnPauseAction();
         }
     }
 
     void OpenPauseMenu()
     {
+        Debug.LogWarning($"currentState = {currentState}, OpenPauseMenu() 호출");
         Time.timeScale = 0;
         menu.SetActive(true);
         settingScreen.SetActive(false);
@@ -64,6 +52,7 @@ public class PauseGame : MonoBehaviour
 
     public void Resume()
     {
+        Debug.LogWarning($"currentState = {currentState}, Resume() 호출");
         Time.timeScale = 1;
         menu.SetActive(false);
         settingScreen.SetActive(false);
@@ -73,23 +62,49 @@ public class PauseGame : MonoBehaviour
         Cursor.visible = false;
     }
 
-    public void Setting()
+    public void Setting() //설정창 열기
     {
+        Debug.LogWarning($"currentState = {currentState}, Setting() 호출");
         menu.SetActive(false);
         settingScreen.SetActive(true);
         currentState = PauseState.Settings;
     }
 
-    void CloseSettings()
+    public void CloseSettings() //설정창 닫기
     {
+        Debug.LogWarning($"currentState = {currentState}, CloseSettings() 호출");
         settingScreen.SetActive(false);
         menu.SetActive(true);
         currentState = PauseState.Menu;
+
+        // 버튼 초기화 시도
+        foreach (UIButtonHoverEffect hover in menu.GetComponentsInChildren<UIButtonHoverEffect>(true))
+        {
+            hover.ResetScaleImmediately();
+        }
     }
 
     public void Exit()
     {
         Time.timeScale = 1;
         SceneManager.LoadScene("MainMenu");
+    }
+
+    public void OnPauseAction() //ESC 눌렸을 때 위치에 따른 반응
+    {
+        switch (currentState)
+        {
+            case PauseState.None:
+                OpenPauseMenu();
+                break;
+
+            case PauseState.Menu:
+                Resume();
+                break;
+
+            case PauseState.Settings:
+                CloseSettings();
+                break;
+        }
     }
 }

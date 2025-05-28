@@ -3,27 +3,29 @@ using UnityEngine.UI;
 
 public class BackButton : MonoBehaviour
 {
-
     private MainMenu mainMenu;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    private PauseGame pauseGame;
+
     void Start()
     {
-        // 씬 내에서 MainMenu 스크립트 찾기 (여러 UI에서 사용 가능)
-        //mainMenu = FindObjectOfType<MainMenu>();           // 기존 코드
-        mainMenu = Object.FindFirstObjectByType<MainMenu>(); // 변경된 부분
+        // 각각의 매니저를 찾아 연결
+        mainMenu = Object.FindFirstObjectByType<MainMenu>();
+        pauseGame = Object.FindFirstObjectByType<PauseGame>();
 
-        // 현재 오브젝트의 Button 컴포넌트를 가져와서 클릭 이벤트 추가
         GetComponent<Button>().onClick.AddListener(OnBackButtonClicked);
-
     }
-
 
     private void OnBackButtonClicked()
     {
         if (mainMenu != null)
         {
-            mainMenu.GoBack(); // ESC 키와 동일한 기능 수행
+            Debug.LogWarning("mainMenu 실행");
+            mainMenu.GoBack(); // 메인 메뉴에서 ESC 기능
+        }
+        else if (pauseGame != null)
+        {
+            Debug.LogWarning("pause 실행");
+            pauseGame.OnPauseAction(); // 인게임 일시정지에서 ESC 기능
         }
     }
-
 }
