@@ -9,9 +9,9 @@ using UnityEngine;
 public class Flashlight : MonoBehaviour, ICustomInteractable, IInventoryInteractable, ICustomDrop
 {
     // 배터리 관련 변수
-    [SerializeField] private float batteryLevel = 57f;         // 초기 배터리 잔량 (0 ~ 100)
-    [SerializeField] private float batteryDrainRate = 1.4f;      // 초당 배터리 소모율
-    [SerializeField] private float batteryChargeAmount = 30f;    // 충전 아이템 사용 시 증가량
+    [SerializeField] private float batteryLevel = 47f;         // 초기 배터리 잔량 (0 ~ 100)
+    [SerializeField] private float batteryDrainRate = 3.4f;      // 초당 배터리 소모율
+    [SerializeField] private float batteryChargeAmount = 33f;    // 충전 아이템 사용 시 증가량
     [SerializeField] private float maxBatteryLevel = 100f;    // 최대 충전량
 
     // 손전등의 빛을 표현하는 Light 컴포넌트

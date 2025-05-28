@@ -5963,11 +5963,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5715488099525115393, guid: 35e112cb1c895574c9bb5296749bf678, type: 3}
       propertyPath: baseThrowForce
-      value: 0.25
+      value: 0.22
       objectReference: {fileID: 0}
     - target: {fileID: 5715488099525115393, guid: 35e112cb1c895574c9bb5296749bf678, type: 3}
       propertyPath: upwardForceFactor
-      value: 0.34
+      value: 0.16
       objectReference: {fileID: 0}
     - target: {fileID: 5773522886877785373, guid: 35e112cb1c895574c9bb5296749bf678, type: 3}
       propertyPath: m_Layer

@@ -179,9 +179,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fd4e66881c2f0d4cb0dc482e41dd5f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  batteryLevel: 86
-  batteryDrainRate: 0.4
-  batteryChargeAmount: 50
+  batteryLevel: 47
+  batteryDrainRate: 3.4
+  batteryChargeAmount: 33
   maxBatteryLevel: 100
   flashlightLight: {fileID: 1908856763313624019}
 --- !u!114 &5301320957401333000

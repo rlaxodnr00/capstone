@@ -10,10 +10,10 @@ public class ItemThrow : MonoBehaviour
 
 
     // 기본 던지기 힘 (이 값은 던지는 느낌을 조절하기 위해 조정 가능)
-    public float baseThrowForce = 0.2f;
+    public float baseThrowForce = 0.22f;
 
     // 던질 때 추가할 상승각(예: 약간 위로 던지기 위함)
-    public float upwardForceFactor = 0.34f;
+    public float upwardForceFactor = 0.16f;
 
     // 던지기 입력 키 (여기서는 G키)
     public KeyCode throwKey = KeyCode.G;
@@ -69,15 +69,21 @@ public class ItemThrow : MonoBehaviour
         }
 
         // 플레이어의 던지는 방향: 플레이어 전방 + 약간의 상승각
-        Vector3 throwDirection = transform.forward + transform.up * upwardForceFactor;
+        Vector3 throwDirection = throwOrigin.forward + transform.up * upwardForceFactor;
         throwDirection.Normalize();
 
+        // 위/아래 각도에 따라 힘 조절 보정
+        float verticalFactor = Vector3.Dot(throwDirection, Vector3.up); // -1(바닥) ~ 1(하늘)
+        float adjustment = Mathf.Lerp(1.2f, 0.8f, (verticalFactor + 1f) / 2f); // 위로 갈수록 힘 약하게, 아래는 너무 강하지 않게
+
         // 최종 던지기 힘 계산 (예, 가벼운 아이템은 더 멀리 날림)
-        float finalForce = baseThrowForce / itemWeight;
+        float finalForce = (baseThrowForce / itemWeight) * adjustment;
+
+        finalForce = Mathf.Clamp(finalForce, 0.5f, 1.5f); // 원하는 최소/최대 값으로 제한
 
         // 아이템에 임펄스 힘 추가 (즉, 던짐)
         rb.AddForce(throwDirection * finalForce, ForceMode.Impulse);
 
-        Debug.Log("아이템 던짐, 힘: " + finalForce);
+        Debug.LogWarning("///////////아이템 던짐, 힘: " + finalForce);
     }
 }
