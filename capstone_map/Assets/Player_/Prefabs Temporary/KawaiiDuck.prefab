@@ -515,7 +515,7 @@ GameObject:
   - component: {fileID: 4366909912775077990}
   - component: {fileID: 1838545759458761027}
   m_Layer: 9
-  m_Name: sound_Emitter
+  m_Name: SoundEmitter
   m_TagString: SoundEmitter
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

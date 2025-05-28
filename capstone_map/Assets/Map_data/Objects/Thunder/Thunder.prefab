@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4429241455905616760}
   - component: {fileID: 785001325283265484}
   m_Layer: 0
-  m_Name: Thunder_Light (5)
+  m_Name: Thunder_Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,7 +44,7 @@ Light:
   serializedVersion: 11
   m_Type: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1000
+  m_Intensity: 20
   m_Range: 5
   m_SpotAngle: 90
   m_InnerSpotAngle: 90
@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 829124866219046864}
   - component: {fileID: 3817727921617524409}
   m_Layer: 0
-  m_Name: Thunder_Light (3)
+  m_Name: Thunder_Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -165,7 +165,7 @@ Light:
   serializedVersion: 11
   m_Type: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1000
+  m_Intensity: 20
   m_Range: 5
   m_SpotAngle: 90
   m_InnerSpotAngle: 90
@@ -305,7 +305,7 @@ GameObject:
   - component: {fileID: 3869378888600361474}
   - component: {fileID: 1560341675281294826}
   m_Layer: 0
-  m_Name: Thunder_Light (2)
+  m_Name: Thunder_Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -337,7 +337,7 @@ Light:
   serializedVersion: 11
   m_Type: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1000
+  m_Intensity: 20
   m_Range: 5
   m_SpotAngle: 90
   m_InnerSpotAngle: 90
@@ -426,7 +426,7 @@ GameObject:
   - component: {fileID: 3114477505740391628}
   - component: {fileID: 331661025062694323}
   m_Layer: 0
-  m_Name: Thunder_Light (4)
+  m_Name: Thunder_Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -458,7 +458,7 @@ Light:
   serializedVersion: 11
   m_Type: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1000
+  m_Intensity: 20
   m_Range: 5
   m_SpotAngle: 90
   m_InnerSpotAngle: 90
