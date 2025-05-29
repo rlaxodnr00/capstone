@@ -649,7 +649,7 @@ public class UserMove : MonoBehaviour
         viewPivot.localRotation = Quaternion.Euler(-mouseY, 0, 0);
     }
 
-    void OnAnimatorIK(int layerIndex)
+    void OnAnimatorIK(int layerIndex) //기존 카메라 각도에 맞추어 목 움직이려고 시도한 코드. 이제 필요없음
     {
         if (headBone == null || viewPivot == null) return;
 

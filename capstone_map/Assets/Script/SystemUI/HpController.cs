@@ -60,6 +60,9 @@ public class HPController : MonoBehaviour
         {
             Die();
         }
+        // 무적 상태 시작
+        StartCoroutine(InvincibilityCoroutine());
+
     }
 
     // 플레이어 사망 처리
@@ -131,8 +134,7 @@ public class HPController : MonoBehaviour
             Debug.Log("Enemy와 충돌, 데미지: " + damageAmount);
             TakeDamage(damageAmount);
 
-            // 무적 상태 시작
-            StartCoroutine(InvincibilityCoroutine());
+            
         }
     }
 }
