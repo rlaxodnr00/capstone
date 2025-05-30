@@ -10,6 +10,7 @@ public class HealingPlayerHP : MonoBehaviour, IInventoryInteractable
         if(hpController != null)
         {
             hpController.TakeHeal(healAmount);
+            Destroy(gameObject); // 아이템 삭제
         }
         else
         {

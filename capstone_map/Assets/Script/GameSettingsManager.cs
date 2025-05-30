@@ -5,12 +5,12 @@ public class GameSettingsManager : MonoBehaviour
 {
     public static GameSettingsManager Instance { get; private set; }
 
-    [Range(0f, 1f)] public float brightness = 0.6f; // 기본값은 60%
+    [Range(0f, 1f)] public float brightness = 0.4f; // 기본값은 40%
 
     public RawImage brightnessOverlay; // 전역에서 적용할 오버레이
 
     private const float minAlpha = 0f;
-    private const float maxAlpha = 230f / 255f;
+    private const float maxAlpha = 240f / 255f;
 
     void Awake()
     {

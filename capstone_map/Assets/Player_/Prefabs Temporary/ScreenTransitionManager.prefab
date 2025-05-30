@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: 4282935044070255027}
   - component: {fileID: 7950670627485697956}
   m_Layer: 0
-  m_Name: Canvas
+  m_Name: SceenTransitionDarkness
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

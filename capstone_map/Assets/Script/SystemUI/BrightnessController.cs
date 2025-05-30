@@ -12,7 +12,7 @@ public class BrightnessController : MonoBehaviour
         // 초기값: GameSettingsManager에서 가져옴
         float normalized = GameSettingsManager.Instance != null
             ? GameSettingsManager.Instance.brightness
-            : 0.6f;
+            : 0.4f;
 
         brightnessSlider.value = normalized;
         brightnessInput.text = Mathf.RoundToInt(normalized * 100f).ToString();

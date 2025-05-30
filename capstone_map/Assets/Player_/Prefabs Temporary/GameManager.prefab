@@ -1275,9 +1275,9 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1348349480101670888}
+  - {fileID: 8928045656492089665}
   - {fileID: 2067037308559258351}
   - {fileID: 7382104540100900006}
-  - {fileID: 8928045656492089665}
   m_Father: {fileID: 2466447236139601573}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -2013,9 +2013,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   menu: {fileID: 2799547461154432516}
   resume: {fileID: 2696274462287235035}
+  setting: {fileID: 0}
   exit: {fileID: 4694182714313201942}
-  on: 0
-  off: 0
+  settingScreen: {fileID: 0}
 --- !u!114 &3360594912063609306
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2035,6 +2035,7 @@ MonoBehaviour:
   uiMaxStamina: 100
   dogImage: {fileID: 7495373035619932584}
   hitImage: {fileID: 4589799196474639}
+  gameOverTimer: {fileID: 0}
 --- !u!1 &6500476621756285415
 GameObject:
   m_ObjectHideFlags: 0
