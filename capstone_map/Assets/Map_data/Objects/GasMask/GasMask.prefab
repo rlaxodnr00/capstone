@@ -27,13 +27,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2249857335573317332}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.6073253, y: -0.7895966, z: -0.069524445, w: -0.053475406}
-  m_LocalPosition: {x: 0.193, y: -0.511, z: -0.151}
+  m_LocalRotation: {x: 0.010132022, y: 0.9958302, z: 0.04573534, w: 0.07828135}
+  m_LocalPosition: {x: -0.224, y: -0.014, z: 1.298}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8203124713668181149}
-  m_LocalEulerAnglesHint: {x: 357.43, y: 170.266, z: 75.351}
+  m_LocalEulerAnglesHint: {x: 354.865, y: 170.94, z: 361.573}
 --- !u!20 &8766024913260123632
 Camera:
   m_ObjectHideFlags: 0
@@ -65,9 +65,9 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
-  far clip plane: 1000
-  field of view: 30
+  near clip plane: 0.2
+  far clip plane: 2
+  field of view: 16
   orthographic: 0
   orthographic size: 5
   m_Depth: 6
@@ -171,8 +171,8 @@ Transform:
   m_GameObject: {fileID: 3528930750508451001}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.1, z: 0.2}
-  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
+  m_LocalPosition: {x: -0.0078, y: 0.1, z: 0.2}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8521346606459738660}
@@ -337,10 +337,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58b47836f17c1c64e80bc8e9a113fb76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  heldPosOffset: {x: 0, y: 0, z: 0.108}
-  heldRotOffsetEuler: {x: -131.726, y: 11.521, z: 47.235}
+  heldPosOffset: {x: -0.38, y: 0.28, z: 0.93}
+  heldRotOffsetEuler: {x: -131.726, y: 11.521, z: 44.843}
   dropPosOffset: {x: 0, y: 0, z: 0}
-  dropRotOffsetEuler: {x: -90, y: 0, z: 0}
+  dropRotOffsetEuler: {x: 0, y: 0, z: 0}
 --- !u!114 &6535502409204300786
 MonoBehaviour:
   m_ObjectHideFlags: 0
