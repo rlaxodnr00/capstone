@@ -8003,8 +8003,8 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
+  MinDistance: 1000
+  MaxDistance: 2000
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -9046,8 +9046,31 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8779283627593217875, guid: a73a5eca180afdd4987919182aa4c6fe, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1113025764}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2613045259889182544, guid: a73a5eca180afdd4987919182aa4c6fe, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7889686391842595460}
   m_SourcePrefab: {fileID: 100100000, guid: a73a5eca180afdd4987919182aa4c6fe, type: 3}
+--- !u!1 &7889686391842595459 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2613045259889182544, guid: a73a5eca180afdd4987919182aa4c6fe, type: 3}
+  m_PrefabInstance: {fileID: 7889686391842595458}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7889686391842595460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7889686391842595459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 692bf373f161d7840b3b83cea88dc3f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  impactAudioSource: {fileID: 2003024935}
+  minImpactVelocity: 1.5
+  cooldownTime: 0.2
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
