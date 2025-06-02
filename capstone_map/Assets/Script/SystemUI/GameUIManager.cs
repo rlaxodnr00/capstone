@@ -27,6 +27,9 @@ public class GameUIManager : MonoBehaviour
     [Header("Timer UI")]
     public GameOverTimer gameOverTimer;
 
+    [Header("GasMask UI")]
+    public Image gasMaskImage;
+
     private void Awake()
     {
         if (Instance == null)
@@ -156,4 +159,26 @@ public class GameUIManager : MonoBehaviour
         hitImage.color = c;
     }
 
+
+    public void EnableGasMaskOverlay()
+    {
+        ShowGasMaskOverlay(true);
+    }
+
+    public void DisableGasMaskOverlay()
+    {
+        ShowGasMaskOverlay(false);
+    }
+
+    public void ShowGasMaskOverlay(bool show)
+    {
+        if (gasMaskImage != null)
+        {
+            gasMaskImage.gameObject.SetActive(show);
+        }
+        else
+        {
+            Debug.LogWarning("GasMask UI 이미지가 할당되지 않았습니다.");
+        }
+    }
 }

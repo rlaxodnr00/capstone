@@ -494,15 +494,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 3898516967414109982}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05f03992f5b90dd4fbfc5a18662aee54, type: 3}
+  m_Script: {fileID: 11500000, guid: 692bf373f161d7840b3b83cea88dc3f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dropAudioSource: {fileID: 1838545759458761027}
-  soundEmitter: {fileID: 4366909912775077990}
-  dropClips:
-  - {fileID: 8300000, guid: af0d19a32f1946c4ba987d4347944722, type: 3}
-  - {fileID: 8300000, guid: 56c610f7d2a85a544989320c3abac1c2, type: 3}
-  - {fileID: 8300000, guid: abc12a6c8dd71ba4996afcb7aed0bdc0, type: 3}
+  impactAudioSource: {fileID: 5283530584441026363}
+  minImpactVelocity: 1.5
+  cooldownTime: 0.2
 --- !u!1 &7600825031306109482
 GameObject:
   m_ObjectHideFlags: 0
