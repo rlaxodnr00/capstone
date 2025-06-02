@@ -10,6 +10,7 @@ public class Drawers : Interactable, IInteractable
     private void Start()
     {
         animator = GetComponent<Animator>();
+        audioS = GetComponent<AudioSource>();
     }
 
     public override void OnLookAt()

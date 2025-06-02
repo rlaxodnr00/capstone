@@ -19,6 +19,7 @@ public class fuse_handle : Interactable, IInteractable
     {
         animator = GetComponent<Animator>();
         breaker = GetComponent<Breaker>();
+        audioS = GetComponent<AudioSource>();
     }
 
     public override void OnLookAt()

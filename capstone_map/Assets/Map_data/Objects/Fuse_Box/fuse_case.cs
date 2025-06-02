@@ -10,6 +10,7 @@ public class fuse_case : Interactable, IInteractable
     private void Start()
     {
         animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     public override void OnLookAt()

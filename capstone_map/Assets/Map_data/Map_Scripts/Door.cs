@@ -11,6 +11,7 @@ public class Door : Interactable, IInteractable
     private void Start()
     {
         animator = GetComponent<Animator>();
+        audioS = GetComponent<AudioSource>();
     }
 
     public virtual void Doorlock(bool locked)
