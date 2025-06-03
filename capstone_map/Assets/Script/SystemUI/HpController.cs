@@ -60,17 +60,22 @@ public class HPController : MonoBehaviour
         {
             Die();
         }
-        // 무적 상태 시작
-        StartCoroutine(InvincibilityCoroutine());
-
+        else
+        {
+            // 무적 상태 시작
+            StartCoroutine(InvincibilityCoroutine());
+        }
     }
 
     // 플레이어 사망 처리
     private void Die()
     {
-        Debug.Log("플레이어 사망!");
-        GameUIManager.Instance.ShowDogImage();
-        // 사망 연출 코루틴 호출
+        if (isInvincible) return; // 이미 사망 중이면 리턴
+
+        isInvincible = true; // 사망 상태에서는 무적 유지
+        Debug.LogWarning("플레이어 사망");
+        GameUIManager.Instance.ShowDieImage();
+
         StartCoroutine(HandleDeathSequence());
     }
 
@@ -80,7 +85,7 @@ public class HPController : MonoBehaviour
         isInvincible = true;
         Debug.Log("무적 상태 시작");
         GameUIManager.Instance?.StartHitEffect();
-        Camera.main.GetComponent<CameraShake>()?.TriggerShake();
+        Camera.main.GetComponent<CameraShake>()?.TriggerShake(1f);
         yield return new WaitForSeconds(invincibleDuration);
         isInvincible = false;
         Debug.Log("무적 상태 종료");
@@ -91,29 +96,28 @@ public class HPController : MonoBehaviour
     // 일정 시간 후 재시작
     private IEnumerator HandleDeathSequence()
     {
-        // 플레이어 쓰러짐 처리 
-        // 애니메이션 트리거나 플레이어 컨트롤 비활성화
         var animator = GetComponent<Animator>();
-        GetComponent<UserMove>().enabled = false; //이동 스크립트 비활성화하여 조종 불가 상태로 변경
+        GetComponent<UserMove>().enabled = false;
 
         if (animator != null)
-        {
-            animator.SetTrigger("Die"); //현재 존재하지 않는 애니메이션. 해당 방식 연출 고려중.
-        }
+            animator.SetTrigger("Die");
 
-        // 몇 초 대기
-        yield return new WaitForSeconds(1f);
+        isInvincible = true; // 사망 중 무적 처리
 
-        // 화면 페이드 아웃 (GameUIManager에 위임)
-        //GameUIManager.Instance.StartFadeOut(); // 추후 구현 고려
+        // 1. 화면 붉어짐 
+        GameUIManager.Instance.StartDeathHitEffect(2.3f);
+
+        // 2. 카메라 흔들림 시작
+        Camera.main.GetComponent<CameraShake>()?.TriggerShake(4f);
+
+        // 3. 2초 대기 후 암전 시작
+        yield return new WaitForSeconds(2f);
         ScreenTransition.Instance.StartFadeOut("We_Make_This_Map");
-
-        
-
-        // 씬 다시 불러오기
-        //Scene currentScene = SceneManager.GetActiveScene();
-        //SceneManager.LoadScene(currentScene.buildIndex);
     }
+
+
+
+
 
 
 

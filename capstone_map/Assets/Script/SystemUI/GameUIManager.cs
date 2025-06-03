@@ -19,7 +19,7 @@ public class GameUIManager : MonoBehaviour
     public float uiMaxStamina = 100f;
 
     [Header("Dog Image")]
-    public GameObject dogImage;
+    public GameObject dieImage;
 
     [Header("Hit Effect")]
     public RawImage hitImage;
@@ -99,15 +99,15 @@ public class GameUIManager : MonoBehaviour
         }
     }
 
-    public void ShowDogImage()
+    public void ShowDieImage()
     {
-        if(dogImage != null)
+        if(dieImage != null)
         {
-            dogImage.SetActive(true);
+            dieImage.SetActive(true);
         }
         else
         {
-            Debug.LogWarning("Dog Image가 할당되지 않았습니다.");
+            Debug.LogWarning("Die Image가 할당되지 않았습니다.");
         }
     }
 
@@ -181,4 +181,30 @@ public class GameUIManager : MonoBehaviour
             Debug.LogWarning("GasMask UI 이미지가 할당되지 않았습니다.");
         }
     }
+
+
+    public void StartDeathHitEffect(float duration) //사망 효과 참조용
+    {
+        StartCoroutine(DeathHitEffectCoroutine(duration));
+    }
+
+    private IEnumerator DeathHitEffectCoroutine(float duration) //사망 효과
+    {
+        if (hitImage == null) yield break;
+
+        float time = 0f;
+        float maxAlpha = 1f;
+
+        while (time < duration)
+        {
+            time += Time.deltaTime;
+            float alpha = Mathf.Lerp(0f, maxAlpha, time / duration); // 0 → maxAlpha까지 서서히 상승
+            SetOverlayAlpha(alpha);
+            yield return null;
+        }
+
+        SetOverlayAlpha(maxAlpha); // 완전히 붉어진 상태 유지 (씬 전환 중)
+    }
+
+
 }
