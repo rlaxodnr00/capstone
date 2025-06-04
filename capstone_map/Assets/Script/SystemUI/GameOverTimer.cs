@@ -6,6 +6,8 @@ using TMPro;
 public class GameOverTimer : MonoBehaviour
 {
     public TextMeshProUGUI timerText;         // UI에 출력할 Text 오브젝트
+    public GameObject Player;
+    public HPController hp;
     public float startTimeSet = 300f; // 5분 (초 단위)
 
     private float timeRemaining;
@@ -14,6 +16,7 @@ public class GameOverTimer : MonoBehaviour
     void Start()
     {
         timeRemaining = startTimeSet;
+        hp = Player.GetComponent<HPController>();
     }
 
     void Update()
@@ -42,6 +45,10 @@ public class GameOverTimer : MonoBehaviour
 
     void OnTimerEnd()
     {
+        if (hp != null)
+            hp.die();
+        else
+            Debug.LogWarning("HPController 없다고 합니다");
         Debug.Log("타이머 종료, 추후 구현 기능 실행");
         // 여기에 종료 이벤트 호출 또는 GameManager 호출
         // 예: GameManager.Instance.GameOver();

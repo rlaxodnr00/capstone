@@ -3475,7 +3475,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerText: {fileID: 101553649}
-  startTimeSet: 300
+  Player: {fileID: 456790889}
+  hp: {fileID: 1318498979}
+  startTimeSet: 40
 --- !u!1 &859726222
 GameObject:
   m_ObjectHideFlags: 0
@@ -5935,6 +5937,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 836525577211296067, guid: 35e112cb1c895574c9bb5296749bf678, type: 3}
   m_PrefabInstance: {fileID: 1471860316}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1318498979 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1451279232509401119, guid: 35e112cb1c895574c9bb5296749bf678, type: 3}
+  m_PrefabInstance: {fileID: 1471860316}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 456790889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09497841610d1af4d99f57ac80edad11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1329057059 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7518408238966210930, guid: de66a2e78c54a624ca1a988c2446a8b7, type: 3}
@@ -6283,6 +6296,14 @@ PrefabInstance:
     - target: {fileID: 5295306803520270326, guid: 35e112cb1c895574c9bb5296749bf678, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5378049458699586078, guid: 35e112cb1c895574c9bb5296749bf678, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.868
+      objectReference: {fileID: 0}
+    - target: {fileID: 5378049458699586078, guid: 35e112cb1c895574c9bb5296749bf678, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2.533
       objectReference: {fileID: 0}
     - target: {fileID: 5506176055102527405, guid: 35e112cb1c895574c9bb5296749bf678, type: 3}
       propertyPath: m_Icon
@@ -8951,7 +8972,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8766024913260123632, guid: 50e48bad097903e46b81e9c66cd126e2, type: 3}
       propertyPath: far clip plane
-      value: 2
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 8766024913260123632, guid: 50e48bad097903e46b81e9c66cd126e2, type: 3}
       propertyPath: near clip plane

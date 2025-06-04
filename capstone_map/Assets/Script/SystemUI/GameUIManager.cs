@@ -18,17 +18,17 @@ public class GameUIManager : MonoBehaviour
     public Image staminaGauge;
     public float uiMaxStamina = 100f;
 
-    [Header("Dog Image")]
-    public GameObject dieImage;
-
     [Header("Hit Effect")]
     public RawImage hitImage;
 
-    [Header("Timer UI")]
-    public GameOverTimer gameOverTimer;
-
     [Header("GasMask UI")]
     public Image gasMaskImage;
+
+    [Header("Die Image")] //안쓰고있음
+    public GameObject dieImage;
+
+    [Header("Timer UI")] //안쓰고있음
+    public GameOverTimer gameOverTimer;
 
     private void Awake()
     {
@@ -99,7 +99,7 @@ public class GameUIManager : MonoBehaviour
         }
     }
 
-    public void ShowDieImage()
+    public void ShowDieImage() //안쓰고있음
     {
         if(dieImage != null)
         {

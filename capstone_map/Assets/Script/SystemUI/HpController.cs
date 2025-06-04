@@ -18,7 +18,7 @@ public class HPController : MonoBehaviour
     // 체력 변화 이벤트. 구독자(예, GameUIManager)에게 (현재 체력, 최대 체력) 정보를 전달.
     public event Action<float, float> OnHealthChanged;
 
-
+    public void die() => Die(); //사망 외부 호출
 
     void Start()
     {
