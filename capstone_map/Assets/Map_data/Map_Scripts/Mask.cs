@@ -2,12 +2,11 @@ using UnityEngine;
 
 public class Mask : MonoBehaviour, IInventoryInteractable, ICustomDrop
 {
-
-    private bool isEquipped = false; // 마스크 착용 여부 저장
+    public bool isEquipped { get; private set; } = false; // 마스크 착용 여부 저장
 
     public void InventoryInteract(PlayerInventory inventory)
     {
-        
+
         isEquipped = !isEquipped; // 상태 전환
 
         if (isEquipped)

@@ -1,4 +1,5 @@
 using System.ComponentModel;
+using NUnit.Framework;
 using UnityEngine;
 
 public class GasDamage : MonoBehaviour
@@ -16,10 +17,38 @@ public class GasDamage : MonoBehaviour
     }
 
     HPController hp;
+    PlayerInventory inven;
+
+    private bool IsPlayerWearingMask()
+    {
+        if (inven == null || inven.heldItems == null)
+        {
+            if (inven == null)
+            {
+                Debug.LogWarning("[GasDamage] 인벤토리를 찾을 수 없음");
+                return false;
+            }
+        }
+
+        foreach (GameObject item in inven.heldItems)
+        {
+            if (item != null)
+            {
+                Mask mask = item.GetComponent<Mask>();
+                if (mask != null && mask.isEquipped)
+                {
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
 
     void Start()
     {
         hp = GetComponent<HPController>();
+        inven = GetComponent<PlayerInventory>();
     }
 
     public float delay = 0.5f;
@@ -32,7 +61,11 @@ public class GasDamage : MonoBehaviour
         if (gasCount > 0)
         {
             time += Time.deltaTime;
-            if (time >= delay)
+            if (IsPlayerWearingMask())
+            {
+                time = 0f;
+            }
+            else if (time >= delay)
             {
                 hp.TakeDamage(dmgAmount);
                 time = 0f;
