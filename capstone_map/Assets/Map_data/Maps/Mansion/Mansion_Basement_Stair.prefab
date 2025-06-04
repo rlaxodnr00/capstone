@@ -299,7 +299,6 @@ MonoBehaviour:
   - base
   createsTags:
   - basement_corridor_cross
-  - basement_corridor_t
   deadEndChance: 0
 --- !u!1001 &1422295548988883095
 PrefabInstance:

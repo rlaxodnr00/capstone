@@ -10,7 +10,9 @@ public class BaseDoor : Door
         animator = GetComponent<Animator>();
         player = GameObject.Find("WomanWarrior");
         inven = player.GetComponent<PlayerInventory>();
-        animator.SetBool("locked", true);
+
+        // 주석 해제 하면 잠긴 상태로 시작
+        // animator.SetBool("locked", true);
 
     }
 
@@ -33,6 +35,7 @@ public class BaseDoor : Door
         }
     }
     
+    // 마스크를 손에 든 상태여야 인지함
     public bool isMaskHeld(GameObject[] inven, int slot)
     {
         // 마스크도 똑같이 만들기
