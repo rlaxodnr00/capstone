@@ -311,9 +311,9 @@ MonoBehaviour:
   - basement_corridor_cross
   - base
   createsTags:
-  - basement_corridor
   - basement_corridor_t
   - basement_corridor_corner
+  - basement_corridor
   - basement_mech
   deadEndChance: 0
 --- !u!1 &8833214739834446466

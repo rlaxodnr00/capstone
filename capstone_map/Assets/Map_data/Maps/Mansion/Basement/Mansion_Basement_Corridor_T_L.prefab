@@ -149,11 +149,11 @@ MonoBehaviour:
   - basement_corridor_t
   - base
   createsTags:
+  - basement_exit
   - basement_corridor
   - basement_corridor_cross
   - basement_corridor_corner
   - basement_mech
-  - basement_exit
   deadEndChance: 0
 --- !u!1 &3774482345013526914
 GameObject:

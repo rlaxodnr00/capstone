@@ -22,7 +22,10 @@ public class GasArea : MonoBehaviour
         // 플레이어 태그를 가진 오브젝트인지 확인
         if (other.CompareTag("Player"))
         {
-            other.GetComponent<GasDamage>().removeGas();
+            if (other.GetComponent<GasDamage>())
+            {
+                other.GetComponent<GasDamage>().removeGas();
+            }
             Debug.Log("플레이어가 가스 영역에서 나갔습니다.");
         }
     }

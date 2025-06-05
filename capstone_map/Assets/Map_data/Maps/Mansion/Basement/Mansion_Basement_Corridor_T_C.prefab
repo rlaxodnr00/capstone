@@ -325,11 +325,11 @@ MonoBehaviour:
   - basement_corridor_t
   - base
   createsTags:
+  - basement_exit
   - basement_corridor
   - basement_corridor_cross
   - basement_corridor_corner
   - basement_mech
-  - basement_exit
   deadEndChance: 0
 --- !u!1001 &399996402191870976
 PrefabInstance:

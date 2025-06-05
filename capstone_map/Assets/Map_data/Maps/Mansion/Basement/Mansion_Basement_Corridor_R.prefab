@@ -180,9 +180,9 @@ MonoBehaviour:
   - basement_corridor
   - base
   createsTags:
+  - basement_exit
   - basement_corridor
   - basement_corridor_t
-  - basement_exit
   deadEndChance: 0
 --- !u!1 &8187496264921391955
 GameObject:
