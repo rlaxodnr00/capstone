@@ -59,6 +59,11 @@ public class GameUIManager : MonoBehaviour
 
     }
 
+    public static Color RGB(byte r, byte g, byte b) //색 간결하게 쓰는 유틸 메서드
+    {
+        return new Color(r / 255f, g / 255f, b / 255f);
+    }
+
 
     public void UpdateBatteryUI(float batteryLevel)
     {
@@ -183,12 +188,12 @@ public class GameUIManager : MonoBehaviour
     }
 
 
-    public void StartDeathHitEffect(float duration) //사망 효과 참조용
+    public void StartGameEndingEffect(float duration, Color overlayColor) //사망 효과 참조용
     {
-        StartCoroutine(DeathHitEffectCoroutine(duration));
+        StartCoroutine(GameEndingEffectCoroutine(duration, overlayColor));
     }
 
-    private IEnumerator DeathHitEffectCoroutine(float duration) //사망 효과
+    private IEnumerator GameEndingEffectCoroutine(float duration, Color targetColor) //사망 효과
     {
         if (hitImage == null) yield break;
 
@@ -199,12 +204,17 @@ public class GameUIManager : MonoBehaviour
         {
             time += Time.deltaTime;
             float alpha = Mathf.Lerp(0f, maxAlpha, time / duration); // 0 → maxAlpha까지 서서히 상승
-            SetOverlayAlpha(alpha);
+
+            Color c = targetColor;
+            c.a = alpha;
+
+            hitImage.color = c;
+
             yield return null;
         }
 
-        SetOverlayAlpha(maxAlpha); // 완전히 붉어진 상태 유지 (씬 전환 중)
+        SetOverlayAlpha(maxAlpha); // 알파값 최대치 상태 유지 (씬 전환 중)
     }
 
-
+   
 }

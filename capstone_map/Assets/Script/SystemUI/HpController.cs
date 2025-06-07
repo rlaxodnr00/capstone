@@ -18,8 +18,9 @@ public class HPController : MonoBehaviour
     // 체력 변화 이벤트. 구독자(예, GameUIManager)에게 (현재 체력, 최대 체력) 정보를 전달.
     public event Action<float, float> OnHealthChanged;
 
-    public void die() => Die(); //사망 외부 호출
+    public void DIE() => Die(); //사망 외부 호출
 
+    public void CLEAR() => Clear(); //클리어 외부 호출
     void Start()
     {
         currentHealth = maxHealth;
@@ -79,7 +80,15 @@ public class HPController : MonoBehaviour
         StartCoroutine(HandleDeathSequence());
     }
 
-    // 무적 상태를 일정 시간 유지하는 코루틴
+    private void Clear()
+    {
+        if (isInvincible) return;
+
+        isInvincible = true;
+        StartCoroutine(HandleClearSequence());
+    }
+
+    // 피격 시 무적 상태를 일정 시간 유지하는 코루틴
     public IEnumerator InvincibilityCoroutine()
     {
         isInvincible = true;
@@ -100,12 +109,12 @@ public class HPController : MonoBehaviour
         GetComponent<UserMove>().enabled = false;
 
         if (animator != null)
-            animator.SetTrigger("Die");
+            animator.SetTrigger("Die"); //사망 애니메이션 만든다면 사용
 
-        isInvincible = true; // 사망 중 무적 처리
+        isInvincible = true; // 무적 처리
 
         // 1. 화면 붉어짐 
-        GameUIManager.Instance.StartDeathHitEffect(2.3f);
+        GameUIManager.Instance.StartGameEndingEffect(2.3f, GameUIManager.RGB(80, 13, 13));
 
         // 2. 카메라 흔들림 시작
         Camera.main.GetComponent<CameraShake>()?.TriggerShake(4f);
@@ -117,12 +126,27 @@ public class HPController : MonoBehaviour
 
 
 
+    // 게임 클리어 연출로 사용할 코드 일단 여기 작성
+    private IEnumerator HandleClearSequence()
+    {
+        GetComponent<UserMove>().enabled = false;
+        isInvincible = true;
+
+        GameUIManager.Instance.StartGameEndingEffect(5f, Color.white);
+        Camera.main.GetComponent<CameraShake>()?.TriggerShake(5f);
+        yield return new WaitForSeconds(5f);
+        Application.Quit();
+    }
+
+
+
 
 
 
 
 
     // 플레이어 충돌 판정 (CharacterController 사용 시)
+    //아마 이거 적용 안 되고 다른 곳에 기능 옮김
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
         if (hit.gameObject.CompareTag("Enemy") && !isInvincible)

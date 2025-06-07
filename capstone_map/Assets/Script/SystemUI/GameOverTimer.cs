@@ -46,10 +46,9 @@ public class GameOverTimer : MonoBehaviour
     void OnTimerEnd()
     {
         if (hp != null)
-            hp.die();
+            hp.DIE();
         else
             Debug.LogWarning("HPController 없다고 합니다");
-        Debug.Log("타이머 종료, 추후 구현 기능 실행");
         // 여기에 종료 이벤트 호출 또는 GameManager 호출
         // 예: GameManager.Instance.GameOver();
     }

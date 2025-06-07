@@ -1,16 +1,23 @@
+using UnityEditor.PackageManager.Requests;
 using UnityEngine;
+using System.Collections;
 
 public class LobbyDoor : Door
 {
     GameObject player;
     PlayerInventory inven;
 
+    HPController hp;
+
+    private bool hasCleared = false;
     private void Start()
     {
         animator = GetComponent<Animator>();
         player = GameObject.Find("WomanWarrior");
         inven = player.GetComponent<PlayerInventory>();
         animator.SetBool("locked", true);
+
+        hp = player.GetComponent<HPController>();
     }
     public LobbyDoor otherDoor;
 
@@ -21,6 +28,9 @@ public class LobbyDoor : Door
 
     public override void OnInteract()
     {
+        // 이미 클리어 상태면 무시
+        if (hasCleared) return;
+
         // 문이 잠겼고 열쇠가 있으면
         if (animator.GetBool("locked") && isKeyHeld(inven.heldItems ,inven.CurrentSlot))
         {
@@ -30,6 +40,10 @@ public class LobbyDoor : Door
             animator.SetBool("locked", false);
             // 양쪽을 같이 연다.
             otherDoor.animator.SetBool("locked", false);
+
+            //게임 클리어
+            hasCleared = true;
+            StartCoroutine(DelayThenClear());
         }
         // 문이 잠기지 않았거나 열쇠가 없으면 기존 코드로 동작
         else
@@ -50,5 +64,11 @@ public class LobbyDoor : Door
 
         if (key != null) return true;
         return false;
+    }
+
+    private IEnumerator DelayThenClear()
+    {
+        yield return null; // 다음 프레임까지 Animator가 상태 전환할 수 있도록 대기
+        hp.CLEAR();
     }
 }
