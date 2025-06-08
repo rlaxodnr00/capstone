@@ -27,8 +27,9 @@ public class GameUIManager : MonoBehaviour
     [Header("Die Image")] //안쓰고있음
     public GameObject dieImage;
 
-    [Header("Timer UI")] //안쓰고있음
-    public GameOverTimer gameOverTimer;
+    [Header("ItemKeyGuide UI")] //안쓰고있음
+    public Image FImage;
+    public Image GImage;
 
     private void Awake()
     {
@@ -56,6 +57,7 @@ public class GameUIManager : MonoBehaviour
         {
             ScreenTransition.Instance.StartFadeIn();
         }
+        UpdateItemKeyGuides(null); // 시작 시 UI 전부 끄기
 
     }
 
@@ -216,5 +218,14 @@ public class GameUIManager : MonoBehaviour
         SetOverlayAlpha(maxAlpha); // 알파값 최대치 상태 유지 (씬 전환 중)
     }
 
-   
+
+    public void UpdateItemKeyGuides(GameObject currentItem) //아이템이 가진 기능 이미지로 표시
+    {
+        //True / False
+        if (FImage != null) 
+            FImage.enabled = currentItem != null && currentItem.GetComponent<IInventoryInteractable>() != null;
+
+        if (GImage != null)
+            GImage.enabled = currentItem != null && currentItem.GetComponent<ThrowableItem>() != null;
+    }
 }

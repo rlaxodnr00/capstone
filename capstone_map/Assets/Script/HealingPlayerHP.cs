@@ -11,6 +11,7 @@ public class HealingPlayerHP : MonoBehaviour, IInventoryInteractable
         {
             hpController.TakeHeal(healAmount);
             Destroy(gameObject); // 아이템 삭제
+            inventory.ClearSlot();
         }
         else
         {

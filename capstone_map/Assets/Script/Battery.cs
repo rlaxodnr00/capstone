@@ -17,6 +17,7 @@ public class Battery : MonoBehaviour, IInventoryInteractable
                     flashLight.ChargeBattery(); // 손전등 배터리 충전
                     Debug.Log("배터리 충전.");
                     Destroy(gameObject); // 배터리 아이템 삭제
+                    inventory.ClearSlot();
                     return;
                 }
                 else

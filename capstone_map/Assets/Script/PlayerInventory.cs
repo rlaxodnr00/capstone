@@ -23,6 +23,11 @@ public class PlayerInventory : MonoBehaviour
     private int currentSlot = 0; //현재 선택 슬롯 인덱스
 
     public int CurrentSlot => currentSlot;
+
+    private void Start()
+    {
+        GameUIManager.Instance?.UpdateItemKeyGuides(heldItems[currentSlot]);
+    }
     void Update()
     {
         //숫자 키 1 2 번으로 인벤토리 변경
@@ -45,6 +50,7 @@ public class PlayerInventory : MonoBehaviour
         currentSlot = slotIndex;
         uiController.SetSelectedSlot(slotIndex);
         UpdateHeldItemsDisplay();
+        GameUIManager.Instance?.UpdateItemKeyGuides(heldItems[currentSlot]);
     }
 
     //인벤토리에 새로운 아이템 추가
@@ -99,6 +105,11 @@ public class PlayerInventory : MonoBehaviour
             item.transform.SetParent(targetTransform);
             item.transform.localPosition = Vector3.zero;//플레이어 손 위치로 이동
             item.transform.localRotation = Quaternion.identity; //아이템이 바라보는 회전각 변경
+        }
+
+        if (slotIndex == currentSlot)
+        {
+            GameUIManager.Instance?.UpdateItemKeyGuides(item);
         }
 
 
@@ -187,6 +198,9 @@ public class PlayerInventory : MonoBehaviour
         }
 
         heldItems[slotIndex] = null; //손 비우기
+
+        if (slotIndex == currentSlot)
+            GameUIManager.Instance?.UpdateItemKeyGuides(null);
     }
 
     // 인벤토리에 보관된 모든 아이템의 위치와 부모 할당을 슬롯 상태에 맞게 업데이트
@@ -234,11 +248,21 @@ public class PlayerInventory : MonoBehaviour
 
         currentItem.transform.SetParent(null); // 부모 관계 해제
 
+        if (slotIndex == currentSlot)
+            GameUIManager.Instance?.UpdateItemKeyGuides(null);
+
     }
 
     //현재 손에 쥔 아이템 외부 참조용
     public GameObject GetCurrentItem()
     {
         return heldItems[currentSlot];
+    }
+
+    //인벤토리 비우기
+    public void ClearSlot()
+    {
+        heldItems[currentSlot] = null;
+        GameUIManager.Instance?.UpdateItemKeyGuides(null);
     }
 }
