@@ -40,6 +40,8 @@ public class CreateSafe : MonoBehaviour
 
     IEnumerator Start()
     {
+        yield return new WaitForSeconds(initializationDelay);
+
         if (safePrefab == null)
         {
             Debug.LogError("[CreateSafe] Safe Prefab이 할당되지 않았습니다!");
@@ -53,7 +55,7 @@ public class CreateSafe : MonoBehaviour
             yield break;
         }
 
-        yield return new WaitForSeconds(initializationDelay);
+        // yield return new WaitForSeconds(initializationDelay);
 
         GameObject mapRoot = GameObject.Find(mapObjectName);
         if (mapRoot == null)
