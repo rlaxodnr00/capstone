@@ -1567,14 +1567,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.4037736, g: 0.37710932, b: 0.37710932, a: 0.6666667}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 16c9cb53000d5ab4f817609c2b3227d6, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3627,7 +3627,7 @@ MonoBehaviour:
   timerText: {fileID: 101553649}
   Player: {fileID: 456790889}
   hp: {fileID: 1318498979}
-  startTimeSet: 40
+  startTimeSet: 300
 --- !u!1 &859726222
 GameObject:
   m_ObjectHideFlags: 0
@@ -6347,7 +6347,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1404705133560753802, guid: 35e112cb1c895574c9bb5296749bf678, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1650633888216606896, guid: 35e112cb1c895574c9bb5296749bf678, type: 3}
       propertyPath: m_Layer
@@ -6399,7 +6399,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2726068314298718251, guid: 35e112cb1c895574c9bb5296749bf678, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2789489983202745526, guid: 35e112cb1c895574c9bb5296749bf678, type: 3}
       propertyPath: m_Layer
@@ -6560,6 +6560,10 @@ PrefabInstance:
     - target: {fileID: 6520109871305994057, guid: 35e112cb1c895574c9bb5296749bf678, type: 3}
       propertyPath: m_Layer
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6521259398500184787, guid: 35e112cb1c895574c9bb5296749bf678, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6522917403787991109, guid: 35e112cb1c895574c9bb5296749bf678, type: 3}
       propertyPath: m_Layer

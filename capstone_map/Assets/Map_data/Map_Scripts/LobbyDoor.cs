@@ -1,4 +1,6 @@
-using UnityEditor.PackageManager.Requests;
+#if UNITY_EDITOR
+using UnityEditor.PackageManager;
+#endif
 using UnityEngine;
 using System.Collections;
 
