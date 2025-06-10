@@ -155,11 +155,11 @@ public class ThunderController : MonoBehaviour
     void Update()
     {
         // 'T' 키를 누르면 번개 효과 발생
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            Debug.Log("Test key 'T' pressed. Triggering Thunderstrike.");
-            Thunderstrike();
-        }
+        // if (Input.GetKeyDown(KeyCode.T))
+        // {
+        //     Debug.Log("Test key 'T' pressed. Triggering Thunderstrike.");
+        //     Thunderstrike();
+        // }
 
         if (Time.time >= nextThundertime && !isThunderInProgress)
         {
