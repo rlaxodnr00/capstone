@@ -1892,6 +1892,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: ItemManager
       objectReference: {fileID: 0}
+    - target: {fileID: 7390906441635105240, guid: 7c587f58a999a734caf0880fa8bef4eb, type: 3}
+      propertyPath: limitedItemConfigs.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7390906441635105240, guid: 7c587f58a999a734caf0880fa8bef4eb, type: 3}
+      propertyPath: limitedItemConfigs.Array.data[0].itemPrefab
+      value: 
+      objectReference: {fileID: 3528930750508451001, guid: 50e48bad097903e46b81e9c66cd126e2, type: 3}
+    - target: {fileID: 7390906441635105240, guid: 7c587f58a999a734caf0880fa8bef4eb, type: 3}
+      propertyPath: limitedItemConfigs.Array.data[0].maxTotalSpawns
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8306826106023848787, guid: 7c587f58a999a734caf0880fa8bef4eb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
