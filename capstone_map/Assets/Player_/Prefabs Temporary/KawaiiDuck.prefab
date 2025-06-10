@@ -561,8 +561,8 @@ MonoBehaviour:
   soundDensity: 300
   layerToCollideWith:
     serializedVersion: 2
-    m_Bits: 0
-  enableSoundVisualization: 1
+    m_Bits: 64
+  enableSoundVisualization: 0
   m_particleSystem: {fileID: 0}
   m_iAudioClip: {fileID: 8300000, guid: af0d19a32f1946c4ba987d4347944722, type: 3}
   m_ClipLenght: 0.54

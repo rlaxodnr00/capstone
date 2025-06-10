@@ -923,6 +923,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: KawaiiDuck
       objectReference: {fileID: 0}
+    - target: {fileID: 4366909912775077990, guid: 0d353c83fc984cf47948bd19758133fa, type: 3}
+      propertyPath: layerToCollideWith.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
     - target: {fileID: 5957176934725769977, guid: 0d353c83fc984cf47948bd19758133fa, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -5505,11 +5509,11 @@ MonoBehaviour:
   layerToCollideWith:
     serializedVersion: 2
     m_Bits: 64
-  enableSoundVisualization: 1
+  enableSoundVisualization: 0
   m_particleSystem: {fileID: 0}
   m_iAudioClip: {fileID: 8300000, guid: af0d19a32f1946c4ba987d4347944722, type: 3}
   m_ClipLenght: 0.54
-  soundEmitterManager: {fileID: 1484730864}
+  soundEmitterManager: {fileID: 0}
   AudioMethod: 0
   m_Volume: 1
   m_Pitch: 1
