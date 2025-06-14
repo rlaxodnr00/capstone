@@ -294,8 +294,8 @@ MonoBehaviour:
   duration: 0.3
   thunderSound: {fileID: 8300000, guid: 69742b60d3089514d813d182c9235a92, type: 3}
   soundDelay: 0.3
-  minCooldown: 120
-  maxCooldown: 180
+  minCooldown: 60
+  maxCooldown: 90
 --- !u!82 &319133633287699531
 AudioSource:
   m_ObjectHideFlags: 0

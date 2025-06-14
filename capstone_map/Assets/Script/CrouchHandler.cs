@@ -35,14 +35,14 @@ public class CrouchHandler : MonoBehaviour
         if (isCrouching)
         {
             //웅크리기 동작
-            transform.localScale = new Vector3(standingScale.x, standingScale.y * crouchScaleFactor, standingScale.z);
+            //transform.localScale = new Vector3(standingScale.x, standingScale.y * crouchScaleFactor, standingScale.z);
             controller.height = crouchHeight;
             
         }
         else
         {
             //원래 크기로 복구
-            transform.localScale = standingScale;
+            //transform.localScale = standingScale;
             controller.height = standingHeight;
         }
     }

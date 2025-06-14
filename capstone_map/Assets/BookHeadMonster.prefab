@@ -1469,7 +1469,7 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.4
   m_Height: 1.8
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
@@ -1505,9 +1505,9 @@ MonoBehaviour:
   attackSound: {fileID: 8300000, guid: 1c7a7ef3052a05344b9d9a3d061d9989, type: 3}
   attackAudioSource: {fileID: 5725962624521708162}
   monseterVoice: {fileID: 473552223884216381}
-  walkSpeed: 0.5
+  walkSpeed: 0.4
   runSpeed: 1
-  attackRange: 0.3
+  attackRange: 0.6
 --- !u!114 &4881369637141006265
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1542,7 +1542,7 @@ MonoBehaviour:
   monseterVoice: {fileID: 473552223884216381}
   walkSpeed: 0.5
   runSpeed: 1
-  attackRange: 0.3
+  attackRange: 0.6
 --- !u!1 &3520844936785130636
 GameObject:
   m_ObjectHideFlags: 0

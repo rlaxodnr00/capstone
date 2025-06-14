@@ -414,6 +414,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6435354360622083856, guid: 4c7276a72a5de6c46825524ad1f7072b, type: 3}
+      propertyPath: m_text
+      value: Crouch
+      objectReference: {fileID: 0}
+    - target: {fileID: 6435354360622083856, guid: 4c7276a72a5de6c46825524ad1f7072b, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8399315107870262647, guid: 4c7276a72a5de6c46825524ad1f7072b, type: 3}
       propertyPath: m_Color.a
       value: 1
